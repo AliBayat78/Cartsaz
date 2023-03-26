@@ -4,6 +4,9 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
+      IranYekan: ['IranYekan'],
+      'IranYekan-Bold': ['IranYekan-Bold'],
+      Morabba: ['Morabba'],
     },
     extend: {
       colors: {

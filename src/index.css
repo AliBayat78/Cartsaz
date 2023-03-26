@@ -2,36 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-family: 'IranYekan';
+  font-style: normal;
   font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  src: url('./assets/fonts/BYekan+.ttf');
+}
+@font-face {
+  font-family: 'IranYekan-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/BYekan+\ Bold.ttf');
+}
+@font-face {
+  font-family: 'Morabba';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Yekan\ Boom.ttf');
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@layer base {
+  .display1 {
+    font-family: IranYekan;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 80px;
+    color: #070e25;
+  }
+
+  .display2 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+    color: #070e25;
+  }
+
+  h1 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 61.6px;
+    color: #070e25;
+  }
+
+  h2 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 56px;
+    color: #070e25;
+  }
+
+  h3 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44.8px;
+    color: #070e25;
+    text-transform: capitalize;
+  }
+
+  h4 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33.6px;
+    color: #070e25;
+    text-transform: capitalize;
+  }
+
+  h5 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #070e25;
+    text-transform: capitalize;
+  }
+
+  h6 {
+    font-family: IranYekan;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22.4px;
+    color: #070e25;
+    text-transform: capitalize;
+  }
+
+  .body-xl {
+    font-family: IranYekan;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color: rgba(7, 14, 37, 0.7);
+    text-transform: capitalize;
+  }
+
+  .body-lg {
+    font-family: IranYekan;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 32.4px;
+    color: rgba(7, 14, 37, 0.7);
+    text-transform: capitalize;
+  }
+
+  .body-md {
+    font-family: IranYekan;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28.8px;
+    color: rgba(7, 14, 37, 0.7);
+    text-transform: capitalize;
+  }
+
+  .body-sm {
+    font-family: IranYekan;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 25.2px;
+    color: rgba(7, 14, 37, 0.7);
+    text-transform: capitalize;
+  }
+
+  .body-xs {
+    font-family: IranYekan;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 21.6px;
+    color: rgba(7, 14, 37, 0.7);
+    text-transform: capitalize;
+  }
+
+  .caption-md {
+    font-family: IranYekan;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21.6px;
+    text-transform: capitalize;
+    color: rgba(7, 14, 37, 0.7);
+  }
+
+  .caption-lg {
+    font-family: IranYekan;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 25.2px;
+    text-transform: capitalize;
+    color: #121127;
+  }
+
+  .button-lg {
+    font-family: IranYekan;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27.64px;
+    color: #070e25;
+  }
+
+  .button-sm {
+    font-family: IranYekan;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #070e25;
+    text-transform: capitalize;
+  }
+
+  .overline-lg {
+    font-family: IranYekan;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23.8px;
+    color: #5b38ff;
+    text-transform: uppercase;
+  }
+
+  .overline-sm {
+    font-family: IranYekan;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20.4px;
+    color: #5b38ff;
+    text-transform: uppercase;
+  }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}

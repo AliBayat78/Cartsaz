@@ -5,7 +5,7 @@ import logo from '../../assets/logoes & images/logo.png'
 
 const Footer = () => {
   return (
-    <div className="flex flex-col fixed bottom-0 w-[90%] mb-10">
+    <div className="flex flex-col relative bottom-0 w-[90%] mb-10">
       <img src={brushedLine} />
       <div className="flex flex-row justify-between items-center mt-6">
         <div className="flex flex-row justify-center items-center">

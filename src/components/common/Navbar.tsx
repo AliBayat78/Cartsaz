@@ -1,8 +1,8 @@
-import logo from '../../../assets/logoes & images/logo.png'
+import logo from '../../assets/logoes & images/logo.png'
 
 const Navbar = () => {
   return (
-    <div className="flex flex-row justify-between items-center fixed top-0 w-[90%] mt-10">
+    <div className="flex flex-row justify-between items-center fixed top-4 w-[90%]">
       <div style={{ direction: 'rtl' }} className="flex flex-row justify-between items-center">
         <div className="flex flex-row justify-between items-center gap-8 ml-16">
           <p>آپدیت ها</p>

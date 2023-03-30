@@ -1,7 +1,7 @@
-import brushedLine from '../../../assets/logoes & images/brushed-line.png'
-import telegram from '../../../assets/icons/telegram.png'
-import instagram from '../../../assets/icons/instagram.png'
-import logo from '../../../assets/logoes & images/logo.png'
+import brushedLine from '../../assets/logoes & images/brushed-line.png'
+import telegram from '../../assets/icons/telegram.png'
+import instagram from '../../assets/icons/instagram.png'
+import logo from '../../assets/logoes & images/logo.png'
 
 const Footer = () => {
   return (

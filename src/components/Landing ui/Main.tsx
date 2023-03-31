@@ -2,8 +2,12 @@ import brushedLine from '../../assets/logoes & images/brushed-line.png'
 import { BasicCard } from '../common/Card'
 import displayFrame from './assets/display-mode-Frame.png'
 import displayPhone from './assets/display-mode-phone.png'
-import cartImage from '../../assets/logoes & images/cart-image.png'
+import buying from './assets/buying.png'
+import productSubmit from './assets/product-submit.png'
+import profileSubmit from './assets/profile-submit.png'
+import timeManagement from './assets/time-management.png'
 import registerBanner from './assets/register-banner.png'
+import registerBannerMobile from './assets/register-banner-mobile.png'
 import messageEdit from './assets/message-edit.png'
 import videoCircle from './assets/video-circle.png'
 import arrowDown from './assets/arrow-down.png'
@@ -81,28 +85,28 @@ const Main = () => {
         </p>
         <div className="mt-10 h-auto w-[1224px] h-[348px] flex flex-col items-center md:flex-row md:items-start gap-6">
           <BasicCard
-            src={cartImage}
+            src={productSubmit}
             title={'ثبت محصول'}
             description={
               'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
             }
           />
           <BasicCard
-            src={cartImage}
+            src={timeManagement}
             title={'مدیریت زمان'}
             description={
               'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
             }
           />
           <BasicCard
-            src={cartImage}
+            src={profileSubmit}
             title={'ثبت پروفایل'}
             description={
               'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
             }
           />
           <BasicCard
-            src={cartImage}
+            src={buying}
             title={'ایجاد سبد خرید اختصاصی'}
             description={
               'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
@@ -113,12 +117,13 @@ const Main = () => {
 
       {/* register-banner */}
       <div className="mt-20 relative">
-        <img className="w-screen h-[259px]" src={registerBanner} />
-        <div className="absolute top-0 right-[50%] translate-x-[50%] z-10 flex flex-col justify-center items-center">
-          <h1 style={{ direction: 'rtl' }} className="mt-10 text-white ">
+        <img className="hidden sm:flex w-screen h-[259px]" src={registerBanner} />
+        <img className="sm:hidden w-screen h-[259px]" src={registerBannerMobile} />
+        <div className="absolute z-1 top-0 right-[50%] translate-x-[50%] flex flex-col justify-center items-center">
+          <h1 style={{ direction: 'rtl' }} className="mt-10 text-white w-[270px] sm:w-[450px]">
             هم اکنون ثبت نام کنید!
           </h1>
-          <p className="mt-2 body-md text-white " style={{ direction: 'rtl' }}>
+          <p className="mt-2 body-md text-white" style={{ direction: 'rtl' }}>
             ثبت نام در کارت ساز رایگان است.همین الان ثبت نام کنید و کارت ساز را تست کنید.
           </p>
           <button className="bg-secondary rounded-[32px] py-4 px-8 flex flex-row justify-center items-center mt-6 gap-2">
@@ -128,7 +133,7 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-start items-end mt-10 w-[90%]">
+      <div className="flex flex-col justify-start items-end mt-10 max-w-[350px] sm:w-[90%]">
         <h4>
           <span className="text-primary ml-2">کارت ساز</span>
           چیست ؟

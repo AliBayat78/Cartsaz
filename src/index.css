@@ -224,8 +224,9 @@
     }
 
     h1 {
-      font-size: 32px;
-      line-height: 50.4px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 44.8px;
     }
 
     h2 {

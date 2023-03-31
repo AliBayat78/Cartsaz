@@ -211,7 +211,25 @@
     direction: rtl;
   }
 
+  .brushedLine {
+    width: 90vw;
+    height: 8px;
+  }
+
   /*? Responsive */
+
+  @media only screen and (max-width: 360px) {
+    .body-sm {
+      font-size: 12px;
+      line-height: 28.8px;
+    }
+
+    .overline-lg {
+      font-size: 10px;
+      line-height: 20.4px;
+    }
+  }
+
   @media (max-width: 576px) {
     .display1 {
       font-size: 48px;
@@ -265,8 +283,8 @@
     }
 
     .body-md {
-      font-size: 14px;
-      line-height: 25.2px;
+      font-size: 16px;
+      line-height: 28.8px;
     }
 
     .body-sm {

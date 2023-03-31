@@ -34,6 +34,11 @@ export default {
         'pale-silver': '#F2F2F2',
         white: '#FFFFFF',
       },
+
+      screens: {
+        '2xs': '260px',
+        xs: '360px',
+      },
     },
   },
   plugins: [],

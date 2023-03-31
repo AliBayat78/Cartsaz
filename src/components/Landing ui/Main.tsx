@@ -30,11 +30,11 @@ const Main = () => {
           <source src="./assets/bunnyvideo.mp4" type="video/mp4" />
         </video>
         <button className="flex flex-row justify-center items-center py-4 px-10 gap-2 bg-primary mt-4 rounded-[32px] sm:hidden">
-          <p className="overline-lg text-white">مشاهده ویدئو معرفی</p>
+          <span className="overline-lg text-white w-full">مشاهده ویدئو معرفی</span>
           <img src={videoCircle} className="w-[24px] h-24px]" />
         </button>
         <p
-          className="body-sm sm:body-md max-w-[350px] sm:w-[800px] flex justify-center items-center mt-10 text-center"
+          className="body-sm w-[85vw] sm:body-md flex justify-center items-center mt-10 text-center"
           style={{ direction: 'rtl' }}
         >
           کارت ساز آمده تا دیگر نیازی به یادداشت سفارش های خود در دفتر و یا سررسید نباشید.به راحتی
@@ -45,45 +45,39 @@ const Main = () => {
       </div>
 
       {/* brushed line */}
-      <img className="mt-10 max-w-[347px] h-2 sm:w-[90%]" src={brushedLine} />
+      <img className="brushedLine" src={brushedLine} />
 
       {/* display mode */}
       <div className="flex flex-col justify-center items-center">
         <div className="mt-10 bg-blush sm:bg-white flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
-          <p className="text-secondary  body-sm">حالت نمایش</p>
+          <p className="text-secondary w-full body-sm">حالت نمایش</p>
         </div>
         <h3 className="mt-6 max-w-[339px] sm:w-[452px]">سیستمی کاملا تحت وب و آنلاین</h3>
-        <p
-          className="body-md mt-2 max-w-[350px] sm:w-[800px] text-center"
-          style={{ direction: 'rtl' }}
-        >
+        <p className="body-md w-[85vw] mt-2 text-center" style={{ direction: 'rtl' }}>
           سیستم کارت ساز کاملا تحت وب اجرا شده است و نیازی به هیچ سخت افزار خاصی برای دیتاهای خود
           ندارید. به راحتی مشتریان را مدیریت کنید و سفارشات خود را به موقع ارسال و آن ها را جمع آوری
           کنید.
         </p>
         <div className="flex flex-row relative">
           <img
-            className="mt-11 absolute bottom-2 sm:-left-28 sm:bottom-8 max-w-[105px] sm:w-[233px]"
+            className="mt-11 absolute bottom-2 sm:-left-28 sm:bottom-8 max-w-[105px] sm:w-[233px] 2xs:w-[90px] 2xs:h-[165px]"
             src={displayPhone}
           />
-          <img className="mt-11  max-w-[348px] sm:w-[810px]" src={displayFrame} />
+          <img className="mt-11  max-w-[348px] sm:w-[810px] 2xs:w-[280px]" src={displayFrame} />
         </div>
       </div>
 
       {/* features */}
       <div className="flex flex-col justify-center items-center text-center">
         <div className="mt-10 bg-blush sm:bg-white flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
-          <p className="text-secondary body-sm">امکانات</p>
+          <p className="text-secondary body-sm flex justify-center items-center">امکانات</p>
         </div>
         <h3 className="mt-2 max-w-[275px] sm:w-[492px]">جدید ترین مدل مدیریت سبد خرید ها</h3>
-        <p
-          className="max-w-[350px] sm:w-[809px] body-md mt-2 text-center"
-          style={{ direction: 'rtl' }}
-        >
+        <p className="body-md w-[85vw] mt-2 text-center" style={{ direction: 'rtl' }}>
           بیش از 100 ها فروشگاه سبد خرید های خود را در کارت ساز با امکانات متفاوت این سامانه مدیریت
           میکنند.
         </p>
-        <div className="mt-10 h-auto w-[1224px] h-[348px] flex flex-col items-center md:flex-row md:items-start gap-6">
+        <div className="mt-10 h-auto w-[1224px] flex flex-col items-center md:flex-row md:items-start gap-6">
           <BasicCard
             src={productSubmit}
             title={'ثبت محصول'}
@@ -120,25 +114,28 @@ const Main = () => {
         <img className="hidden sm:flex w-screen h-[259px]" src={registerBanner} />
         <img className="sm:hidden w-screen h-[259px]" src={registerBannerMobile} />
         <div className="absolute z-1 top-0 right-[50%] translate-x-[50%] flex flex-col justify-center items-center">
-          <h1 style={{ direction: 'rtl' }} className="mt-10 text-white w-[270px] sm:w-[450px]">
+          <h1
+            style={{ direction: 'rtl' }}
+            className="xs:mt-6 mt-10 text-white w-[270px] sm:w-[450px]"
+          >
             هم اکنون ثبت نام کنید!
           </h1>
           <p className="mt-2 body-md text-white" style={{ direction: 'rtl' }}>
             ثبت نام در کارت ساز رایگان است.همین الان ثبت نام کنید و کارت ساز را تست کنید.
           </p>
-          <button className="bg-secondary rounded-[32px] py-4 px-8 flex flex-row justify-center items-center mt-6 gap-2">
+          <button className="bg-secondary rounded-[32px] py-4 px-8 flex flex-row justify-center items-center 2xs:mt-4 xs:mt-2 gap-2">
             <span className="overline-lg text-white">ثبت نام رایگان</span>
             <img src={messageEdit} />
           </button>
         </div>
       </div>
 
-      <div className="flex flex-col justify-start items-end mt-10 max-w-[350px] sm:w-[90%]">
+      <div className="flex flex-col justify-start items-end mt-10 2xs:mr-4">
         <h4>
           <span className="text-primary ml-2">کارت ساز</span>
           چیست ؟
         </h4>
-        <p className="mt-4 body-md">
+        <p className="mt-4 w-[85vw] body-md">
           کارت ساز یک سیستم نوین است که به شما اجازه میدهد برای مشتریان خود سبد خرید(cart) اختصاصی
           ایجاد کنید و سپس با ارسال لینک از آن ها بخواهید که سبد خرید خود را کامل کنند. در این حالت
           شما دیگر نیازی به یادداشت موارد خاسته شده ندارید و به راحتی میتوانید سفارشات خود را ثبت

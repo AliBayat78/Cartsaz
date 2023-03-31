@@ -28,6 +28,7 @@
     font-size: 64px;
     line-height: 80px;
     color: #070e25;
+    direction: rtl;
   }
 
   .display2 {
@@ -36,6 +37,11 @@
     font-size: 56px;
     line-height: 80px;
     color: #070e25;
+    direction: rtl;
+  }
+
+  p {
+    direction: rtl;
   }
 
   h1 {
@@ -44,6 +50,7 @@
     font-size: 44px;
     line-height: 61.6px;
     color: #070e25;
+    direction: rtl;
   }
 
   h2 {
@@ -52,6 +59,7 @@
     font-size: 40px;
     line-height: 56px;
     color: #070e25;
+    direction: rtl;
   }
 
   h3 {
@@ -61,6 +69,7 @@
     line-height: 44.8px;
     color: #070e25;
     text-transform: capitalize;
+    direction: rtl;
   }
 
   h4 {
@@ -70,6 +79,7 @@
     line-height: 33.6px;
     color: #070e25;
     text-transform: capitalize;
+    direction: rtl;
   }
 
   h5 {
@@ -79,6 +89,7 @@
     line-height: 28px;
     color: #070e25;
     text-transform: capitalize;
+    direction: rtl;
   }
 
   h6 {
@@ -88,6 +99,7 @@
     line-height: 22.4px;
     color: #070e25;
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .body-xl {
@@ -97,6 +109,7 @@
     line-height: 36px;
     color: rgba(7, 14, 37, 0.7);
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .body-lg {
@@ -106,6 +119,7 @@
     line-height: 32.4px;
     color: rgba(7, 14, 37, 0.7);
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .body-md {
@@ -115,6 +129,7 @@
     line-height: 28.8px;
     color: rgba(7, 14, 37, 0.7);
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .body-sm {
@@ -124,6 +139,7 @@
     line-height: 25.2px;
     color: rgba(7, 14, 37, 0.7);
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .body-xs {
@@ -133,6 +149,7 @@
     line-height: 21.6px;
     color: rgba(7, 14, 37, 0.7);
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .caption-md {
@@ -142,6 +159,7 @@
     line-height: 21.6px;
     text-transform: capitalize;
     color: rgba(7, 14, 37, 0.7);
+    direction: rtl;
   }
 
   .caption-lg {
@@ -151,6 +169,7 @@
     line-height: 25.2px;
     text-transform: capitalize;
     color: #121127;
+    direction: rtl;
   }
 
   .button-lg {
@@ -159,6 +178,7 @@
     font-size: 16px;
     line-height: 27.64px;
     color: #070e25;
+    direction: rtl;
   }
 
   .button-sm {
@@ -168,6 +188,7 @@
     line-height: 24px;
     color: #070e25;
     text-transform: capitalize;
+    direction: rtl;
   }
 
   .overline-lg {
@@ -177,6 +198,7 @@
     line-height: 23.8px;
     color: #5b38ff;
     text-transform: uppercase;
+    direction: rtl;
   }
 
   .overline-sm {
@@ -186,6 +208,7 @@
     line-height: 20.4px;
     color: #5b38ff;
     text-transform: uppercase;
+    direction: rtl;
   }
 }
 

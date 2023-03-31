@@ -3,6 +3,8 @@ import { BasicCard } from '../common/Card'
 import displayFrame from './assets/display-mode-Frame.png'
 import displayPhone from './assets/display-mode-phone.png'
 import cartImage from '../../assets/logoes & images/cart-image.png'
+import registerBanner from './assets/register-banner.png'
+import messageEdit from './assets/message-edit.png'
 
 const Main = () => {
   return (
@@ -86,6 +88,25 @@ const Main = () => {
           />
         </div>
       </div>
+
+      {/* register-banner */}
+      <div className="mt-20 relative">
+        <img className="w-screen h-[259px]" src={registerBanner} />
+        <div className="absolute top-0 right-[50%] translate-x-[50%] z-10 flex flex-col justify-center items-center">
+          <h1 style={{ direction: 'rtl' }} className="mt-10 text-white ">
+            هم اکنون ثبت نام کنید!
+          </h1>
+          <p className="mt-2 body-md text-white " style={{ direction: 'rtl' }}>
+            ثبت نام در کارت ساز رایگان است.همین الان ثبت نام کنید و کارت ساز را تست کنید.
+          </p>
+          <button className="bg-secondary rounded-[32px] py-4 px-8 flex flex-row justify-center items-center mt-6 gap-2">
+            <span className="overline-lg text-white">ثبت نام رایگان</span>
+            <img src={messageEdit} />
+          </button>
+        </div>
+      </div>
+
+      
     </div>
   )
 }

@@ -210,6 +210,496 @@
     text-transform: uppercase;
     direction: rtl;
   }
+
+  /*? Responsive */
+  @media (max-width: 576px) {
+    .display1 {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    .display2 {
+      font-size: 40px;
+      line-height: 64px;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 50.4px;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    h5 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    h6 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .body-xl {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .body-lg {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-md {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .body-sm {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .body-xs {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .caption-md {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .caption-lg {
+      font-size: 10px;
+      line-height: 20.8px;
+    }
+
+    .button-lg {
+      font-size: 18px;
+      line-height: 31.05px;
+    }
+
+    .button-sm {
+      font-size: 16px;
+      line-height: 27.64px;
+    }
+
+    .overline-lg {
+      font-size: 12px;
+      line-height: 20.4px;
+    }
+
+    .overline-sm {
+      font-size: 14px;
+      line-height: 23.8px;
+    }
+  }
+
+  /** Small devices (tablets, 576px and up) */
+  @media (min-width: 576px) {
+    .display1 {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    .display2 {
+      font-size: 40px;
+      line-height: 64px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 50.4px;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 40px;
+    }
+
+    h3 {
+      font-size: 36px;
+      line-height: 50.4px;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    h5 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    h6 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .body-xl {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .body-lg {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-md {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .body-sm {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .body-xs {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .caption-md {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .caption-lg {
+      font-size: 10px;
+      line-height: 20.8px;
+    }
+
+    .button-lg {
+      font-size: 18px;
+      line-height: 31.05px;
+    }
+
+    .button-sm {
+      font-size: 16px;
+      line-height: 27.64px;
+    }
+
+    .overline-lg {
+      font-size: 12px;
+      line-height: 20.4px;
+    }
+
+    .overline-sm {
+      font-size: 14px;
+      line-height: 23.8px;
+    }
+  }
+
+  /** Medium devices (desktops, 768px and up) */
+  @media (min-width: 768px) {
+    .display1 {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    .display2 {
+      font-size: 48px;
+      line-height: 72px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 49.6px;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 44.8px;
+    }
+
+    h3 {
+      font-size: 40px;
+      line-height: 56px;
+    }
+
+    h4 {
+      font-size: 28px;
+      line-height: 39.2px;
+    }
+
+    h5 {
+      font-size: 28px;
+      line-height: 39.2px;
+    }
+
+    h6 {
+      font-size: 24px;
+      line-height: 33.6px;
+    }
+
+    .body-xl {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-lg {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-md {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .body-sm {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .body-xs {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .caption-md {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .caption-lg {
+      font-size: 12px;
+      line-height: 21.6px;
+    }
+
+    .button-lg {
+      font-size: 20px;
+      line-height: 34.46px;
+    }
+
+    .button-sm {
+      font-size: 18px;
+      line-height: 31.32px;
+    }
+
+    .overline-lg {
+      font-size: 13px;
+      line-height: 22.1px;
+    }
+
+    .overline-sm {
+      font-size: 16px;
+      line-height: 27.2px;
+    }
+  }
+
+  /** Large devices (large desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .display1 {
+      font-size: 64px;
+      line-height: 80px;
+    }
+
+    .display2 {
+      font-size: 48px;
+      line-height: 64px;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 61.6px;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 56px;
+    }
+
+    h3 {
+      font-size: 44px;
+      line-height: 61.6px;
+    }
+
+    h4 {
+      font-size: 32px;
+      line-height: 44.8px;
+    }
+
+    h5 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    h6 {
+      font-size: 28px;
+      line-height: 39.2px;
+    }
+
+    .body-xl {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-lg {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .body-md {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .body-sm {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-xs {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .caption-md {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .caption-lg {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .button-lg {
+      font-size: 24px;
+      line-height: 41.28px;
+    }
+
+    .button-sm {
+      font-size: 20px;
+      line-height: 34.96px;
+    }
+
+    .overline-lg {
+      font-size: 14px;
+      line-height: 23.8px;
+    }
+
+    .overline-sm {
+      font-size: 18px;
+      line-height: 30.6px;
+    }
+  }
+
+  /** Extra large devices (larger desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    .display1 {
+      font-size: 72px;
+      line-height: 90px;
+    }
+
+    .display2 {
+      font-size: 56px;
+      line-height: 80px;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 77.6px;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 56px;
+    }
+
+    h3 {
+      font-size: 48px;
+      line-height: 67.2px;
+    }
+
+    h4 {
+      font-size: 36px;
+      line-height: 50.4px;
+    }
+
+    h5 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    h6 {
+      font-size: 28px;
+      line-height: 39.2px;
+    }
+
+    .body-xl {
+      font-size: 22px;
+      line-height: 39.6px;
+    }
+
+    .body-lg {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .body-md {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+
+    .body-sm {
+      font-size: 24px;
+      line-height: 43.2px;
+    }
+
+    .body-xs {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .caption-md {
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .caption-lg {
+      font-size: 18px;
+      line-height: 32.4px;
+    }
+
+    .button-lg {
+      font-size: 26px;
+      line-height: 44.69px;
+    }
+
+    .button-sm {
+      font-size: 22px;
+      line-height: 38.68px;
+    }
+
+    .overline-lg {
+      font-size: 16px;
+      line-height: 27.2px;
+    }
+
+    .overline-sm {
+      font-size: 20px;
+      line-height: 34px;
+    }
+  }
 }
 
 @layer components {

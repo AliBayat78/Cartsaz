@@ -15,7 +15,7 @@ const Main = () => {
 
       <div className="flex flex-col justify-center items-center">
         <video className="rounded-2xl mt-11" width="684" height="384.75" controls preload="auto">
-          <source src="/assets/test.mp4" type="video/mp4" />
+          <source src="./assets/bunnyvideo.mp4" type="video/mp4" />
         </video>
         <p
           className="body-md w-[800px] flex justify-center items-center mt-10 text-center"

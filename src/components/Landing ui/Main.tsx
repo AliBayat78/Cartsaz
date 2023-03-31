@@ -21,9 +21,7 @@ const Main = () => {
 
       <div className="flex flex-col justify-center items-center">
         <video
-          className="hidden sm:flex rounded-2xl mt-11"
-          width="684"
-          height="384.75"
+          className="hidden sm:w-[620px] h-[385px] sm:flex rounded-2xl mt-11"
           controls
           preload="auto"
         >
@@ -60,7 +58,7 @@ const Main = () => {
         </p>
         <div className="flex flex-row relative">
           <img
-            className="mt-11 absolute bottom-2 sm:-left-28 sm:bottom-8 max-w-[105px] sm:w-[233px] 2xs:w-[90px] 2xs:h-[165px]"
+            className="mt-11 absolute bottom-2 lg:-left-28 lg:bottom-8 max-w-[105px] sm:w-[233px] 2xs:w-[90px] 2xs:h-[165px]"
             src={displayPhone}
           />
           <img className="mt-11  max-w-[348px] sm:w-[810px] 2xs:w-[280px]" src={displayFrame} />
@@ -77,7 +75,7 @@ const Main = () => {
           بیش از 100 ها فروشگاه سبد خرید های خود را در کارت ساز با امکانات متفاوت این سامانه مدیریت
           میکنند.
         </p>
-        <div className="mt-10 h-auto w-[1224px] flex flex-col items-center md:flex-row md:items-start gap-6">
+        <div className="mt-10 h-auto w-[1224px] flex flex-col items-center lg:flex-row lg:items-start gap-6">
           <BasicCard
             src={productSubmit}
             title={'ثبت محصول'}

@@ -214,6 +214,7 @@
   .brushedLine {
     width: 90vw;
     height: 8px;
+    margin-top: 4rem;
   }
 
   /*? Responsive */

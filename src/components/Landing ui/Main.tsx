@@ -1,6 +1,8 @@
 import brushedLine from '../../assets/logoes & images/brushed-line.png'
+import { BasicCard } from '../common/Card'
 import displayFrame from './assets/display-mode-Frame.png'
 import displayPhone from './assets/display-mode-phone.png'
+import cartImage from '../../assets/logoes & images/cart-image.png'
 
 const Main = () => {
   return (
@@ -44,8 +46,45 @@ const Main = () => {
       </div>
 
       {/* features */}
-      <div className="mt-10 flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
-        <p className="text-secondary body-sm">امکانات</p>
+      <div className="flex flex-col justify-center items-center text-center">
+        <div className="mt-10 flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
+          <p className="text-secondary body-sm">امکانات</p>
+        </div>
+        <h3 className="mt-2 w-[492px]">جدید ترین مدل مدیریت سبد خرید ها</h3>
+        <p className="w-[809px] body-md mt-2 text-center" style={{ direction: 'rtl' }}>
+          بیش از 100 ها فروشگاه سبد خرید های خود را در کارت ساز با امکانات متفاوت این سامانه مدیریت
+          میکنند.
+        </p>
+        <div className="mt-10 w-[1224px] h-[348px] flex flex-row items-start gap-6">
+          <BasicCard
+            src={cartImage}
+            title={'ثبت محصول'}
+            description={
+              'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
+            }
+          />
+          <BasicCard
+            src={cartImage}
+            title={'مدیریت زمان'}
+            description={
+              'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
+            }
+          />
+          <BasicCard
+            src={cartImage}
+            title={'ثبت پروفایل'}
+            description={
+              'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
+            }
+          />
+          <BasicCard
+            src={cartImage}
+            title={'ایجاد سبد خرید اختصاصی'}
+            description={
+              'قبل از هر چیزی محصولات خود را ثبت کنید و برای آن ها عکس بگذارید تا به آسانی در سبد خرید درج شود.'
+            }
+          />
+        </div>
       </div>
     </div>
   )

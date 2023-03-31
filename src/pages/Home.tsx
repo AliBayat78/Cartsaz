@@ -4,7 +4,7 @@ import Main from '../components/Landing ui/Main'
 
 const Home = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full">
       <Navbar />
       <Main />
       <Footer />

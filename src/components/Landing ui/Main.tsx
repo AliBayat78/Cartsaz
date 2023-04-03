@@ -15,7 +15,7 @@ import arrowDown from './assets/arrow-down.png'
 const Main = () => {
   return (
     <div className="mt-44 flex flex-col justify-center items-center">
-      <h1 className="text-center max-w-[320px] sm:w-[448px]">
+      <h1 className="text-center sm:w-[448px] xl:w-[700px]">
         سامانه مدیریت <span className="text-primary">هوشمند</span> سفارش های اینترنتی
       </h1>
 
@@ -50,7 +50,7 @@ const Main = () => {
         <div className="mt-10 bg-blush sm:bg-white flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
           <p className="text-secondary w-full body-sm">حالت نمایش</p>
         </div>
-        <h3 className="mt-6 max-w-[339px] sm:w-[452px]">سیستمی کاملا تحت وب و آنلاین</h3>
+        <h3 className="mt-6 text-center sm:w-[452px] xl:w-[700px]">سیستمی کاملا تحت وب و آنلاین</h3>
         <p className="body-md w-[85vw] mt-2 text-center" style={{ direction: 'rtl' }}>
           سیستم کارت ساز کاملا تحت وب اجرا شده است و نیازی به هیچ سخت افزار خاصی برای دیتاهای خود
           ندارید. به راحتی مشتریان را مدیریت کنید و سفارشات خود را به موقع ارسال و آن ها را جمع آوری
@@ -58,7 +58,7 @@ const Main = () => {
         </p>
         <div className="flex flex-row relative">
           <img
-            className="mt-11 absolute bottom-2 lg:-left-28 lg:bottom-8 max-w-[105px] sm:w-[233px] 2xs:w-[90px] 2xs:h-[165px]"
+            className="mt-11 absolute bottom-2 max-w-[105px] sm:w-[233px] 2xs:w-[90px] 2xs:h-[165px]"
             src={displayPhone}
           />
           <img className="mt-11  max-w-[348px] sm:w-[810px] 2xs:w-[280px]" src={displayFrame} />
@@ -70,12 +70,12 @@ const Main = () => {
         <div className="mt-10 bg-blush sm:bg-white flex flex-row justify-center items-center text-center px-4 py-[2px] gap-2 rounded-[80px] border border-t-0 border-b-silver">
           <p className="text-secondary body-sm flex justify-center items-center">امکانات</p>
         </div>
-        <h3 className="mt-2 max-w-[275px] sm:w-[492px]">جدید ترین مدل مدیریت سبد خرید ها</h3>
+        <h3 className="mt-2 sm:w-[492px] lg:w-[520px]">جدید ترین مدل مدیریت سبد خرید ها</h3>
         <p className="body-md w-[85vw] mt-2 text-center" style={{ direction: 'rtl' }}>
           بیش از 100 ها فروشگاه سبد خرید های خود را در کارت ساز با امکانات متفاوت این سامانه مدیریت
           میکنند.
         </p>
-        <div className="mt-10 h-auto w-[1224px] flex flex-col items-center lg:flex-row lg:items-start gap-6">
+        <div className="mt-10 h-auto flex flex-col items-center lg:flex-row lg:w-[1000px] xl:w-[1224px] gap-6">
           <BasicCard
             src={productSubmit}
             title={'ثبت محصول'}
@@ -114,7 +114,7 @@ const Main = () => {
         <div className="absolute z-1 top-0 right-[50%] translate-x-[50%] flex flex-col justify-center items-center">
           <h1
             style={{ direction: 'rtl' }}
-            className="xs:mt-6 mt-10 text-white w-[270px] sm:w-[450px]"
+            className="xs:mt-6 mt-10 text-center text-white w-[270px] sm:w-[450px] xl:w-[700px]"
           >
             هم اکنون ثبت نام کنید!
           </h1>

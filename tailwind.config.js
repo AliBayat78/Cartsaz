@@ -9,6 +9,9 @@ export default {
       Morabba: ['Morabba'],
     },
     extend: {
+      flex: {
+        3: '1 1 33.33%',
+      },
       colors: {
         primary: '#0182FE',
         secondary: '#FE3E01',

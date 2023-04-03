@@ -218,7 +218,7 @@
   }
 
   /*? Responsive */
-
+  /** Mobile Phones (360px down) */
   @media only screen and (max-width: 360px) {
     .body-sm {
       font-size: 12px;
@@ -231,6 +231,7 @@
     }
   }
 
+  /** Mobile Phones (576px down) */
   @media (max-width: 576px) {
     .display1 {
       font-size: 48px;

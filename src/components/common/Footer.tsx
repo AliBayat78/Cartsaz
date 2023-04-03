@@ -2,6 +2,7 @@ import brushedLine from '../../assets/logoes & images/brushed-line.png'
 import telegram from '../../assets/icons/telegram.png'
 import instagram from '../../assets/icons/instagram.png'
 import logo from '../../assets/logoes & images/logo.png'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -15,11 +16,28 @@ const Footer = () => {
         <div className="flex flex-col-reverse sm:flex-row justify-center items-center">
           <p className="hidden sm:flex mr-7">کارت ساز - ۱۴۰۴</p>
           <div className="sm:hidden flex flex-row justify-center items-center gap-8 my-10">
-            <p className="body-md">آپدیت ها</p>
-            <p className="body-md">سوالات متداول</p>
-            <p className="body-md">تماس با ما</p>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-primary body-md' : 'body-md')}
+              to="/updates"
+            >
+              آپدیت ها
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-primary body-md' : 'body-md')}
+              to="/questions"
+            >
+              سوالات متداول
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'text-primary body-md' : 'body-md')}
+              to="/contact-us"
+            >
+              تماس با ما
+            </NavLink>
           </div>
-          <img src={logo} alt="CartSaz" />
+          <NavLink to="/">
+            <img src={logo} alt="CartSaz" />
+          </NavLink>
         </div>
       </div>
     </div>

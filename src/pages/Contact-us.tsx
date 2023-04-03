@@ -12,7 +12,7 @@ const ContactUsPage = () => {
     <div className="mt-44 flex flex-col justify-between items-center w-full h-screen">
       <Navbar />
       <div className="flex flex-row w-[90%] justify-end items-center">
-        <img className="w-[175px] h-[175px] mr-[400px]" src={contactUs} alt="contact-us" />
+        <img className="w-[175px] h-[175px] mr-[40%]" src={contactUs} alt="contact-us" />
         <div className="flex flex-col items-end">
           <h3 className="text-primary">تماس با ما</h3>
           <p className="mt-6 body-md">
@@ -35,7 +35,7 @@ const ContactUsPage = () => {
       </div>
 
       {/* register-banner */}
-      <div className="mt-20 relative">
+      <div className="mt-60 relative">
         <img className="hidden sm:flex w-screen h-[259px]" src={registerBanner} />
         <img className="sm:hidden w-screen h-[259px]" src={registerBannerMobile} />
         <div className="absolute z-1 top-0 right-[50%] translate-x-[50%] flex flex-col justify-center items-center">

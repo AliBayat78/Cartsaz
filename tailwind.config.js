@@ -36,6 +36,8 @@ export default {
         'light-silver': '#EDEDED',
         'pale-silver': '#F2F2F2',
         white: '#FFFFFF',
+        'deep-pink': '#D12879',
+        'neon-green': '#2FDB9D',
       },
 
       screens: {

@@ -4,10 +4,12 @@ import { Button } from '@mui/material'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { LoginInputs } from '../models/models'
-
+import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<LoginInputs>()
+
+  const { login, errorMessage } = useAuth()
 
   const {
     register,
@@ -16,7 +18,14 @@ const Login = () => {
     formState: { errors },
   } = useForm<LoginInputs>()
 
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => setLoginInfo(data)
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+    setLoginInfo(data)
+    try {
+      login(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="w-full h-screen flex flex-col items-center mt-40">
@@ -57,6 +66,7 @@ const Login = () => {
           >
             ورود
           </Button>
+          {errorMessage && <p className="text-error mt-2 body-sm">{errorMessage}</p>}
         </form>
       </div>
     </div>

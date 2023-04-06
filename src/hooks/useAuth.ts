@@ -9,6 +9,7 @@ export const useAuth = (): useAuthReturnType => {
   const isAuthenticated = Boolean(userCredentials)
 
   const login = (data: LoginInputs) => {
+    // Check if the username and password match any user in localStorage
     const user = JSON.parse(localStorage.getItem('user') || 'null')
 
     if (user !== null) {
@@ -20,9 +21,11 @@ export const useAuth = (): useAuthReturnType => {
         setUserCredentials(matchedUser)
         localStorage.setItem('currentUser', JSON.stringify(matchedUser))
       } else {
+        // Incorrect username or password
         setErrorMessage('نام کاربری یا رمز عبور صحیح نیست')
       }
     } else {
+      // No user found in localStorage
       setErrorMessage('کاربری با این مشخصات پیدا نشد')
     }
   }

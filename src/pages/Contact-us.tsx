@@ -5,32 +5,48 @@ import registerBannerMobile from '../assets/logoes & images/register-banner-mobi
 import messageEdit from '../assets/icons/message-edit.png'
 import contactUs from '../assets/logoes & images/contact-us.png'
 import coloredInstagram from '../assets/icons/colored-instagram.png'
-import coloredwhatsapp from '../assets/icons/colored-whatsapp.png'
+import coloredWhatsapp from '../assets/icons/colored-whatsapp.png'
 
 const ContactUsPage = () => {
   return (
     <div className="mt-44 flex flex-col justify-between items-center w-full h-screen">
       <Navbar />
       <div className="flex flex-row w-[90%] justify-end items-center">
-        <img className="w-[175px] h-[175px] mr-[40%]" src={contactUs} alt="contact-us" />
+        <img
+          className="hidden relative md:flex w-[175px] h-[175px] md:translate-x-[90%] xl:left-[35%]"
+          src={contactUs}
+          alt="contact-us"
+        />
         <div className="flex flex-col items-end">
           <h3 className="text-primary">تماس با ما</h3>
-          <p className="mt-6 body-md">
+          <p className="2xs:w-[90vw] mt-6 body-md">
             جهت ارتباط با ما میتوانید با یکی از مسیر های زیر با ما ارتباط برقرار کنید:
           </p>
-          <button className="mt-6 flex flex-row w-[392px] h-[64px] justify-center items-center border border-deep-pink rounded-lg">
+          <a
+            href="https://instagram.com/cartsaz"
+            target="_blank"
+            className="mt-6 flex flex-row 2xs:w-[220px] md:w-[392px] h-[64px] justify-center items-center border border-deep-pink rounded-lg"
+          >
             <p className="body-md text-deep-pink mr-2">پیام در دایرکت اینستاگرام</p>
             <img src={coloredInstagram} />
-          </button>
+          </a>
 
-          <button className="mt-2 flex flex-row w-[392px] h-[64px] justify-center items-center border border-neon-green rounded-lg">
+          <a
+            href="https://wa.me/9891811111"
+            target="_blank"
+            className="mt-2 flex flex-row 2xs:w-[220px] md:w-[392px] h-[64px] justify-center items-center border border-neon-green rounded-lg"
+          >
             <p className="body-md text-neon-green mr-2">پیام در دایرکت واتساپ</p>
-            <img src={coloredwhatsapp} />
-          </button>
+            <img src={coloredWhatsapp} />
+          </a>
 
-          <p className="mt-16 body-md">همچنین میتوانید از ایمیل زیر جهت ارسال پیام استفاده کنید:</p>
+          <p className="2xs:w-[90vw] mt-16 body-md">
+            همچنین میتوانید از ایمیل زیر جهت ارسال پیام استفاده کنید:
+          </p>
 
-          <p className="mt-4 text-primary">Cartsaz.com@gmail.com</p>
+          <a href="mailto:Cartsaz.com@gmail.com" className="mt-4 text-primary">
+            Cartsaz.com@gmail.com
+          </a>
         </div>
       </div>
 

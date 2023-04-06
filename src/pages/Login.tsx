@@ -28,12 +28,12 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col items-center mt-40">
+    <div className="w-full h-screen flex flex-col items-center 2xs:mt-10 mt-40">
       <div className="flex flex-col justify-center items-center">
         <img src={logo} alt="Cartsaz Logo" />
         <h6 className="mt-8">ورود/ثبت نام فروشگاه</h6>
       </div>
-      <div className="relative w-[400px] flex flex-col justify-end items-center">
+      <div className="relative 2xs:w-[90vw] sm:w-[400px] flex flex-col justify-end items-center">
         <p className="w-full body-sm mt-10 relative right-0">
           جهت ورود به پنل خود ابتدا مشخصات زیر را وارد کنید:
         </p>
@@ -66,7 +66,9 @@ const Login = () => {
           >
             ورود
           </Button>
-          {errorMessage && <p className="text-error mt-2 body-sm">{errorMessage}</p>}
+          {errorMessage && (
+            <p className="text-error mt-2 2xs:mb-20 md:mb-2 body-sm">{errorMessage}</p>
+          )}
         </form>
       </div>
     </div>

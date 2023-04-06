@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import ErrorPage from './pages/Error-page'
 import ContactUsPage from './pages/Contact-us'
 import Questions from './pages/Questions'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
     path: '/questions',
     element: <Questions />,
   },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

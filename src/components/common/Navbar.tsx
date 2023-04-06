@@ -18,9 +18,11 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="ml-4 sm:ml-16">
-          <Button size="large" variant="outlined">
-            ورود یا ثبت نام
-          </Button>
+          <NavLink to="/login">
+            <Button size="large" variant="outlined">
+              ورود یا ثبت نام
+            </Button>
+          </NavLink>
         </div>
       </div>
       <div className="mr-4 sm:mr-16">

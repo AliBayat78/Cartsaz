@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { UserInfo } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
 import { NavLink } from 'react-router-dom'
+import { RTLTextField } from '../components/common/RtlTextField'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<UserInfo>()
@@ -38,22 +39,22 @@ const Login = () => {
           جهت ورود به پنل خود ابتدا مشخصات زیر را وارد کنید:
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField
+          <RTLTextField
+            dir="rtl"
             {...register('Username', { required: 'نام کاربری خود را وارد کنید' })}
             sx={{ marginTop: '16px', width: '100%' }}
-            id="demo-helper-text-aligned"
             label="نام کاربری"
             placeholder="Username"
             error={!!errors.Username}
             helperText={errors.Username?.message}
             multiline
           />
-          <TextField
-            {...register('Password', { required: 'پسورد خود را وارد کنید' })}
+          <RTLTextField
+            dir="rtl"
+            {...register('Password', { required: 'رمز عبور خود را وارد کنید' })}
             type="password"
             sx={{ marginTop: '16px', width: '100%' }}
-            id="demo-helper-text-aligned"
-            label="پسورد"
+            label="رمز عبور"
             placeholder="Password"
             error={!!errors.Password}
             helperText={errors.Password?.message}

@@ -7,6 +7,7 @@ import Select from '@mui/material/Select'
 import { useState } from 'react'
 import { RegisterInputs } from '../models/models'
 import { useForm } from 'react-hook-form'
+import { RTLTextField } from '../components/common/RtlTextField'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 
@@ -36,35 +37,37 @@ const Register = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full">
             <p className="text-right caption-lg">نام و نام خانوادگی *</p>
-            <TextField
+            <RTLTextField
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="نام و نام خانوادگی"
               placeholder="علی بیات"
               multiline
               error={!!errors.fullName}
               helperText={errors.fullName?.message}
               {...register('fullName', { required: true })}
+              dir="rtl"
             />
           </div>
           <div className="w-full">
             <p className="text-right caption-lg">نام کاربری *</p>
-            <TextField
+            <RTLTextField
               sx={{ marginTop: '8px', width: '100%' }}
               label="نام کاربری"
               placeholder="علی بیات"
               multiline
+              dir="rtl"
               error={!!errors.User?.Username}
               {...register('User.Username', { required: true })}
             />
           </div>
           <div className="w-full">
             <p className="text-right caption-lg">رمز عبور *</p>
-            <TextField
+            <RTLTextField
               sx={{ marginTop: '8px', width: '100%' }}
               label="رمز عبور"
               type="password"
               error={!!errors.User?.Password}
+              dir="rtl"
               {...register('User.Password', {
                 required: true,
                 pattern: {
@@ -82,7 +85,8 @@ const Register = () => {
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg">ایدی پیج اینستاگرام فروشگاه *</p>
-            <TextField
+            <RTLTextField
+              dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
               label="ایدی اینستاگرام"
@@ -95,7 +99,8 @@ const Register = () => {
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg">نام فروشگاه *</p>
-            <TextField
+            <RTLTextField
+              dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
               label="نام فروشگاه"
@@ -134,7 +139,8 @@ const Register = () => {
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg">ایمیل (اختیاری)</p>
-            <TextField
+            <RTLTextField
+              dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
               label="ایمیل"
@@ -145,7 +151,8 @@ const Register = () => {
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg">آدرس فرستنده (اختیاری)</p>
-            <TextField
+            <RTLTextField
+              dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
               label="آدرس فرستنده"
@@ -156,7 +163,8 @@ const Register = () => {
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg"> کد پستی فرستنده (اختیاری)</p>
-            <TextField
+            <RTLTextField
+              dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
               label="کد پستی فرستنده"

@@ -1,28 +1,23 @@
-export type LoginInputs = {
+export interface UserInfo {
   Username: string
   Password: string
 }
 
 export interface RegisterInputs {
-  fullName: string,
-  instagram: string,
-  shopName: string,
-  shopType: string,
-  email?: string,
-  address?: string,
-  postCode?: string,
-}
-
-export interface User {
-  Username: string
-  Password: string
+  fullName: string
+  User: UserInfo
+  instagram: string
+  shopName: string
+  shopType: string
+  email?: string
+  address?: string
+  postCode?: string
 }
 
 export interface useAuthReturnType {
-  userCredentials: User | null
+  userCredentials: UserInfo | null
   isAuthenticated: boolean
-  login: (data: LoginInputs) => void
+  login: (data: UserInfo) => void
   logout: () => void
   errorMessage: string | undefined
 }
-

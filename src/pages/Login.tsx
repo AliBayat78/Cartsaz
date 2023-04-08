@@ -3,12 +3,12 @@ import TextField from '@mui/material/TextField'
 import { Button } from '@mui/material'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
-import { LoginInputs } from '../models/models'
+import { UserInfo } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
 import { NavLink } from 'react-router-dom'
 
 const Login = () => {
-  const [loginInfo, setLoginInfo] = useState<LoginInputs>()
+  const [loginInfo, setLoginInfo] = useState<UserInfo>()
 
   const { login, errorMessage } = useAuth()
 
@@ -16,9 +16,9 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginInputs>()
+  } = useForm<UserInfo>()
 
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+  const onSubmit: SubmitHandler<UserInfo> = (data) => {
     setLoginInfo(data)
     try {
       login(data)

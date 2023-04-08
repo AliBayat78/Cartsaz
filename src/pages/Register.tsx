@@ -15,7 +15,6 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
   } = useForm<RegisterInputs>()
 
   const [shopType, setShopType] = useState('')
@@ -36,7 +35,7 @@ const Register = () => {
       <div className="2xs:w-[90vw] sm:w-[400px] mt-6">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full">
-            <p className="text-right caption-lg">نام و نام خانوادگی</p>
+            <p className="text-right caption-lg">نام و نام خانوادگی *</p>
             <TextField
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
@@ -48,8 +47,41 @@ const Register = () => {
               {...register('fullName', { required: true })}
             />
           </div>
+          <div className="w-full">
+            <p className="text-right caption-lg">نام کاربری *</p>
+            <TextField
+              sx={{ marginTop: '8px', width: '100%' }}
+              label="نام کاربری"
+              placeholder="علی بیات"
+              multiline
+              error={!!errors.User?.Username}
+              {...register('User.Username', { required: true })}
+            />
+          </div>
+          <div className="w-full">
+            <p className="text-right caption-lg">رمز عبور *</p>
+            <TextField
+              sx={{ marginTop: '8px', width: '100%' }}
+              label="رمز عبور"
+              type="password"
+              error={!!errors.User?.Password}
+              {...register('User.Password', {
+                required: true,
+                pattern: {
+                  value: /^(?=.*[A-Z])(?=.*\d).{8,}$/,
+                  message:
+                    'رمز عبور باید شامل حداقل یک حرف بزرگ، یک عدد و حتما بیشتر از 8 حرف باشد.',
+                },
+              })}
+            />
+            {errors.User?.Password && (
+              <p className="text-error mt-2 2xs:mb-10 md:mb-2 body-sm">
+                {errors.User?.Password.message}
+              </p>
+            )}
+          </div>
           <div className="w-full mt-3">
-            <p className="text-right caption-lg">ایدی پیج اینستاگرام فروشگاه</p>
+            <p className="text-right caption-lg">ایدی پیج اینستاگرام فروشگاه *</p>
             <TextField
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
@@ -62,7 +94,7 @@ const Register = () => {
             />
           </div>
           <div className="w-full mt-3">
-            <p className="text-right caption-lg">نام فروشگاه</p>
+            <p className="text-right caption-lg">نام فروشگاه *</p>
             <TextField
               sx={{ marginTop: '8px', width: '100%' }}
               id="demo-helper-text-aligned"
@@ -76,7 +108,7 @@ const Register = () => {
           </div>
 
           <div className="w-full mt-3">
-            <p className="text-right caption-lg">نوع فعالیت فروشگاه</p>
+            <p className="text-right caption-lg">نوع فعالیت فروشگاه *</p>
             <FormControl sx={{ marginTop: '8px', width: '100%' }}>
               <InputLabel id="demo-multiple-name-label">Name</InputLabel>
               <Select

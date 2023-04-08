@@ -3,6 +3,16 @@ export type LoginInputs = {
   Password: string
 }
 
+export interface RegisterInputs {
+  fullName: string,
+  instagram: string,
+  shopName: string,
+  shopType: string,
+  email?: string,
+  address?: string,
+  postCode?: string,
+}
+
 export interface User {
   Username: string
   Password: string
@@ -15,3 +25,4 @@ export interface useAuthReturnType {
   logout: () => void
   errorMessage: string | undefined
 }
+

@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { LoginInputs } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
+import { NavLink } from 'react-router-dom'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<LoginInputs>()
@@ -14,7 +15,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<LoginInputs>()
 
@@ -67,9 +67,20 @@ const Login = () => {
             ورود
           </Button>
           {errorMessage && (
-            <p className="text-error mt-2 2xs:mb-20 md:mb-2 body-sm">{errorMessage}</p>
+            <p className="text-error mt-2 2xs:mb-10 md:mb-2 body-sm">{errorMessage}</p>
           )}
         </form>
+        <NavLink to="/register">
+          <div className="2xs:w-[90vw] sm:w-[400px] h-[56px]">
+            <Button
+              type="submit"
+              sx={{ width: '100%', height: '56px', marginTop: '16px', marginBottom: '16px' }}
+              variant="contained"
+            >
+              ساخت اکانت
+            </Button>
+          </div>
+        </NavLink>
       </div>
     </div>
   )

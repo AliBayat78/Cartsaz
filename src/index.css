@@ -229,6 +229,11 @@
       font-size: 10px;
       line-height: 20.4px;
     }
+
+    .caption-lg {
+      font-size: 16px;
+      line-height: 22.4px;
+    }
   }
 
   /** Mobile Phones (576px down) */
@@ -294,19 +299,14 @@
       line-height: 28.8px;
     }
 
-    .body-xs {
-      font-size: 14px;
-      line-height: 25.2px;
-    }
-
     .caption-md {
       font-size: 14px;
       line-height: 25.2px;
     }
 
     .caption-lg {
-      font-size: 10px;
-      line-height: 20.8px;
+      font-size: 16px;
+      line-height: 22.4px;
     }
 
     .button-lg {
@@ -390,11 +390,6 @@
     .body-sm {
       font-size: 16px;
       line-height: 28.8px;
-    }
-
-    .body-xs {
-      font-size: 14px;
-      line-height: 25.2px;
     }
 
     .caption-md {
@@ -490,19 +485,14 @@
       line-height: 25.4px;
     }
 
-    .body-xs {
-      font-size: 16px;
-      line-height: 28.8px;
-    }
-
     .caption-md {
       font-size: 16px;
       line-height: 28.8px;
     }
 
     .caption-lg {
-      font-size: 12px;
-      line-height: 21.6px;
+      font-size: 16px;
+      line-height: 22.4px;
     }
 
     .button-lg {
@@ -586,11 +576,6 @@
     .body-sm {
       font-size: 16px;
       line-height: 23.2px;
-    }
-
-    .body-xs {
-      font-size: 18px;
-      line-height: 32.4px;
     }
 
     .caption-md {
@@ -684,11 +669,6 @@
     .body-sm {
       font-size: 14px;
       line-height: 25.2px;
-    }
-
-    .body-xs {
-      font-size: 20px;
-      line-height: 36px;
     }
 
     .caption-md {

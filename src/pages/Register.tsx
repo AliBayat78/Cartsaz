@@ -1,4 +1,4 @@
-import { Button, TextField, SelectChangeEvent } from '@mui/material'
+import { Button, SelectChangeEvent } from '@mui/material'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -44,7 +44,7 @@ const Register = () => {
               multiline
               error={!!errors.fullName}
               helperText={errors.fullName?.message}
-              {...register('fullName', { required: true })}
+              {...register('fullName', { required: 'نام و نام خانوادگی خود را وارد کنید' })}
               dir="rtl"
             />
           </div>
@@ -57,7 +57,8 @@ const Register = () => {
               multiline
               dir="rtl"
               error={!!errors.User?.Username}
-              {...register('User.Username', { required: true })}
+              helperText={errors.User?.Username?.message}
+              {...register('User.Username', { required: 'نام کاربری خود را وارد کنید' })}
             />
           </div>
           <div className="w-full">
@@ -68,8 +69,9 @@ const Register = () => {
               type="password"
               error={!!errors.User?.Password}
               dir="rtl"
+              helperText={errors.User?.Password?.message}
               {...register('User.Password', {
-                required: true,
+                required: 'رمز عبور خود را وارد کنید',
                 pattern: {
                   value: /^(?=.*[A-Z])(?=.*\d).{8,}$/,
                   message:
@@ -77,22 +79,16 @@ const Register = () => {
                 },
               })}
             />
-            {errors.User?.Password && (
-              <p className="text-error mt-2 2xs:mb-10 md:mb-2 body-sm">
-                {errors.User?.Password.message}
-              </p>
-            )}
           </div>
           <div className="w-full mt-3">
             <p className="text-right caption-lg">ایدی پیج اینستاگرام فروشگاه *</p>
             <RTLTextField
               dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="ایدی اینستاگرام"
               placeholder="Instagram.com/alibayatt78"
               multiline
-              {...register('instagram', { required: true })}
+              {...register('instagram', { required: 'ایدی اینستاگرام پیج حود را وارد کنید' })}
               error={!!errors.instagram}
               helperText={errors.instagram?.message}
             />
@@ -102,11 +98,10 @@ const Register = () => {
             <RTLTextField
               dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="نام فروشگاه"
               placeholder="مثال: موبایلینو"
               multiline
-              {...register('shopName', { required: true })}
+              {...register('shopName', { required: 'نام فروشگاه خود را وارد کتید' })}
               error={!!errors.shopName}
               helperText={errors.shopName?.message}
             />
@@ -115,10 +110,10 @@ const Register = () => {
           <div className="w-full mt-3">
             <p className="text-right caption-lg">نوع فعالیت فروشگاه *</p>
             <FormControl sx={{ marginTop: '8px', width: '100%' }}>
-              <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+              <InputLabel id="select">Name</InputLabel>
               <Select
-                labelId="demo-multiple-name-label"
-                id="demo-multiple-name"
+                labelId="select-label"
+                id="select"
                 value={shopType}
                 {...register('shopType', { required: true })}
                 input={<OutlinedInput label="Name" />}
@@ -142,7 +137,6 @@ const Register = () => {
             <RTLTextField
               dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="ایمیل"
               placeholder="مثال: Cartsaz@gmail.com"
               multiline
@@ -154,7 +148,6 @@ const Register = () => {
             <RTLTextField
               dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="آدرس فرستنده"
               placeholder="مثال: تهران، میدان آزادی پلاک 2"
               multiline
@@ -166,7 +159,6 @@ const Register = () => {
             <RTLTextField
               dir="rtl"
               sx={{ marginTop: '8px', width: '100%' }}
-              id="demo-helper-text-aligned"
               label="کد پستی فرستنده"
               placeholder="مثال: 71236481"
               multiline

@@ -2,6 +2,11 @@ import { TextField } from '@mui/material'
 import { styled } from '@mui/system'
 
 export const RTLTextField = styled(TextField)({
+  '& .MuiFormHelperText-root': {
+    transformOrigin: 'right !important',
+    textAlign: 'right',
+    direction: 'rtl',
+  },
   '& label': {
     transformOrigin: 'right !important',
     right: '1.75rem !important',

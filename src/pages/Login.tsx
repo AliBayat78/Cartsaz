@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { UserInfo } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { RTLTextField } from '../components/common/RtlTextField'
 
 const Login = () => {
@@ -19,9 +19,9 @@ const Login = () => {
   } = useForm<UserInfo>()
 
   const onSubmit: SubmitHandler<UserInfo> = (data) => {
-    setLoginInfo(data)
     try {
       login(data)
+      setLoginInfo(data)
     } catch (error) {
       console.log(error)
     }

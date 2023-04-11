@@ -2,7 +2,7 @@ import Footer from '../components/common/Footer'
 import Navbar from '../components/common/Navbar'
 import Main from '../components/Landing ui/Main'
 import AuthenticatedHome from '../components/Landing ui/AuthenticatedHome'
-import { isUserLoggedIn } from '../hooks/isUserLoggedin'
+import { isUserLoggedIn } from '../hooks/isUserLoggedIn'
 
 const Home = () => {
   const isLoggedIn = isUserLoggedIn()

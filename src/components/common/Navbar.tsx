@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       <div className="mr-4 sm:mr-16">
         <NavLink to="/">
-          <img className="w-[100px] h-37px sm:w-[132px] md:h-49px" src={logo} />
+          <img className="w-[100px] h-[37px] sm:w-[132px] md:[h-49px]" src={logo} />
         </NavLink>
       </div>
     </div>

@@ -1,12 +1,14 @@
-import cartShopLogo from './assets/CartShop-logo.png'
+import cartShopLogo from '../assets/CartShop-logo.png'
 import { useState } from 'react'
+import Footer from '../../common/Footer'
+import ContactUs from './ContactUs'
 
 const AuthenticatedHome = () => {
-  const [displaySection, setDisplaySection] = useState<string>('')
+  const [displaySection, setDisplaySection] = useState<string>('contact-us')
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
-      <div className="flex flex-row justify-between items-center fixed top-0 py-4 w-full h-[152px] bg-primary z-10">
+    <div className="flex flex-col justify-between items-center w-full h-screen">
+      <div className="flex flex-row justify-between items-center fixed top-0 py-4 w-full h-[152px] rounded-b-lg bg-primary z-10">
         <div className="ml-4 sm:ml-16 bg-white w-[366px] h-12 rounded-lg mt-36 border border-silver relative">
           <button
             onClick={() => setDisplaySection('contact-us')}
@@ -39,6 +41,8 @@ const AuthenticatedHome = () => {
           <img className="" src={cartShopLogo} />
         </div>
       </div>
+      <div className="mt-44">{displaySection === 'contact-us' ? <ContactUs /> : <div></div>}</div>
+      <Footer />
     </div>
   )
 }

@@ -38,6 +38,14 @@ export default {
         white: '#FFFFFF',
         'deep-pink': '#D12879',
         'neon-green': '#2FDB9D',
+        crimson: '#EC335A',
+        'baby-pink': '#FFEEF1',
+        mint: '#F3FDFA',
+        'dark-green': '#00966D',
+        'baby-blue': '#DFEFFF',
+        'royal-blue': '#0182FE',
+        peach: '#FFE7DF',
+        'bright-red': '#FE3E01',
       },
 
       screens: {

@@ -16,7 +16,6 @@ export interface RegisterInputs {
 
 export interface useAuthReturnType {
   userCredentials: UserInfo | null
-  isAuthenticated: boolean
   login: (data: UserInfo) => void
   logout: () => void
   errorMessage: string | undefined

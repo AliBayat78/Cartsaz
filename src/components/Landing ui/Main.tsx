@@ -11,6 +11,7 @@ import registerBannerMobile from './assets/register-banner-mobile.png'
 import messageEdit from './assets/message-edit.png'
 import videoCircle from './assets/video-circle.png'
 import arrowDown from './assets/arrow-down.png'
+import video from './assets/bunnyvideo.mp4'
 
 const Main = () => {
   return (
@@ -25,8 +26,9 @@ const Main = () => {
           controls
           preload="auto"
         >
-          <source src="./assets/bunnyvideo.mp4" type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
+
         <button className="flex flex-row justify-center items-center py-4 px-10 gap-2 bg-primary mt-4 rounded-[32px] sm:hidden">
           <span className="overline-lg text-white w-full">مشاهده ویدئو معرفی</span>
           <img src={videoCircle} className="w-[24px] h-24px]" />

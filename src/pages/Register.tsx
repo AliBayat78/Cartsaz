@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { RegisterInputs } from '../models/models'
 import { useForm } from 'react-hook-form'
 import { RTLTextField } from '../components/common/RtlTextField'
-import useRegister from '../hooks/useRegister'
+import { useRegister } from '../hooks/useRegister'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 

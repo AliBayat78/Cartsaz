@@ -4,8 +4,9 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { UserInfo } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { RTLTextField } from '../components/common/RtlTextField'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<UserInfo>()

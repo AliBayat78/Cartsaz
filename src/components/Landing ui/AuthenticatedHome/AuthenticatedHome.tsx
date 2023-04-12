@@ -36,9 +36,9 @@ const AuthenticatedHome = () => {
         <div className="flex flex-row mr-16 2xs:mr-2">
           <div className="flex flex-col justify-center items-center mr-4">
             <h5 className="text-white">فروشگاه کارت ساز</h5>
-            <p className="body-xs text-white">فروشگاه پیرهن،کفش و البسه</p>
+            <p className="body-xs 2xs:text-white">فروشگاه پیرهن،کفش و البسه</p>
           </div>
-          <img className="2xs:w-[80px] 2xs:h-[80px]" src={cartShopLogo} />
+          <img className="2xs:w-[80px] 2xs:h-[80px] lg:w-[120px] lg:h-[120px]" src={cartShopLogo} />
         </div>
       </div>
       <div className="mt-44">{displaySection === 'contact-us' ? <ContactUs /> : <div></div>}</div>

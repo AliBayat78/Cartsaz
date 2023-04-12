@@ -47,18 +47,16 @@ const Login = () => {
             placeholder="Username"
             error={!!errors.Username}
             helperText={errors.Username?.message}
-            multiline
           />
           <RTLTextField
             dir="rtl"
-            {...register('Password', { required: 'رمز عبور خود را وارد کنید' })}
             type="password"
+            {...register('Password', { required: 'رمز عبور خود را وارد کنید' })}
             sx={{ marginTop: '16px', width: '100%' }}
             label="رمز عبور"
             placeholder="Password"
             error={!!errors.Password}
             helperText={errors.Password?.message}
-            multiline
           />
           <Button
             type="submit"

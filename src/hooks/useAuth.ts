@@ -17,7 +17,6 @@ export const useAuth = (): useAuthReturnType => {
     if (user !== null && user.Username === data.Username) {
       if (user.Username === data.Username && user.Password === data.Password) {
         setUserCredentials(user)
-        localStorage.setItem('currentUser', JSON.stringify(user))
         Swal.fire({
           title: 'خوش آمدید',
           text: 'با موفقیت وارد شدید',
@@ -43,7 +42,7 @@ export const useAuth = (): useAuthReturnType => {
 
   const logout = () => {
     setUserCredentials(null)
-    localStorage.removeItem('currentUser')
+    localStorage.removeItem('user')
   }
 
   return { userCredentials, login, logout, errorMessage }

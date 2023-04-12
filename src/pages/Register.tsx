@@ -44,7 +44,6 @@ const Register = () => {
               sx={{ marginTop: '8px', width: '100%' }}
               label="نام و نام خانوادگی"
               placeholder="علی بیات"
-              multiline
               error={!!errors.fullName}
               helperText={errors.fullName?.message}
               {...register('fullName', { required: 'نام و نام خانوادگی خود را وارد کنید' })}
@@ -56,8 +55,7 @@ const Register = () => {
             <RTLTextField
               sx={{ marginTop: '8px', width: '100%' }}
               label="نام کاربری"
-              placeholder="علی بیات"
-              multiline
+              placeholder="AliBayat12"
               dir="rtl"
               error={!!errors.User?.Username}
               helperText={errors.User?.Username?.message}
@@ -90,7 +88,6 @@ const Register = () => {
               sx={{ marginTop: '8px', width: '100%' }}
               label="ایدی اینستاگرام"
               placeholder="Instagram.com/alibayatt78"
-              multiline
               {...register('instagram', { required: 'ایدی اینستاگرام پیج حود را وارد کنید' })}
               error={!!errors.instagram}
               helperText={errors.instagram?.message}
@@ -103,7 +100,6 @@ const Register = () => {
               sx={{ marginTop: '8px', width: '100%' }}
               label="نام فروشگاه"
               placeholder="مثال: موبایلینو"
-              multiline
               {...register('shopName', { required: 'نام فروشگاه خود را وارد کتید' })}
               error={!!errors.shopName}
               helperText={errors.shopName?.message}
@@ -142,8 +138,15 @@ const Register = () => {
               sx={{ marginTop: '8px', width: '100%' }}
               label="ایمیل"
               placeholder="مثال: Cartsaz@gmail.com"
-              multiline
-              {...register('email', { required: false })}
+              {...register('email', {
+                required: false,
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@(gmail\.com|([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})$/,
+                  message: 'لطفا فرمت ایمیل خود را اصلاح کنید.',
+                },
+              })}
+              error={!!errors.email}
+              helperText={errors.email?.message}
             />
           </div>
           <div className="w-full mt-3">
@@ -164,7 +167,6 @@ const Register = () => {
               sx={{ marginTop: '8px', width: '100%' }}
               label="کد پستی فرستنده"
               placeholder="مثال: 71236481"
-              multiline
               {...register('postCode', { required: false })}
             />
           </div>

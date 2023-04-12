@@ -10,8 +10,12 @@ const Footer = () => {
       <img className="brushedLine" src={brushedLine} />
       <div className="flex flex-col-reverse sm:flex-row justify-between items-center mt-6">
         <div className="flex flex-row justify-center items-center">
-          <img src={telegram} alt="Telegram" />
-          <img src={instagram} alt="Instagram" />
+          <a href="https://t.me/cartsaz-shop" target="_blank">
+            <img src={telegram} alt="Telegram" />
+          </a>
+          <a href="https://instagram.com/cartsaz" target="_blank">
+            <img src={instagram} alt="Instagram" />
+          </a>
         </div>
         <div className="flex flex-col-reverse sm:flex-row justify-center items-center">
           <p className="hidden sm:flex mr-7">کارت ساز - ۱۴۰۴</p>

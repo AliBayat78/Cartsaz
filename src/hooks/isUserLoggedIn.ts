@@ -5,8 +5,9 @@ export const isUserLoggedIn = () => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user') || 'null')
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null')
 
-    if (user) {
+    if (user && currentUser) {
       setIsLoggedIn(true)
     } else {
       setIsLoggedIn(false)

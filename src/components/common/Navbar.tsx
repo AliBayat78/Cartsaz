@@ -1,8 +1,11 @@
 import logo from '../../assets/logoes & images/logo.png'
 import Button from '@mui/material/Button'
 import { NavLink } from 'react-router-dom'
+import { isUserLoggedIn } from '../../hooks/isUserLoggedIn'
 
 const Navbar = () => {
+  const isLoggedIn = isUserLoggedIn()
+
   return (
     <div className="flex flex-row justify-between items-center fixed top-0 py-4 w-full bg-white z-10">
       <div style={{ direction: 'rtl' }} className="flex flex-row justify-between items-center">
@@ -17,7 +20,7 @@ const Navbar = () => {
             تماس با ما
           </NavLink>
         </div>
-        <div className="ml-4 sm:ml-16">
+        <div className={`ml-4 sm:ml-16 ${isLoggedIn ? 'hidden' : ''}`}>
           <NavLink to="/login">
             <Button size="large" variant="outlined">
               ورود یا ثبت نام

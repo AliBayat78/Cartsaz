@@ -2,6 +2,7 @@ import cartShopLogo from '../assets/CartShop-logo.png'
 import { useState } from 'react'
 import Footer from '../../common/Footer'
 import ContactUs from './ContactUs'
+import { NavLink } from 'react-router-dom'
 
 const AuthenticatedHome = () => {
   const [displaySection, setDisplaySection] = useState<string>('contact-us')

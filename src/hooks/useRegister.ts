@@ -20,7 +20,15 @@ export const useRegister = () => {
         title: 'خطا',
         text: 'شما قبلا ثبت نام کرده اید',
         icon: 'error',
-        confirmButtonText: 'باشه',
+        showDenyButton: true,
+        confirmButtonText: 'برو به صفحه ورود',
+        denyButtonText: 'باشه',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/')
+        } else if (result.isDenied) {
+          return
+        }
       })
     } else {
       try {

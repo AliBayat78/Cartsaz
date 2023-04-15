@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/useAuth'
 import { NavLink } from 'react-router-dom'
 import { RTLTextField } from '../components/common/RtlTextField'
 import Swal from 'sweetalert2'
+import LogoutModal from '../components/common/LogoutModal'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<UserInfo>()

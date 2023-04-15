@@ -12,13 +12,13 @@ import { useRegister } from '../hooks/useRegister'
 import { isUserLoggedIn } from '../hooks/isUserLoggedIn'
 import { ColorRing } from 'react-loader-spinner'
 import { useAuth } from '../hooks/useAuth'
-import SwalLoggedInModal from '../components/common/SwalLoggedInModal'
+import { useNavigate } from 'react-router-dom'
+import LogoutModal from '../components/common/logoutModal'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 
 const Register = () => {
   const isLoggedIn = isUserLoggedIn()
-  const { logout } = useAuth()
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Register = () => {
           />
         </div>
       ) : isLoggedIn ? (
-        <SwalLoggedInModal />
+        <LogoutModal />
       ) : (
         <div className="w-full h-auto flex flex-col items-center">
           <nav className="h-20 w-full flex justify-end items-center px-20 border border-b-silver">

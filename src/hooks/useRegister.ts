@@ -15,27 +15,35 @@ export const useRegister = () => {
       Username,
       Password,
     }
-    try {
-      localStorage.setItem('user', JSON.stringify(userData))
-      setUser(userData)
-      Swal.fire({
-        title: 'ثبت نام موفقیت آمیز بود',
-        text: 'مشخصات شما با موفقیت ثبت شد',
-        icon: 'success',
-        confirmButtonText: 'ادامه',
-      })
-      navigate('/login')
-    } catch (error) {
+    if (localStorage.getItem('user')) {
       Swal.fire({
         title: 'خطا',
-        text: 'ثبت نام موفقیت آمیز نبود',
+        text: 'شما قبلا ثبت نام کرده اید',
         icon: 'error',
         confirmButtonText: 'باشه',
       })
-      console.log(error)
+    } else {
+      try {
+        localStorage.setItem('user', JSON.stringify(userData))
+        setUser(userData)
+        Swal.fire({
+          title: 'ثبت نام موفقیت آمیز بود',
+          text: 'مشخصات شما با موفقیت ثبت شد',
+          icon: 'success',
+          confirmButtonText: 'ادامه',
+        })
+        navigate('/login')
+      } catch (error) {
+        Swal.fire({
+          title: 'خطا',
+          text: 'ثبت نام موفقیت آمیز نبود',
+          icon: 'error',
+          confirmButtonText: 'باشه',
+        })
+        console.log(error)
+      }
     }
   }
-
   return {
     user,
     registerUser,

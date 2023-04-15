@@ -39,9 +39,7 @@ const Footer = () => {
               تماس با ما
             </NavLink>
           </div>
-          <NavLink to="/">
-            <img src={logo} alt="CartSaz" />
-          </NavLink>
+          <img src={logo} alt="CartSaz" />
         </div>
       </div>
     </div>

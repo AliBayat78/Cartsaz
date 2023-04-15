@@ -25,7 +25,7 @@ export const useRegister = () => {
         denyButtonText: 'باشه',
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/')
+          navigate('/login')
         } else if (result.isDenied) {
           return
         }

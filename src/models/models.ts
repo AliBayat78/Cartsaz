@@ -20,3 +20,7 @@ export interface useAuthReturnType {
   logout: () => void
   errorMessage: string | undefined
 }
+
+export interface Products {
+  
+}

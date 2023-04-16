@@ -2,7 +2,6 @@ import cartShopLogo from '../assets/CartShop-logo.png'
 import { useState } from 'react'
 import Footer from '../../common/Footer'
 import ContactUs from './ContactUs'
-import { NavLink } from 'react-router-dom'
 import Products from './Products'
 
 const AuthenticatedHome = () => {
@@ -43,7 +42,13 @@ const AuthenticatedHome = () => {
           <img className="2xs:w-[80px] 2xs:h-[80px] lg:w-[120px] lg:h-[120px]" src={cartShopLogo} />
         </div>
       </div>
-      <div className="mt-44">{displaySection === 'contact-us' ? <ContactUs /> : <Products />}</div>
+      <div
+        className={`relative top-[152px] ${
+          displaySection === 'contact-us' ? 'overflow-y-hidden' : 'overflow-y-scroll'
+        }`}
+      >
+        {displaySection === 'contact-us' ? <ContactUs /> : <Products />}
+      </div>
       <Footer />
     </div>
   )

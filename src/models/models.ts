@@ -21,6 +21,9 @@ export interface useAuthReturnType {
   errorMessage: string | undefined
 }
 
-export interface Products {
-  
+export type ProductCartTypes = {
+  imageSource: string
+  title: string
+  description: string
+  price: string
 }

@@ -8,6 +8,8 @@ import ContactUsPage from './pages/Contact-us'
 import Questions from './pages/Questions'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import { Provider } from 'react-redux'
+import { store } from './redux/store/store'
 
 const router = createBrowserRouter([
   {
@@ -35,8 +37,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <div className="flex flex-col items-center w-screen h-screen overflow-x-hidden">
-      <RouterProvider router={router} />
-    </div>
+    <Provider store={store}>
+      <div className="flex flex-col items-center w-screen h-screen overflow-x-hidden">
+        <RouterProvider router={router} />
+      </div>
+    </Provider>
   </React.StrictMode>,
 )

@@ -1,9 +1,5 @@
-type ProductCartTypes = {
-  imageSource: string
-  title: string
-  description: string
-  price: string
-}
+import { ProductCartTypes } from "../../models/models"
+
 
 const ProductCard: React.FC<ProductCartTypes> = ({ imageSource, title, description, price }) => {
   return (

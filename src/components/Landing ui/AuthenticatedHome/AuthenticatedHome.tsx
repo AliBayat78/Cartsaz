@@ -9,7 +9,7 @@ const AuthenticatedHome = () => {
 
   return (
     <div
-      className={`flex flex-col justify-between items-center w-full h-screen ${
+      className={`flex flex-col justify-between items-center w-full overflow-x-hidden h-screen ${
         displaySection === 'contact-us' ? 'overflow-y-hidden' : 'overflow-y-scroll'
       }`}
     >

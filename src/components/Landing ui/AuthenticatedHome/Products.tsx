@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <div className="flex flex-col justify-end items-end w-screen h-auto">
-      <div className="2xs:w-[250px] xs:w-[340px] small:w-[360px] mr-4 relative">
+      <div className="2xs:w-[250px] xs:w-[340px] small:w-[360px] relative mr-4">
         <img className="absolute top-8 left-4" src={searchItem} alt="?" />
         <RTLTextField
           dir="rtl"

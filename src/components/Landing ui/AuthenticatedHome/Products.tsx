@@ -18,7 +18,7 @@ const Products = () => {
           multiline
         />
       </div>
-      <div className="flex flex-row gap-8 2xs:w-[100vw] justify-center items-center sm:w-[90vw] flex-wrap xl:justify-start mt-8">
+      <div className="flex flex-row gap-8 2xs:w-[100vw] justify-center items-center sm:w-[90vw] flex-wrap xl:justify-start my-8">
         {products.map((product) => {
           return (
             <ProductCard

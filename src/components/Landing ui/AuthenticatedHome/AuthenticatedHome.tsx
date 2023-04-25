@@ -8,7 +8,11 @@ const AuthenticatedHome = () => {
   const [displaySection, setDisplaySection] = useState<string>('contact-us')
 
   return (
-    <div className="flex flex-col justify-between items-center w-full h-screen">
+    <div
+      className={`flex flex-col justify-between items-center w-full h-screen ${
+        displaySection === 'contact-us' ? 'overflow-y-hidden' : 'overflow-y-scroll'
+      }`}
+    >
       <div className="flex sm:flex-row 2xs:flex-col-reverse 2xs:justify-end 2xs:items-center sm:justify-between sm:items-center fixed top-0 py-4 w-full h-[152px] rounded-b-lg bg-primary z-10">
         <div className="2xs:ml-0 sm:ml-4 lg:ml-16 bg-white 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg 2xs:mt-10  sm:mt-36 border border-silver relative">
           <button
@@ -42,11 +46,7 @@ const AuthenticatedHome = () => {
           <img className="2xs:w-[80px] 2xs:h-[80px] lg:w-[120px] lg:h-[120px]" src={cartShopLogo} />
         </div>
       </div>
-      <div
-        className={`relative top-[152px] ${
-          displaySection === 'contact-us' ? 'overflow-y-hidden' : 'overflow-y-scroll'
-        }`}
-      >
+      <div className={`relative top-[152px]`}>
         {displaySection === 'contact-us' ? <ContactUs /> : <Products />}
       </div>
       <Footer />

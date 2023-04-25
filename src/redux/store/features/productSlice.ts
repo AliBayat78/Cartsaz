@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import ProductCard from '../../../components/common/ProductCard'
 import { ProductCartTypes } from '../../../models/models'
 
 const initialState: ProductCartTypes[] = [
@@ -71,7 +70,18 @@ const initialState: ProductCartTypes[] = [
 export const ProductSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    findProduct: (state, action: PayloadAction<string>) => {
+      if (action.payload === '') {
+        return initialState
+      }
+      return initialState.filter((product) =>
+        product.title.toLowerCase().includes(action.payload.toLowerCase().trim()),
+      )
+    },
+  },
 })
+
+export const { findProduct } = ProductSlice.actions
 
 export default ProductSlice.reducer

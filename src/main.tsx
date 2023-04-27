@@ -10,6 +10,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
+import Profile from './pages/Profile/Profile'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />,
   },
+  { path: '/profile', element: <Profile /> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -220,6 +220,10 @@
   /*? Responsive */
   /** Mobile Phones (360px down) */
   @media only screen and (max-width: 360px) {
+    .body-lg {
+      font-size: 14px;
+    }
+
     .body-sm {
       font-size: 12px;
       line-height: 28.8px;
@@ -237,7 +241,7 @@
   }
 
   /** Mobile Phones (576px down) */
-  @media (max-width: 576px) {
+  @media (max-width: 576px) and (min-width: 360px) {
     .display1 {
       font-size: 48px;
       line-height: 60px;
@@ -275,7 +279,7 @@
     }
 
     h6 {
-      font-size: 20px;
+      font-size: 16px;
       line-height: 28px;
     }
 
@@ -285,7 +289,7 @@
     }
 
     .body-lg {
-      font-size: 20px;
+      font-size: 16px;
       line-height: 36px;
     }
 

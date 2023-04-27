@@ -11,6 +11,10 @@ import Login from './pages/Login'
 import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
 import Profile from './pages/Profile/Profile'
+import CallInformation from './pages/Profile/children routes/call-info'
+import VitrinProducts from './pages/Profile/children routes/vitrin-products'
+import VitrinSetting from './pages/Profile/children routes/vitrin-setting'
+import QRcode from './pages/Profile/children routes/QRcode'
 
 const router = createBrowserRouter([
   {
@@ -34,7 +38,26 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />,
   },
-  { path: '/profile', element: <Profile /> },
+  {
+    path: '/profile',
+    element: <Profile />,
+  },
+  {
+    path: '/profile/vitrin-products',
+    element: <VitrinProducts />,
+  },
+  {
+    path: '/profile/vitrin-setting',
+    element: <VitrinSetting />,
+  },
+  {
+    path: '/profile/call-info',
+    element: <CallInformation />,
+  },
+  {
+    path: '/profile/QRcode',
+    element: <QRcode />,
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -3,9 +3,14 @@ import { useState } from 'react'
 import Footer from '../../common/Footer'
 import ContactUs from './ContactUs'
 import Products from './Products'
+import profile from '../assets/profile.png'
+import shoppingCard from '../assets/shop-card.png'
+import { useNavigate } from 'react-router-dom'
 
 const AuthenticatedHome = () => {
   const [displaySection, setDisplaySection] = useState<string>('contact-us')
+
+  const navigate = useNavigate()
 
   return (
     <div
@@ -38,7 +43,21 @@ const AuthenticatedHome = () => {
           ></div>
         </div>
 
-        <div className="flex flex-row mr-16 2xs:mr-2">
+        <div className="flex flex-row justify-center items-center mr-16 2xs:mr-2">
+          <div className="hidden md:flex flex-row justify-center items-center mt-36 mr-12">
+            <div className="cursor-pointer mr-10 flex flex-col justify-center items-center text-center bg-white w-[64px] h-[64px] rounded-full">
+              <img className="w-[30px] mr-1 mt-1" src={shoppingCard} alt="shop-card" />
+              <span className="text-primary body-md">0</span>
+            </div>
+            <img
+              className="cursor-pointer"
+              onClick={() => {
+                navigate('/profile')
+              }}
+              src={profile}
+              alt="profile"
+            />
+          </div>
           <div className="flex flex-col justify-center items-center mr-4">
             <h5 className="text-white">فروشگاه کارت ساز</h5>
             <p className="body-xs 2xs:text-white">فروشگاه پیرهن،کفش و البسه</p>

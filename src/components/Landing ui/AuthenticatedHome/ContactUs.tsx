@@ -6,7 +6,7 @@ import shop from '../assets/shop.png'
 
 const ContactUs = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mt-10">
       <div className="flex flex-row justify-between items-center bg-baby-pink 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg sm:mt-4">
         <p
           style={{ direction: 'ltr' }}

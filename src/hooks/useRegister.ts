@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo } from '../models/models'
 
@@ -10,11 +10,18 @@ export const useRegister = () => {
     Password: '',
   })
 
+  // useEffect(() => {
+  //   const savedUser = JSON.parse(localStorage.getItem('user') || 'null')
+  //   setUser({ Username: savedUser.Username, Password: savedUser.Password })
+  //   console.log(user)
+  // }, [])
+
   const registerUser = ({ Username, Password }: UserInfo) => {
     const userData = {
       Username,
       Password,
     }
+
     if (localStorage.getItem('user')) {
       Swal.fire({
         title: 'خطا',

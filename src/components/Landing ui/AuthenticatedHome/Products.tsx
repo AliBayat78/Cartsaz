@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ProductCartTypes } from '../../../models/models'
 import { findProduct } from '../../../redux/store/features/productSlice'
 import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import ProductCard from '../../common/ProductCard'

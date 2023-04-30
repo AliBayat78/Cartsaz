@@ -47,11 +47,11 @@ const Profile = () => {
       <nav className="flex flex-row justify-between items-center w-full h-16 border border-b-silver p-2">
         <div
           style={{ padding: '1px 6px 3px 6px', borderRadius: '40px' }}
-          className="ml-8 text-success bg-success-bg border border-success"
+          className="sm:ml-8 text-success bg-success-bg border border-success"
         >
           فعال
         </div>
-        <div className="mr-8 gap-4 flex flex-row justify-center items-center">
+        <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>ویترین شما</p>
           <img
             onClick={() => navigate(-1)}

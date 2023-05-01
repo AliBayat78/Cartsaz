@@ -46,6 +46,12 @@ export default {
         'royal-blue': '#0182FE',
         peach: '#FFE7DF',
         'bright-red': '#FE3E01',
+        orchid: '#D21DA0',
+        scarlet: '#D21D1D',
+        'royal-purple': '#6D1DD2',
+        teal: '#1D767B',
+        cinnamon: '#AF6E21',
+        'vivid-green': '#4D842B',
       },
 
       screens: {

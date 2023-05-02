@@ -65,6 +65,13 @@ const initialState: ProductCartTypes[] = [
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
     price: '256.000',
   },
+  {
+    imageSource: 'https://s8.uupload.ir/files/product-image_u86x.png',
+    title: 'مانیتور مخصوص بازی',
+    description:
+      'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
+    price: '256.000',
+  },
 ]
 
 export const ProductSlice = createSlice({

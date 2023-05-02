@@ -1,3 +1,4 @@
+import { VitrinSlice } from './features/vitrinSlice'
 import { ProductSlice } from './features/productSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
@@ -7,6 +8,7 @@ import { useSelector } from 'react-redux/es/exports'
 export const store = configureStore({
   reducer: {
     products: ProductSlice.reducer,
+    vitrin: VitrinSlice.reducer,
   },
 })
 

@@ -8,9 +8,21 @@ import shop from './assets/shop.png'
 import call from './assets/call.png'
 import QRcode from './assets/scan-barcode.png'
 import Swal from 'sweetalert2'
+import { useEffect, useId } from 'react'
+import { addVitrinUrl } from '../../redux/store/features/vitrinSlice'
+import { useDispatch } from 'react-redux'
 
 const Profile = () => {
   const navigate = useNavigate()
+  const id = useId()
+  const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null')
+  const vitrinUrl = `${window.location.origin}/${currentUser.Username}?${id}`
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(addVitrinUrl(vitrinUrl))
+  }, [])
 
   const Toast = Swal.mixin({
     toast: true,
@@ -26,7 +38,7 @@ const Profile = () => {
 
   const copyClipboard = async () => {
     navigator.clipboard
-      .writeText('cartsaz.com')
+      .writeText(vitrinUrl)
       .then(() =>
         Toast.fire({
           icon: 'success',
@@ -68,7 +80,9 @@ const Profile = () => {
 
         <div className="mt-5 2xs:w-[230px] sm:w-[350px] h-[100px] rounded-2xl flex flex-col border border-light-silver justify-between items-center">
           <div className="flex justify-center items-center h-full">
-            <p className="text-primary">Cartsaz.com</p>
+            <p style={{ direction: 'ltr' }} className="text-primary">
+              {vitrinUrl}
+            </p>
           </div>
           <div
             onClick={() => copyClipboard()}

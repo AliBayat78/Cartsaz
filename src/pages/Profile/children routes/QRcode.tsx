@@ -42,23 +42,23 @@ const QRcode = () => {
           <QRCode value={vitrinUrl} size={128} fgColor="#000000" bgColor="#ffffff" level="L" />
         </div>
 
-        <div className="mt-4 flex flex-col justify-center items-center w-full">
+        <div className="2xs:w-[260px] sm:w-[350px] mt-4 flex flex-col justify-center items-center w-full">
           <button
             onClick={() => window.print()}
-            className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-light-silver rounded-lg mt-4 flex flex-row justify-center items-center gap-3"
+            className="w-full h-[56px] bg-light-silver rounded-lg mt-4 flex flex-row justify-center items-center gap-3"
           >
             <p className="button-sm">پرینت مستقیم</p>
             <img src={printer} alt="print" />
           </button>
           <button
             onClick={() => handleScreenshot()}
-            className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg mt-2 flex flex-row justify-center items-center gap-3"
+            className="w-full h-[56px] bg-primary text-white rounded-lg mt-2 flex flex-row justify-center items-center gap-3"
           >
             <p className="button-sm text-white">دانلود تصویر</p>
             <img src={arrowDown} alt="download" />
           </button>
 
-          <p className="mt-4 body-xs">
+          <p className="w-full mt-4 body-xs">
             این qur کد اختصاصی ویترین فروشگاه شماست که میتوانید آن را چاپ کرده و در مغازه یا فروشگاه
             خود درج کنید تا کاربران به راحتی با اسکن این تصویر به ویترین شما بیایند و محصولات شما را
             به صورت دیجیتالی مشاهده کنند.

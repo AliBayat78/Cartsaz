@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { useState, useEffect } from 'react'
+import { useId, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo } from '../models/models'
 
@@ -8,21 +8,22 @@ export const useRegister = () => {
   const [user, setUser] = useState<UserInfo>({
     Username: '',
     Password: '',
+    VitrinUrl: '',
   })
-
-  // useEffect(() => {
-  //   const savedUser = JSON.parse(localStorage.getItem('user') || 'null')
-  //   setUser({ Username: savedUser.Username, Password: savedUser.Password })
-  //   console.log(user)
-  // }, [])
+  const id = useId()
 
   const registerUser = ({ Username, Password }: UserInfo) => {
     const userData = {
       Username,
       Password,
+      VitrinUrl: `${window.location.origin}/profile/${Username}?${id}`,
     }
 
-    if (localStorage.getItem('user')) {
+    const localStorageUserValue = JSON.parse(localStorage.getItem('user') || 'null')
+    const isUserAlreadyRegistered =
+      localStorageUserValue !== null && localStorageUserValue.Username === Username
+
+    if (localStorage.getItem('user') && isUserAlreadyRegistered) {
       Swal.fire({
         title: 'خطا',
         text: 'شما قبلا ثبت نام کرده اید',

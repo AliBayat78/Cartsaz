@@ -1,6 +1,7 @@
 export interface UserInfo {
   Username: string
   Password: string
+  VitrinUrl: string
 }
 
 export interface RegisterInputs {

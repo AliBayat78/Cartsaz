@@ -59,6 +59,10 @@ const router = createBrowserRouter([
     path: '/profile/QRcode',
     element: <QRcode />,
   },
+  {
+    path: '/profile/:profileId',
+    element: <PersonalVitrin />,
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

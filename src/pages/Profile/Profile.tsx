@@ -8,21 +8,12 @@ import shop from './assets/shop.png'
 import call from './assets/call.png'
 import QRcode from './assets/scan-barcode.png'
 import Swal from 'sweetalert2'
-import { useEffect, useId } from 'react'
-import { addVitrinUrl } from '../../redux/store/features/vitrinSlice'
-import { useDispatch } from 'react-redux'
 
 const Profile = () => {
   const navigate = useNavigate()
-  const id = useId()
-  const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null')
-  const vitrinUrl = `${window.location.origin}/${currentUser.Username}?${id}`
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(addVitrinUrl(vitrinUrl))
-  }, [])
+  const localStorageUserValue = JSON.parse(localStorage.getItem('user') || 'null')
+  const vitrinUrl = localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
 
   const Toast = Swal.mixin({
     toast: true,

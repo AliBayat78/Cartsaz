@@ -5,13 +5,17 @@ import arrowDown from '../assets/arrow-down.png'
 import printer from '../assets/printer.png'
 import { useRef } from 'react'
 import html2canvas from 'html2canvas'
+import { localStorageCurrentUser } from '../../../models/models'
 
 const QRcode = () => {
   const navigate = useNavigate()
   const qrcodeRef = useRef<HTMLDivElement | null>(null)
 
-  const localStorageUserValue = JSON.parse(localStorage.getItem('user') || 'null')
-  const vitrinUrl = localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
+  const localStorageUserValue: localStorageCurrentUser | null = JSON.parse(
+    localStorage.getItem('currentUser') || 'null',
+  )
+  const vitrinUrl: string =
+    localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
 
   const handleScreenshot = () => {
     html2canvas(qrcodeRef.current!).then((canvas) => {

@@ -4,6 +4,11 @@ export interface UserInfo {
   VitrinUrl: string
 }
 
+export interface localStorageCurrentUser {
+  Username: string
+  VitrinUrl: string
+}
+
 export interface RegisterInputs {
   fullName: string
   User: UserInfo
@@ -14,7 +19,6 @@ export interface RegisterInputs {
   address?: string
   postCode?: string
 }
-
 export interface useAuthReturnType {
   userCredentials: UserInfo | null
   login: (data: UserInfo) => void

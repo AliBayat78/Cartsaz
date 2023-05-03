@@ -9,10 +9,13 @@ import { RTLTextField } from '../components/common/RtlTextField'
 import LogoutModal from '../components/common/LogoutModal'
 import { ColorRing } from 'react-loader-spinner'
 import { isUserLoggedIn } from '../hooks/isUserLoggedIn'
+import { useAppSelector } from '../redux/store/store'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState<UserInfo>()
   const [loading, setLoading] = useState<boolean>(true)
+
+  const registeredUser = useAppSelector((state) => state.register)
 
   const isLoggedIn = isUserLoggedIn()
 
@@ -20,6 +23,7 @@ const Login = () => {
     setTimeout(() => {
       setLoading(false)
     }, 2000)
+    console.log(registeredUser.length)
   }, [])
 
   const { login, errorMessage } = useAuth()

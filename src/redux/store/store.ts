@@ -4,11 +4,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { TypedUseSelectorHook } from 'react-redux/es/types'
 import { useSelector } from 'react-redux/es/exports'
+import { RegisterSlice } from './features/registerSlice'
 
 export const store = configureStore({
   reducer: {
     products: ProductSlice.reducer,
     vitrin: VitrinSlice.reducer,
+    register: RegisterSlice.reducer,
   },
 })
 

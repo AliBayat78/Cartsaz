@@ -8,12 +8,16 @@ import shop from './assets/shop.png'
 import call from './assets/call.png'
 import QRcode from './assets/scan-barcode.png'
 import Swal from 'sweetalert2'
+import { localStorageCurrentUser } from '../../models/models'
 
 const Profile = () => {
   const navigate = useNavigate()
 
-  const localStorageUserValue = JSON.parse(localStorage.getItem('user') || 'null')
-  const vitrinUrl = localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
+  const localStorageUserValue: localStorageCurrentUser | null = JSON.parse(
+    localStorage.getItem('currentUser') || 'null',
+  )
+  const vitrinUrl: string =
+    localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
 
   const Toast = Swal.mixin({
     toast: true,
@@ -77,7 +81,7 @@ const Profile = () => {
           </div>
           <div
             onClick={() => copyClipboard()}
-            className="cursor-pointer flex flex-row gap-2 justify-center items-center w-full h-[48px] bg-light-silver rounded-xl"
+            className="cursor-pointer flex flex-row gap-2 justify-center items-center w-full h-[48px] bg-light-silver rounded-lg"
           >
             <p className="button-sm">کپی لینک ویترین شما</p>
             <img src={copy} alt="copy" />

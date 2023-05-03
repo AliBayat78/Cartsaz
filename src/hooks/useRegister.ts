@@ -1,7 +1,10 @@
+import { useAppSelector } from './../redux/store/store'
+import { useDispatch } from 'react-redux'
 import Swal from 'sweetalert2'
 import { useId, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo } from '../models/models'
+import { addUser } from '../redux/store/features/registerSlice'
 
 export const useRegister = () => {
   const navigate = useNavigate()
@@ -12,6 +15,9 @@ export const useRegister = () => {
   })
   const id = useId()
 
+  const dispatch = useDispatch()
+  const registeredUser = useAppSelector((state) => state.register)
+
   const registerUser = ({ Username, Password }: UserInfo) => {
     const userData = {
       Username,
@@ -19,11 +25,10 @@ export const useRegister = () => {
       VitrinUrl: `${window.location.origin}/profile/${Username}?${id}`,
     }
 
-    const localStorageUserValue = JSON.parse(localStorage.getItem('user') || 'null')
     const isUserAlreadyRegistered =
-      localStorageUserValue !== null && localStorageUserValue.Username === Username
+      registeredUser.length > 0 && registeredUser.filter((user) => user.Username === Username)
 
-    if (localStorage.getItem('user') && isUserAlreadyRegistered) {
+    if (isUserAlreadyRegistered) {
       Swal.fire({
         title: 'خطا',
         text: 'شما قبلا ثبت نام کرده اید',
@@ -40,7 +45,7 @@ export const useRegister = () => {
       })
     } else {
       try {
-        localStorage.setItem('user', JSON.stringify(userData))
+        dispatch(addUser(userData))
         setUser(userData)
         Swal.fire({
           title: 'ثبت نام موفقیت آمیز بود',

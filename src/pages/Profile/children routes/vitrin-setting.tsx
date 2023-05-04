@@ -1,10 +1,22 @@
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RTLTextField } from '../../../components/common/RtlTextField'
+import {
+  addLogoImage,
+  addShortDescription,
+  addVitrinColor,
+} from '../../../redux/store/features/vitrinSlice'
+import { useAppSelector } from '../../../redux/store/store'
 import arrowRight from '../assets/arrow-right.png'
 import arrowUp from '../assets/arrow-up.png'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
+
+  let color = vitrinSettingProperties.vitrinSetting.VitrinColor
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -31,14 +43,29 @@ const VitrinSetting = () => {
           <p className="body-xs">تصویر لوگو حتما باید مربع باشد.</p>
         </div>
         <div className="w-full flex flex-col justify-center items-center mt-4">
-          <div className="cursor-pointer relative flex flex-row justify-center items-center w-[175px] h-[207px] rounded-lg bg-pale-blue border border-primary">
-            <input
-              type="file"
-              className="opacity-0 cursor-pointer absolute top-0 left-0 bottom-0 right-0 w-full h-full"
-            />
-            <p className="mr-2 button-sm text-primary">آپلود عکس</p>
-            <img src={arrowUp} alt="upload" />
-          </div>
+          {vitrinSettingProperties.vitrinSetting.LogoImage === '' ? (
+            <div className="cursor-pointer relative flex flex-row justify-center items-center w-[175px] h-[207px] rounded-lg bg-pale-blue border border-primary">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  if (!e.target.files) return
+                  dispatch(addLogoImage(URL.createObjectURL(e.target.files[0])))
+                }}
+                className="opacity-0 cursor-pointer absolute top-0 left-0 bottom-0 right-0 w-full h-full"
+              />
+              <p className="mr-2 button-sm text-primary">آپلود عکس</p>
+              <img src={arrowUp} alt="upload" />
+            </div>
+          ) : (
+            <div className="relative flex flex-row justify-center items-center w-[175px] h-[207px] rounded-lg bg-pale-blue border border-primary">
+              <img
+                className="w-full h-full rounded-lg"
+                src={vitrinSettingProperties.vitrinSetting.LogoImage}
+                alt="your-Logo"
+              />
+            </div>
+          )}
           <div className="z-10 w-[175px] h-[32px] rounded-b-lg bg-white -mt-8 text-center border border-t-0 border-primary">
             تصویر اصلی (1)
           </div>
@@ -55,31 +82,103 @@ const VitrinSetting = () => {
 
         <div className="w-full flex flex-col justify-center items-center mt-4">
           <div className="flex flex-row justify-center items-center gap-4">
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-black"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#000000'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-black flex justify-center items-center">
+                {color === '#000000' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-black text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-orchid"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#D21DA0'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-orchid flex justify-center items-center">
+                {color === '#D21DA0' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-orchid text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-scarlet"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#D21D1D'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-scarlet flex justify-center items-center">
+                {color === '#D21D1D' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-scarlet text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-primary"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#0182FE'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-primary flex justify-center items-center">
+                {color === '#0182FE' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-primary text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
           <div className="flex flex-row justify-center items-center gap-4 mt-4">
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-royal-purple"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#6D1DD2'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-royal-purple flex justify-center items-center">
+                {color === '#6D1DD2' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-royal-purple text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-teal"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#1D767B'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-teal flex justify-center items-center">
+                {color === '#1D767B' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-teal text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-cinnamon"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#AF6E21'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-cinnamon flex justify-center items-center">
+                {color === '#AF6E21' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-cinnamon text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
-            <div className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center">
-              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-vivid-green"></div>
+            <div
+              onClick={() => dispatch(addVitrinColor('#4D842B'))}
+              className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
+            >
+              <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-vivid-green flex justify-center items-center">
+                {color === '#4D842B' ? (
+                  <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
+                    <span className="text-vivid-green text-lg">&#10003;</span>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
@@ -90,8 +189,8 @@ const VitrinSetting = () => {
             sx={{ marginTop: '8px', width: '100%' }}
             label="توضیح مختصر"
             placeholder="فروش محصولات دیجیتال و سرگرمی"
-            // {...register('phoneNumber')}
             dir="rtl"
+            onChange={(e) => dispatch(addShortDescription(e.target.value))}
           />
         </div>
       </main>

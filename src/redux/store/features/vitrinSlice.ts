@@ -1,23 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 interface vitrinSliceTypes {
-  vitrinUrl: string
+  vitrinSetting: {
+    LogoImage: string
+    VitrinColor: string
+    ShortDescription: string
+  }
 }
 
 const initialState: vitrinSliceTypes = {
-  vitrinUrl: '',
+  vitrinSetting: {
+    LogoImage: '',
+    VitrinColor: '#0182FE',
+    ShortDescription: '',
+  },
 }
 
 export const VitrinSlice = createSlice({
   name: 'vitrin',
   initialState,
   reducers: {
-    addVitrinUrl: (state, action) => {
-      state.vitrinUrl = action.payload
+    addLogoImage: (state, action) => {
+      state.vitrinSetting.LogoImage = action.payload
+    },
+    addVitrinColor: (state, action) => {
+      state.vitrinSetting.VitrinColor = action.payload
+    },
+    addShortDescription: (state, action) => {
+      state.vitrinSetting.ShortDescription = action.payload
     },
   },
 })
 
-export const { addVitrinUrl } = VitrinSlice.actions
-
 export default VitrinSlice.reducer
+
+export const { addLogoImage, addVitrinColor, addShortDescription } = VitrinSlice.actions

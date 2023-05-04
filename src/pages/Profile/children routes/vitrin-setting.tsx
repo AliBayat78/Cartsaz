@@ -67,7 +67,7 @@ const VitrinSetting = () => {
             </div>
           )}
           <div className="z-10 w-[175px] h-[32px] rounded-b-lg bg-white -mt-8 text-center border border-t-0 border-primary">
-            تصویر اصلی (1)
+            تصویر اصلی
           </div>
         </div>
 

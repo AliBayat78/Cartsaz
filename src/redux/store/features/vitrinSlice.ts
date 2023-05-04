@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 interface vitrinSliceTypes {
   vitrinSetting: {
     LogoImage: string
-    VitrinColor: string
+    VitrinColor: {
+      colorName: string
+      colorCode: string
+    }
     ShortDescription: string
   }
 }
@@ -11,7 +14,10 @@ interface vitrinSliceTypes {
 const initialState: vitrinSliceTypes = {
   vitrinSetting: {
     LogoImage: '',
-    VitrinColor: '#0182FE',
+    VitrinColor: {
+      colorName: 'primary',
+      colorCode: '#0182FE',
+    },
     ShortDescription: '',
   },
 }

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import { RTLTextField } from '../../../components/common/RtlTextField'
 import {
   addLogoImage,
@@ -16,7 +17,7 @@ const VitrinSetting = () => {
   const dispatch = useDispatch()
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
 
-  let color = vitrinSettingProperties.vitrinSetting.VitrinColor
+  const colorCode = vitrinSettingProperties.vitrinSetting.VitrinColor.colorCode
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -83,11 +84,11 @@ const VitrinSetting = () => {
         <div className="w-full flex flex-col justify-center items-center mt-4">
           <div className="flex flex-row justify-center items-center gap-4">
             <div
-              onClick={() => dispatch(addVitrinColor('#000000'))}
+              onClick={() => dispatch(addVitrinColor({ colorName: 'black', colorCode: '#000000' }))}
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-black flex justify-center items-center">
-                {color === '#000000' ? (
+                {colorCode === '#000000' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-black text-lg">&#10003;</span>
                   </div>
@@ -95,11 +96,13 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#D21DA0'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'orchid', colorCode: '#D21DA0' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-orchid flex justify-center items-center">
-                {color === '#D21DA0' ? (
+                {colorCode === '#D21DA0' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-orchid text-lg">&#10003;</span>
                   </div>
@@ -107,11 +110,13 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#D21D1D'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'scarlet', colorCode: '#D21D1D' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-scarlet flex justify-center items-center">
-                {color === '#D21D1D' ? (
+                {colorCode === '#D21D1D' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-scarlet text-lg">&#10003;</span>
                   </div>
@@ -119,11 +124,13 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#0182FE'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'primary', colorCode: '#0182FE' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-primary flex justify-center items-center">
-                {color === '#0182FE' ? (
+                {colorCode === '#0182FE' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-primary text-lg">&#10003;</span>
                   </div>
@@ -133,11 +140,13 @@ const VitrinSetting = () => {
           </div>
           <div className="flex flex-row justify-center items-center gap-4 mt-4">
             <div
-              onClick={() => dispatch(addVitrinColor('#6D1DD2'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'royal-purple', colorCode: '#6D1DD2' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-royal-purple flex justify-center items-center">
-                {color === '#6D1DD2' ? (
+                {colorCode === '#6D1DD2' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-royal-purple text-lg">&#10003;</span>
                   </div>
@@ -145,11 +154,11 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#1D767B'))}
+              onClick={() => dispatch(addVitrinColor({ colorName: 'teal', colorCode: '#1D767B' }))}
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-teal flex justify-center items-center">
-                {color === '#1D767B' ? (
+                {colorCode === '#1D767B' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-teal text-lg">&#10003;</span>
                   </div>
@@ -157,11 +166,13 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#AF6E21'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'cinnamon', colorCode: '#AF6E21' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-cinnamon flex justify-center items-center">
-                {color === '#AF6E21' ? (
+                {colorCode === '#AF6E21' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-cinnamon text-lg">&#10003;</span>
                   </div>
@@ -169,11 +180,13 @@ const VitrinSetting = () => {
               </div>
             </div>
             <div
-              onClick={() => dispatch(addVitrinColor('#4D842B'))}
+              onClick={() =>
+                dispatch(addVitrinColor({ colorName: 'vivid-green', colorCode: '#4D842B' }))
+              }
               className="cursor-pointer border border-silver rounded-lg 2xs:w-[49px] sm:w-[79px] h-[49px] flex justify-center items-center"
             >
               <div className="2xs:w-[39px] sm:w-[69px] h-[39px] rounded-md bg-vivid-green flex justify-center items-center">
-                {color === '#4D842B' ? (
+                {colorCode === '#4D842B' ? (
                   <div className="bg-white w-[20px] h-[20px] rounded-full flex justify-center items-center">
                     <span className="text-vivid-green text-lg">&#10003;</span>
                   </div>
@@ -195,7 +208,17 @@ const VitrinSetting = () => {
         </div>
       </main>
 
-      <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-12">
+      <button
+        onClick={() =>
+          Swal.fire({
+            title: 'ذخیره شد',
+            text: 'تنظیمات شما با موفقیت ذخیره شد',
+            icon: 'success',
+            confirmButtonText: 'باشه',
+          })
+        }
+        className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-12"
+      >
         ذخیره تنظیمات
       </button>
     </div>

@@ -3,40 +3,40 @@ import { styled } from '@mui/system'
 
 export const RTLTextField = styled(TextField)({
   '& .MuiFormHelperText-root': {
-    transformOrigin: 'right !important',
+    transformOrigin: 'right',
     textAlign: 'right',
     direction: 'rtl',
   },
   '& label': {
-    transformOrigin: 'right !important',
-    right: '1.75rem !important',
+    transformOrigin: 'right',
+    right: '1.75rem',
     color: '#807D7B',
     fontWeight: 400,
     overflow: 'unset',
   },
   '& label.Mui-focused': {
-    transformOrigin: 'right !important',
+    transformOrigin: 'right',
     textAlign: 'right',
     direction: 'rtl',
   },
   '& .MuiInput-underline:after': {
-    transformOrigin: 'right !important',
+    transformOrigin: 'right',
     textAlign: 'right',
     direction: 'rtl',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      transformOrigin: 'right !important',
+      transformOrigin: 'right',
       textAlign: 'right',
       direction: 'rtl',
     },
     '&:hover fieldset': {
-      transformOrigin: 'right !important',
+      transformOrigin: 'right',
       textAlign: 'right',
       direction: 'rtl',
     },
     '&.Mui-focused fieldset': {
-      transformOrigin: 'right !important',
+      transformOrigin: 'right',
       textAlign: 'right',
       direction: 'rtl',
     },

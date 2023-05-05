@@ -14,24 +14,24 @@ export const useAuth = (): useAuthReturnType => {
   const login = (data: UserInfo) => {
     const authenticateUsername =
       registeredUser.length > 0
-        ? registeredUser.filter((user) => user.Username === data.Username)
+        ? registeredUser.filter((user) => user.User.Username === data.Username)
         : false
 
     const authenticatePassword =
       registeredUser.length > 0
-        ? registeredUser.filter((user) => user.Password === data.Password)
+        ? registeredUser.filter((user) => user.User.Password === data.Password)
         : false
 
     const authenticatedUser =
       registeredUser.length > 0
         ? registeredUser.filter(
-            (user) => user.Username === data.Username && user.Password === data.Password,
+            (user) => user.User.Username === data.Username && user.User.Password === data.Password,
           )
         : []
 
     const userInfo: localStorageCurrentUser = {
-      Username: authenticatedUser.length > 0 ? authenticatedUser[0].Username : '',
-      VitrinUrl: authenticatedUser.length > 0 ? authenticatedUser[0].VitrinUrl : '',
+      Username: authenticatedUser.length > 0 ? authenticatedUser[0].User.Username : '',
+      VitrinUrl: authenticatedUser.length > 0 ? authenticatedUser[0].User.VitrinUrl : '',
     }
 
     const doesUsernameExist =
@@ -46,9 +46,9 @@ export const useAuth = (): useAuthReturnType => {
     if (doesUsernameExist) {
       if (doesUsernameAndPasswordMatch) {
         setUserCredentials({
-          Username: authenticatedUser[0].Username,
-          Password: authenticatedUser[0].Password,
-          VitrinUrl: authenticatedUser[0].VitrinUrl,
+          Username: authenticatedUser[0].User.Username,
+          Password: authenticatedUser[0].User.Password,
+          VitrinUrl: authenticatedUser[0].User.VitrinUrl,
         })
         localStorage.setItem('currentUser', JSON.stringify(userInfo))
         Swal.fire({

@@ -1,7 +1,7 @@
+import { RegisterInputs } from './../../../models/models'
 import { createSlice } from '@reduxjs/toolkit'
-import { UserInfo } from '../../../models/models'
 
-const initialState: UserInfo[] = []
+const initialState: RegisterInputs[] = []
 
 export const RegisterSlice = createSlice({
   name: 'register',

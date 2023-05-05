@@ -36,7 +36,7 @@ const Register = () => {
   const { registerUser } = useRegister()
 
   const onSubmit = (data: RegisterInputs) => {
-    registerUser(data.User)
+    registerUser(data)
   }
 
   const handleChange = (e: SelectChangeEvent<string>) => {

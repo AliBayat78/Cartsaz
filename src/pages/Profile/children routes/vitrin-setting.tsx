@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { RTLTextField } from '../../../components/common/RtlTextField'
@@ -7,14 +6,14 @@ import {
   addShortDescription,
   addVitrinColor,
 } from '../../../redux/store/features/vitrinSlice'
-import { useAppSelector } from '../../../redux/store/store'
+import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import arrowRight from '../assets/arrow-right.png'
 import arrowUp from '../assets/arrow-up.png'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
 
   const colorCode = vitrinSettingProperties.vitrinSetting.VitrinColor.colorCode

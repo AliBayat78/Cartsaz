@@ -1,5 +1,4 @@
-import { useAppSelector } from './../redux/store/store'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from './../redux/store/store'
 import Swal from 'sweetalert2'
 import { useId, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -24,7 +23,7 @@ export const useRegister = () => {
   })
   const id = useId()
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const registeredUser = useAppSelector((state) => state.register)
 
   const registerUser = (props: RegisterInputs) => {

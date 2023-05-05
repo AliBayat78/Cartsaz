@@ -4,8 +4,7 @@ import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../components/common/RtlTextField'
 import { Controller, useForm } from 'react-hook-form'
 import { callInforMationTypes } from '../../../models/models'
-import { useAppSelector } from '../../../redux/store/store'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import { addCallInformation } from '../../../redux/store/features/vitrinSlice'
 
 const CallInformation = () => {
@@ -14,7 +13,7 @@ const CallInformation = () => {
   const { register, handleSubmit, control } = useForm<callInforMationTypes>()
 
   const registeredUser = useAppSelector((state) => state.register)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const onSubmit = (data: callInforMationTypes) => {
     dispatch(addCallInformation(data))

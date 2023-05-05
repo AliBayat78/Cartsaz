@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { callInforMationTypes } from '../../../models/models'
 import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import { addCallInformation } from '../../../redux/store/features/vitrinSlice'
+import Swal from 'sweetalert2'
 
 const CallInformation = () => {
   const navigate = useNavigate()
@@ -13,9 +14,16 @@ const CallInformation = () => {
   const { register, handleSubmit, control } = useForm<callInforMationTypes>()
 
   const registeredUser = useAppSelector((state) => state.register)
+  const callInformationState = useAppSelector((state) => state.vitrin).callInformation
   const dispatch = useAppDispatch()
 
   const onSubmit = (data: callInforMationTypes) => {
+    Swal.fire({
+      title: 'ذخیره شد',
+      text: 'اطلاعات تماس شما ذخیره شد',
+      icon: 'success',
+      confirmButtonText: 'باشه',
+    })
     dispatch(addCallInformation(data))
   }
 
@@ -40,7 +48,7 @@ const CallInformation = () => {
               <Controller
                 name="showContactInfo"
                 control={control}
-                defaultValue={false}
+                defaultValue={callInformationState.showContactInfo}
                 render={({ field }) => (
                   <Switch
                     {...field}
@@ -58,7 +66,7 @@ const CallInformation = () => {
               <Controller
                 name="showContactInfo"
                 control={control}
-                defaultValue={false}
+                defaultValue={callInformationState.showContactInfo}
                 render={({ field }) => (
                   <Switch
                     {...field}
@@ -90,6 +98,7 @@ const CallInformation = () => {
                 placeholder="09215487523"
                 {...register('phoneNumber')}
                 dir="rtl"
+                defaultValue={callInformationState.phoneNumber}
               />
             </div>
             <div className="w-full mt-4">
@@ -100,7 +109,9 @@ const CallInformation = () => {
                 placeholder="CartsazShop"
                 {...register('instagramId')}
                 dir="rtl"
-                defaultValue={registeredUser[0]?.instagram}
+                defaultValue={
+                  callInformationState.instagramId || registeredUser[0]?.instagram || ''
+                }
               />
             </div>
             <div className="w-full mt-4">
@@ -111,6 +122,7 @@ const CallInformation = () => {
                 placeholder="09215487523"
                 {...register('waNumber')}
                 dir="rtl"
+                defaultValue={callInformationState.waNumber}
               />
             </div>
             <div className="w-full mt-4">
@@ -121,6 +133,7 @@ const CallInformation = () => {
                 placeholder="@cartsazShop"
                 {...register('telegramId')}
                 dir="rtl"
+                defaultValue={callInformationState.telegramId}
               />
             </div>
             <div className="w-full mt-4">
@@ -137,7 +150,7 @@ const CallInformation = () => {
                 {...register('shopAddress')}
                 dir="rtl"
                 multiline
-                defaultValue={registeredUser[0]?.address}
+                defaultValue={callInformationState.shopAddress || registeredUser[0]?.address || ''}
               />
             </div>
           </div>

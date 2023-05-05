@@ -9,9 +9,12 @@ import call from './assets/call.png'
 import QRcode from './assets/scan-barcode.png'
 import Swal from 'sweetalert2'
 import { localStorageCurrentUser } from '../../models/models'
+import { useAppSelector } from '../../redux/store/store'
 
 const Profile = () => {
   const navigate = useNavigate()
+
+  const callInformation = useAppSelector((state) => state.vitrin).callInformation
 
   const localStorageUserValue: localStorageCurrentUser | null = JSON.parse(
     localStorage.getItem('currentUser') || 'null',
@@ -54,9 +57,13 @@ const Profile = () => {
       <nav className="flex flex-row justify-between items-center w-full h-16 border border-b-silver p-2">
         <div
           style={{ padding: '1px 6px 3px 6px', borderRadius: '40px' }}
-          className="sm:ml-8 text-success bg-success-bg border border-success"
+          className={`sm:ml-8 border ${
+            callInformation.phoneNumber
+              ? 'text-success bg-success-bg border-success'
+              : 'text-error-pale bg-error-bg border-error'
+          } `}
         >
-          فعال
+          {callInformation.phoneNumber ? 'فعال' : 'غیر فعال'}
         </div>
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>ویترین شما</p>
@@ -109,7 +116,11 @@ const Profile = () => {
           >
             <div className="flex flex-row justify-center items-center 2xs:gap-2 sm:gap-4">
               <img src={arrowLeft} alt="open" />
-              <p className="text-success body-lg">فعال</p>
+              <p
+                className={`${callInformation.phoneNumber ? 'text-success' : 'text-error'} body-lg`}
+              >
+                {callInformation.phoneNumber ? 'فعال' : 'غیر فعال'}
+              </p>
             </div>
             <div className="flex flex-row justify-center items-center 2xs:gap-2 sm:gap-4">
               <p className="body-lg">اطلاعات تماس</p>

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { callInforMationTypes } from '../../../models/models'
 
 interface vitrinSliceTypes {
   vitrinSetting: {
@@ -9,6 +10,7 @@ interface vitrinSliceTypes {
     }
     ShortDescription: string
   }
+  callInformation: callInforMationTypes
 }
 
 const initialState: vitrinSliceTypes = {
@@ -19,6 +21,15 @@ const initialState: vitrinSliceTypes = {
       colorCode: '#0182FE',
     },
     ShortDescription: '',
+  },
+
+  callInformation: {
+    phoneNumber: '',
+    instagramId: '',
+    waNumber: '',
+    telegramId: '',
+    shopAddress: '',
+    showContactInfo: false,
   },
 }
 
@@ -35,9 +46,12 @@ export const VitrinSlice = createSlice({
     addShortDescription: (state, action) => {
       state.vitrinSetting.ShortDescription = action.payload
     },
+    addCallInformation: (state,action) => {
+      state.callInformation = action.payload
+    }
   },
 })
 
 export default VitrinSlice.reducer
 
-export const { addLogoImage, addVitrinColor, addShortDescription } = VitrinSlice.actions
+export const { addLogoImage, addVitrinColor, addShortDescription, addCallInformation } = VitrinSlice.actions

@@ -32,3 +32,12 @@ export type ProductCartTypes = {
   description: string
   price: string
 }
+
+export interface callInforMationTypes {
+  phoneNumber: string
+  instagramId: string
+  waNumber: string
+  telegramId: string
+  shopAddress: string
+  showContactInfo: boolean
+}

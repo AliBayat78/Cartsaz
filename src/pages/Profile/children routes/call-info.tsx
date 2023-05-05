@@ -1,26 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import arrowRight from '../assets/arrow-right.png'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../components/common/RtlTextField'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
+import { callInforMationTypes } from '../../../models/models'
+import { useAppSelector } from '../../../redux/store/store'
+import { useDispatch } from 'react-redux'
+import { addCallInformation } from '../../../redux/store/features/vitrinSlice'
 
 const CallInformation = () => {
   const navigate = useNavigate()
 
-  interface callInforMationTypes {
-    phoneNumber: string
-    instagramId: string
-    waNumber: string
-    telegramId: string
-    shopAddress: string
-    isShown: boolean
+  const { register, handleSubmit, control } = useForm<callInforMationTypes>()
+
+  const registeredUser = useAppSelector((state) => state.register)
+  const dispatch = useDispatch()
+
+  const onSubmit = (data: callInforMationTypes) => {
+    dispatch(addCallInformation(data))
   }
-
-  const { register, handleSubmit } = useForm<callInforMationTypes>()
-
-  const onSubmit = (data: callInforMationTypes) => {}
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -39,23 +37,41 @@ const CallInformation = () => {
       <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="border border-silver rounded-lg w-full h-[56px] flex flex-col justify-center items-center">
-            <div className="hidden sm:flex flex-row justify-center items-center">
-              <FormGroup>
-                <FormControlLabel
-                  sx={{ gap: '10rem' }}
-                  control={<Switch defaultChecked />}
-                  label="نمایش اطلاعات تماس"
-                />
-              </FormGroup>
+            <div className="hidden w-[90%] sm:flex flex-row justify-between items-center">
+              <Controller
+                name="showContactInfo"
+                control={control}
+                defaultValue={false}
+                render={({ field }) => (
+                  <Switch
+                    {...field}
+                    id="showContactInfo"
+                    checked={field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                  />
+                )}
+              />
+              <label className="body-md cursor-pointer" htmlFor="showContactInfo">
+                نمایش اطلاعات تماس
+              </label>
             </div>
             <div className="sm:hidden flex flex-row justify-center items-center">
-              <FormGroup>
-                <FormControlLabel
-                  sx={{ gap: '10px' }}
-                  control={<Switch defaultChecked />}
-                  label="نمایش تمام محصولات"
-                />
-              </FormGroup>
+              <Controller
+                name="showContactInfo"
+                control={control}
+                defaultValue={false}
+                render={({ field }) => (
+                  <Switch
+                    {...field}
+                    id="showContactInfo"
+                    checked={field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                  />
+                )}
+              />
+              <label className="body-md cursor-pointer" htmlFor="showContactInfo">
+                نمایش اطلاعات تماس
+              </label>
             </div>
           </div>
 
@@ -85,6 +101,7 @@ const CallInformation = () => {
                 placeholder="CartsazShop"
                 {...register('instagramId')}
                 dir="rtl"
+                defaultValue={registeredUser[0]?.instagram}
               />
             </div>
             <div className="w-full mt-4">
@@ -121,14 +138,14 @@ const CallInformation = () => {
                 {...register('shopAddress')}
                 dir="rtl"
                 multiline
+                defaultValue={registeredUser[0]?.address}
               />
             </div>
           </div>
+          <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-8">
+            ذخیره اطلاعات
+          </button>
         </form>
-
-        <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-8">
-          ذخیره اطلاعات
-        </button>
       </main>
     </div>
   )

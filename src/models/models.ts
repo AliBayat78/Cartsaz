@@ -33,6 +33,19 @@ export type ProductCartTypes = {
   price: string
 }
 
+export interface SellerProductCardType {
+  imageSource: string
+  title: string
+  description: string
+  price: string
+  showProduct: boolean
+}
+
+export interface VitrinProductsTypes {
+  showAllProducts: boolean
+  products: SellerProductCardType[]
+}
+
 export interface callInforMationTypes {
   phoneNumber: string
   instagramId: string

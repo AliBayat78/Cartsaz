@@ -39,6 +39,8 @@ export interface SellerProductCardType {
   description: string
   price: string
   showProduct: boolean
+  productCode?: string
+  category?: string
 }
 
 export interface VitrinProductsTypes {

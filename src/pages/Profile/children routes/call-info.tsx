@@ -94,7 +94,7 @@ const CallInformation = () => {
               <p className="text-right caption-lg">شماره تلفن</p>
               <RTLTextField
                 sx={{ marginTop: '8px', width: '100%' }}
-                label="شماره تلفن"
+                label="تلفن همراه"
                 placeholder="09215487523"
                 {...register('phoneNumber')}
                 dir="rtl"
@@ -118,7 +118,7 @@ const CallInformation = () => {
               <p className="text-right caption-lg">شماره واتساپ</p>
               <RTLTextField
                 sx={{ marginTop: '8px', width: '100%' }}
-                label="شماره واتساپ"
+                label="واتساپ"
                 placeholder="09215487523"
                 {...register('waNumber')}
                 dir="rtl"
@@ -129,7 +129,6 @@ const CallInformation = () => {
               <p className="text-right caption-lg">ایدی تلگرام</p>
               <RTLTextField
                 sx={{ marginTop: '8px', width: '100%' }}
-                label="ایدی تلگرام"
                 placeholder="@cartsazShop"
                 {...register('telegramId')}
                 dir="rtl"
@@ -145,7 +144,6 @@ const CallInformation = () => {
                   },
                 }}
                 sx={{ marginTop: '8px', width: '100%' }}
-                label="آدرس فروشگاه"
                 placeholder="تهران، میدان آزادی، ..."
                 {...register('shopAddress')}
                 dir="rtl"

@@ -55,10 +55,22 @@ export const VitrinSlice = createSlice({
     addCallInformation: (state, action) => {
       state.callInformation = action.payload
     },
+    addVitrinProducts: (state, action) => {
+      state.vitrinProducts.products.push(action.payload)
+    },
+    showAllProductsDispatcher: (state, action) => {
+      state.vitrinProducts.showAllProducts = action.payload
+    },
   },
 })
 
 export default VitrinSlice.reducer
 
-export const { addLogoImage, addVitrinColor, addShortDescription, addCallInformation } =
-  VitrinSlice.actions
+export const {
+  addLogoImage,
+  addVitrinColor,
+  addShortDescription,
+  addCallInformation,
+  addVitrinProducts,
+  showAllProductsDispatcher,
+} = VitrinSlice.actions

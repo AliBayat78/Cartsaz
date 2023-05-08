@@ -57,7 +57,7 @@ const AddProduct = () => {
           />
         </div>
       </nav>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
         <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
           <div className="w-full flex flex-col justify-center items-end">
             <div className="w-full mt-8">
@@ -185,7 +185,7 @@ const AddProduct = () => {
 
         <button
           type="submit"
-          className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-8"
+          className="w-[100px] 2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-8"
         >
           تایید
         </button>

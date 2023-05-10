@@ -15,6 +15,7 @@ const Profile = () => {
   const navigate = useNavigate()
 
   const callInformation = useAppSelector((state) => state.vitrin).callInformation
+  const productsLength = useAppSelector((state) => state.vitrin).vitrinProducts.products.length
 
   const localStorageUserValue: localStorageCurrentUser | null = JSON.parse(
     localStorage.getItem('currentUser') || 'null',
@@ -102,7 +103,9 @@ const Profile = () => {
           >
             <div className="flex flex-row justify-center items-center 2xs:gap-2 sm:gap-4">
               <img src={arrowLeft} alt="open" />
-              <p className="text-success body-lg">3</p>
+              <p className={`${productsLength === 0 ? 'text-error' : 'text-success'} body-lg`}>
+                {productsLength}
+              </p>
             </div>
             <div className="flex flex-row justify-center items-center 2xs:gap-2 sm:gap-4">
               <p className="body-lg">محصولات ویترین</p>

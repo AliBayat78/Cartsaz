@@ -9,6 +9,7 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import arrowRight from '../assets/arrow-right.png'
 import arrowUp from '../assets/arrow-up.png'
+import exit from '../assets/delete-btn.png'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
@@ -17,6 +18,16 @@ const VitrinSetting = () => {
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
 
   const colorCode = vitrinSettingProperties.vitrinSetting.VitrinColor.colorCode
+
+  const handleSubmit = () => {
+    Swal.fire({
+      title: 'ذخیره شد',
+      text: 'تنظیمات شما با موفقیت ذخیره شد',
+      icon: 'success',
+      confirmButtonText: 'باشه',
+    })
+    navigate(-1)
+  }
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -44,7 +55,7 @@ const VitrinSetting = () => {
         </div>
         <div className="w-full flex flex-col justify-center items-center mt-4">
           {vitrinSettingProperties.vitrinSetting.LogoImage === '' ? (
-            <div className="cursor-pointer relative flex flex-row justify-center items-center w-[175px] h-[207px] rounded-lg bg-pale-blue border border-primary">
+            <div className="transition-all cursor-pointer relative flex flex-row justify-center items-center w-[175px] h-[207px] rounded-lg bg-pale-blue border border-primary">
               <input
                 type="file"
                 accept="image/*"
@@ -67,7 +78,19 @@ const VitrinSetting = () => {
             </div>
           )}
           <div className="z-10 w-[175px] h-[32px] rounded-b-lg bg-white -mt-8 text-center border border-t-0 border-primary">
-            تصویر اصلی
+            <p className="w-full h-full flex flex-row justify-center items-center relative">
+              {vitrinSettingProperties.vitrinSetting.LogoImage === '' ? null : (
+                <img
+                  onClick={() => {
+                    dispatch(addLogoImage(''))
+                  }}
+                  className="cursor-pointer w-[16px] h-[16px] absolute right-2"
+                  src={exit}
+                  alt="delete"
+                />
+              )}
+              تصویر اصلی
+            </p>
           </div>
         </div>
 
@@ -208,14 +231,7 @@ const VitrinSetting = () => {
       </main>
 
       <button
-        onClick={() =>
-          Swal.fire({
-            title: 'ذخیره شد',
-            text: 'تنظیمات شما با موفقیت ذخیره شد',
-            icon: 'success',
-            confirmButtonText: 'باشه',
-          })
-        }
+        onClick={() => handleSubmit()}
         className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-12"
       >
         ذخیره تنظیمات

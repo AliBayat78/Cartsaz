@@ -25,6 +25,7 @@ const CallInformation = () => {
       confirmButtonText: 'باشه',
     })
     dispatch(addCallInformation(data))
+    navigate(-1)
   }
 
   return (

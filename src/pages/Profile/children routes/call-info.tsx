@@ -29,7 +29,7 @@ const CallInformation = () => {
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
-      <nav className="flex flex-row justify-end items-center w-full h-16 border border-b-silver p-2">
+      <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>اطلاعات تماس</p>
           <img

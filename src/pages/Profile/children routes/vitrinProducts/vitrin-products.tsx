@@ -6,21 +6,23 @@ import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../../components/common/RtlTextField'
 import defaultPicture from '../../assets/default-picture.png'
 import { Controller, useForm } from 'react-hook-form'
-import { useAppSelector } from '../../../../redux/store/store'
+import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { VitrinProductsTypes } from '../../../../models/models'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { updateShowProduct } from '../../../../redux/store/features/vitrinSlice'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
-  const [showModal, setShowModal] = useState<boolean>(false)
 
   const { register, handleSubmit, control } = useForm<VitrinProductsTypes>()
 
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
 
+  const dispatch = useAppDispatch()
+
   return (
     <div className="flex flex-col items-center w-full h-auto">
-      <nav className="flex flex-row justify-end items-center w-full h-16 border border-b-silver p-2">
+      <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>محصولات ویترین</p>
           <img
@@ -47,8 +49,8 @@ const VitrinProducts = () => {
                 />
               )}
             />
-            <label className="body-md cursor-pointer" htmlFor="showContactInfo">
-              نمایش اطلاعات تماس
+            <label className="body-md cursor-pointer" htmlFor="showAllProducts">
+              نمایش تمام محصولات
             </label>
           </div>
           <div className="sm:hidden flex flex-row justify-center items-center">
@@ -82,25 +84,34 @@ const VitrinProducts = () => {
         />
 
         <div className="h-[450px] w-full mt-8 overflow-y-auto">
-          <div className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center">
-            <Switch />
-            <div className="flex flex-row justify-center items-center mr-2">
-              <div className="flex flex-col justify-center items-end mr-4">
-                <h6>پور قهوه</h6>
-                <p className="body-xs">قیمت واحد : 250,000 تومان</p>
+          {vitrinProductsState.products.map((product) => {
+            return (
+              <div className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center">
+                <Switch
+                  checked={product.showProduct}
+                  onChange={(e) =>
+                    dispatch(updateShowProduct({ id: product.id, showProduct: e.target.checked }))
+                  }
+                />
+                <div className="flex flex-row justify-center items-center mr-2">
+                  <div className="flex flex-col justify-center items-end mr-4">
+                    <h6>{product.title}</h6>
+                    <p className="body-xs">قیمت واحد : {product.price} تومان</p>
+                  </div>
+                  <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
+                </div>
               </div>
-              <img src={defaultPicture} alt="picture" />
-            </div>
-          </div>
+            )
+          })}
         </div>
       </main>
       <button
         onClick={() => navigate('./addProduct')}
-        className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-royal-purple text-white rounded-lg"
+        className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-royal-purple text-white rounded-lg mt-2"
       >
         اضافه کردن محصول
       </button>
-      <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-8">
+      <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-4">
         تایید
       </button>
     </div>

@@ -6,7 +6,7 @@ import arrowUp from '../../assets/arrow-up.png'
 import { Controller, useForm } from 'react-hook-form'
 import { SellerProductCardType } from '../../../../models/models'
 import { useAppDispatch } from '../../../../redux/store/store'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
 
@@ -36,17 +36,22 @@ const AddProduct = () => {
   })
 
   const onSubmit = (data: SellerProductCardType) => {
-    dispatch(addVitrinProducts(data))
+    const id = Math.random() + Math.random()
+    const productData = { ...data, id }
+    dispatch(addVitrinProducts(productData))
     Toast.fire({
       icon: 'success',
       title: 'محصول اضافه شد',
+      customClass: {
+        container: 'mt-16 mr-4',
+      },
     })
     reset()
   }
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
-      <nav className="flex flex-row justify-end items-center w-full h-16 border border-b-silver p-2">
+      <nav className="w-screen flex flex-row justify-end items-center h-16 border border-b-silver p-2">
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>افزودن محصول جدید</p>
           <img

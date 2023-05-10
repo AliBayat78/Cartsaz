@@ -39,6 +39,7 @@ export interface SellerProductCardType {
   description: string
   price: string
   showProduct: boolean
+  id: number
   productCode?: string
   category?: string
 }

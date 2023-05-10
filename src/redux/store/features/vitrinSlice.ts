@@ -61,6 +61,11 @@ export const VitrinSlice = createSlice({
     showAllProductsDispatcher: (state, action) => {
       state.vitrinProducts.showAllProducts = action.payload
     },
+    updateShowProduct: (state, action) => {
+      const { id, showProduct } = action.payload
+      const index = state.vitrinProducts.products.findIndex((p) => p.id === id)
+      state.vitrinProducts.products[index].showProduct = showProduct
+    },
   },
 })
 
@@ -73,4 +78,5 @@ export const {
   addCallInformation,
   addVitrinProducts,
   showAllProductsDispatcher,
+  updateShowProduct,
 } = VitrinSlice.actions

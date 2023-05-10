@@ -16,7 +16,7 @@ const AddProduct = () => {
   const navigate = useNavigate()
   const [categoryValue, setCategoryValue] = useState('')
   const [imagePreview, setImagePreview] = useState(
-    'https://s8.uupload.ir/files/default-picture_2w2h_thumb.png',
+    'https://s8.uupload.ir/files/default-picture_zsqf.png',
   )
 
   const dispatch = useAppDispatch()
@@ -27,7 +27,7 @@ const AddProduct = () => {
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 3000,
+    timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -46,6 +46,7 @@ const AddProduct = () => {
         container: 'mt-16 mr-4',
       },
     })
+    setImagePreview('https://s8.uupload.ir/files/default-picture_zsqf.png')
     reset()
   }
 

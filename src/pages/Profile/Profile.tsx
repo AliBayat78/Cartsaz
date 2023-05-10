@@ -27,7 +27,7 @@ const Profile = () => {
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 3000,
+    timer: 1000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -42,12 +42,18 @@ const Profile = () => {
         Toast.fire({
           icon: 'success',
           title: 'Copied to Clipboard',
+          customClass: {
+            container: 'mt-16',
+          },
         }),
       )
       .catch((err) => {
         Toast.fire({
           icon: 'error',
           title: 'Failed to Copy',
+          customClass: {
+            container: 'mt-16',
+          },
         })
         console.log(err)
       })

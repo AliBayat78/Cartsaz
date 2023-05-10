@@ -7,18 +7,50 @@ import { RTLTextField } from '../../../../components/common/RtlTextField'
 import defaultPicture from '../../assets/default-picture.png'
 import { Controller, useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
-import { VitrinProductsTypes } from '../../../../models/models'
+import { SellerProductCardType, VitrinProductsTypes } from '../../../../models/models'
 import { useState, useEffect } from 'react'
-import { updateShowProduct } from '../../../../redux/store/features/vitrinSlice'
+import {
+  showAllProductsDispatcher,
+  switchEveryShowProduct,
+  updateShowProduct,
+} from '../../../../redux/store/features/vitrinSlice'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
 
-  const { register, handleSubmit, control } = useForm<VitrinProductsTypes>()
-
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
 
+  const [filteredProducts, setFilteredProducts] = useState<SellerProductCardType[]>(
+    vitrinProductsState.products,
+  )
+  const [search, setSearch] = useState<string>('')
+
+  const { register, handleSubmit, control } = useForm<VitrinProductsTypes>()
+
   const dispatch = useAppDispatch()
+
+  const filterSearchTitle = (array: SellerProductCardType[]) => {
+    if (search === '') {
+      return array
+    } else {
+      return array.filter((p) => p.title.toLowerCase().includes(search))
+    }
+  }
+
+  // const filterShowAllProducts = (array: SellerProductCardType[]) => {
+  //   if (vitrinProductsState.showAllProducts) {
+  //     return array.map((p) => ({ ...p, showProduct: true }))
+  //   } else {
+  //     return array
+  //   }
+  // }
+
+  useEffect(() => {
+    let result = vitrinProductsState.products
+    result = filterSearchTitle(result)
+
+    setFilteredProducts(result)
+  }, [search, vitrinProductsState.products, vitrinProductsState.showAllProducts])
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -36,39 +68,17 @@ const VitrinProducts = () => {
       <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
         <div className="border border-silver rounded-lg w-full h-[107px] flex flex-col justify-center items-center">
           <div className="hidden w-[90%] sm:flex flex-row justify-between items-center">
-            <Controller
-              name="showAllProducts"
-              control={control}
-              defaultValue={vitrinProductsState.showAllProducts}
-              render={({ field }) => (
-                <Switch
-                  {...field}
-                  id="showAllProducts"
-                  checked={field.value}
-                  onChange={(e) => field.onChange(e.target.checked)}
-                />
-              )}
-            />
+            <Switch />
+
             <label className="body-md cursor-pointer" htmlFor="showAllProducts">
               نمایش تمام محصولات
             </label>
           </div>
           <div className="sm:hidden flex flex-row justify-center items-center">
-            <Controller
-              name="showAllProducts"
-              control={control}
-              defaultValue={vitrinProductsState.showAllProducts}
-              render={({ field }) => (
-                <Switch
-                  {...field}
-                  id="showAllProducts"
-                  checked={field.value}
-                  onChange={(e) => field.onChange(e.target.checked)}
-                />
-              )}
-            />
+            <Switch />
+
             <label className="body-md cursor-pointer" htmlFor="showContactInfo">
-              نمایش اطلاعات تماس
+              نمایش تمام محصولات
             </label>
           </div>
           <p className="body-xs mr-2">
@@ -81,12 +91,17 @@ const VitrinProducts = () => {
           sx={{ marginTop: '32px', width: '100%' }}
           label="جستجو محصول"
           placeholder="روغن زیتون"
+          value={search}
+          onChange={(e) => setSearch(e.target.value.trim().toLowerCase())}
         />
 
         <div className="h-[450px] w-full mt-8 overflow-y-auto">
-          {vitrinProductsState.products.map((product) => {
+          {filteredProducts.map((product) => {
             return (
-              <div className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center">
+              <div
+                key={product.id}
+                className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center"
+              >
                 <Switch
                   checked={product.showProduct}
                   onChange={(e) =>

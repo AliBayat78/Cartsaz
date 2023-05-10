@@ -14,6 +14,7 @@ import {
   switchEveryShowProduct,
   updateShowProduct,
 } from '../../../../redux/store/features/vitrinSlice'
+import Swal from 'sweetalert2'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
@@ -24,8 +25,7 @@ const VitrinProducts = () => {
     vitrinProductsState.products,
   )
   const [search, setSearch] = useState<string>('')
-
-  const { register, handleSubmit, control } = useForm<VitrinProductsTypes>()
+  const [showAll, setShowAll] = useState<boolean>(false)
 
   const dispatch = useAppDispatch()
 
@@ -37,20 +37,39 @@ const VitrinProducts = () => {
     }
   }
 
-  // const filterShowAllProducts = (array: SellerProductCardType[]) => {
-  //   if (vitrinProductsState.showAllProducts) {
-  //     return array.map((p) => ({ ...p, showProduct: true }))
-  //   } else {
-  //     return array
-  //   }
-  // }
+  const filterShowAllProducts = (array: SellerProductCardType[]) => {
+    if (showAll) {
+      return array.map((p) => ({ ...p, showProduct: true }))
+    } else {
+      return array
+    }
+  }
 
   useEffect(() => {
     let result = vitrinProductsState.products
     result = filterSearchTitle(result)
+    result = filterShowAllProducts(result)
 
     setFilteredProducts(result)
   }, [search, vitrinProductsState.products, vitrinProductsState.showAllProducts])
+
+  const handleSubmit = () => {
+    dispatch(showAllProductsDispatcher(showAll))
+
+    Swal.fire({
+      title: 'ذخیره شد',
+      text: 'تغییرات اعمال شده ذخیره شد',
+      icon: 'success',
+      confirmButtonText: 'ادامه',
+    })
+
+    if (showAll) {
+      dispatch(switchEveryShowProduct(true))
+      navigate(-1)
+    } else {
+      navigate(-1)
+    }
+  }
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
@@ -68,14 +87,14 @@ const VitrinProducts = () => {
       <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
         <div className="border border-silver rounded-lg w-full h-[107px] flex flex-col justify-center items-center">
           <div className="hidden w-[90%] sm:flex flex-row justify-between items-center">
-            <Switch />
+            <Switch checked={showAll} onChange={(e) => setShowAll(e.target.checked)} />
 
             <label className="body-md cursor-pointer" htmlFor="showAllProducts">
               نمایش تمام محصولات
             </label>
           </div>
           <div className="sm:hidden flex flex-row justify-center items-center">
-            <Switch />
+            <Switch checked={showAll} onChange={(e) => setShowAll(e.target.checked)} />
 
             <label className="body-md cursor-pointer" htmlFor="showContactInfo">
               نمایش تمام محصولات
@@ -103,7 +122,7 @@ const VitrinProducts = () => {
                 className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center"
               >
                 <Switch
-                  checked={product.showProduct}
+                  checked={showAll ? true : product.showProduct}
                   onChange={(e) =>
                     dispatch(updateShowProduct({ id: product.id, showProduct: e.target.checked }))
                   }
@@ -126,7 +145,10 @@ const VitrinProducts = () => {
       >
         اضافه کردن محصول
       </button>
-      <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-4">
+      <button
+        onClick={() => handleSubmit()}
+        className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-4"
+      >
         تایید
       </button>
     </div>

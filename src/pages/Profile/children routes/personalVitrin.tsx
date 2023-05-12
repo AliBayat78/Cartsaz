@@ -43,8 +43,8 @@ const PersonalVitrin = () => {
 
       <main className="flex flex-row justify-end items-center mt-8 md:w-full 2xs:w-[260px] sm:w-[364px]">
         <div className="mx-40 border border-light-silver w-full h-[600px] overflow-y-scroll overflow-x-hidden">
-          <p className="body-md mt-4 mr-8 w-full">محصولات : </p>
-          <div className="w-full h-full flex flex-row gap-8 justify-center items-center flex-wrap xl:justify-start ml-8">
+          <p className="body-md mt-4 mr-8">محصولات : </p>
+          <div className="w-[90%] h-full flex flex-row-reverse gap-8 justify-center items-center flex-wrap xl:justify-start">
             {sellerProducts?.map((product) => {
               return product.showProduct ? (
                 <ProductCard

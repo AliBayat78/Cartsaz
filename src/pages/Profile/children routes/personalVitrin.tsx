@@ -16,18 +16,22 @@ const PersonalVitrin = () => {
   const vitrinState = useAppSelector((state) => state.vitrin)
   const callInformationState = useAppSelector((state) => state.vitrin.callInformation)
 
-  const { phoneNumber, instagramId, waNumber, telegramId, shopAddress } = callInformationState
+  const { phoneNumber, instagramId, waNumber, telegramId, shopAddress, showContactInfo } =
+    callInformationState
 
   const sellerProducts = vitrinState.vitrinProducts.products
 
-  const vitrinName = registerState[0]?.shopName
-  const sellerName = registerState[0]?.fullName
+  const vitrinName: string =
+    registerState[0]?.shopName ||
+    JSON.parse(localStorage.getItem('currentUser') || 'null')?.Username ||
+    'ناشناس'
+  const sellerName: string = registerState[0]?.fullName
 
   return (
     <div className="flex flex-col items-center w-full h-auto">
       <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
-          <p>ویترین {vitrinName}</p>
+          <p>ویترین شخصی : {vitrinName}</p>
           <img
             onClick={() => navigate('/')}
             className="cursor-pointer"
@@ -67,7 +71,7 @@ const PersonalVitrin = () => {
               style={{ direction: 'ltr' }}
               className="sm:body-md 2xs:body-xs 2xs:text-royal-purple 2xs:ml-2 sm:ml-4"
             >
-              {sellerName || 'ثبت نشده'}
+              {showContactInfo && sellerName ? sellerName : 'ثبت نشده'}
             </p>
           </div>
           <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-peach 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
@@ -96,7 +100,7 @@ const PersonalVitrin = () => {
               style={{ direction: 'ltr' }}
               className="sm:body-md 2xs:body-xs 2xs:text-crimson 2xs:ml-2 sm:ml-4"
             >
-              {instagramId || 'ثبت نشده'}
+              {showContactInfo && instagramId ? instagramId : 'ثبت نشده'}
             </p>
           </div>
           <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-mint 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
@@ -110,7 +114,7 @@ const PersonalVitrin = () => {
               style={{ direction: 'ltr' }}
               className="sm:body-md 2xs:body-xs 2xs:text-dark-green 2xs:ml-2 sm:ml-4"
             >
-              {waNumber || 'ثبت نشده'}
+              {showContactInfo && waNumber ? waNumber : 'ثبت نشده'}
             </p>
           </div>
           <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-baby-blue 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
@@ -124,7 +128,7 @@ const PersonalVitrin = () => {
               style={{ direction: 'ltr' }}
               className="sm:body-md 2xs:body-xs 2xs:text-royal-blue 2xs:ml-2 sm:ml-4"
             >
-              {telegramId || 'ثبت نشده'}
+              {showContactInfo && telegramId ? telegramId : 'ثبت نشده'}
             </p>
           </div>
           <div
@@ -143,7 +147,7 @@ const PersonalVitrin = () => {
                 shopAddress ? 'body-xs w-[90%] mt-4 mr-2' : 'body-md 2xs:ml-2 sm:ml-4'
               } p-2`}
             >
-              {shopAddress || 'ثبت نشده'}
+              {showContactInfo && shopAddress ? shopAddress : 'ثبت نشده'}
             </p>
           </div>
         </div>

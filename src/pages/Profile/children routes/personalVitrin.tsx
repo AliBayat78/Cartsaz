@@ -45,17 +45,21 @@ const PersonalVitrin = () => {
         <div className="md:mx-20 lg:mx-40 2xs:mt-4 border border-light-silver w-full h-[600px] overflow-y-scroll overflow-x-hidden">
           <p className="body-md mt-4 mr-8">محصولات : </p>
           <div className="w-[90%] h-full flex flex-row-reverse gap-8 justify-center items-center flex-wrap xl:justify-start">
-            {sellerProducts?.map((product) => {
-              return product.showProduct ? (
-                <ProductCard
-                  key={product.id}
-                  title={product.title}
-                  imageSource={product.imageSource}
-                  description={product.description}
-                  price={product.price}
-                />
-              ) : null
-            })}
+            {sellerProducts.length === 0 ? (
+              <h1 className="flex justify-center items-center w-full h-full">محصولی یافت نشد</h1>
+            ) : (
+              sellerProducts?.map((product) => {
+                return product.showProduct ? (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    imageSource={product.imageSource}
+                    description={product.description}
+                    price={product.price}
+                  />
+                ) : null
+              })
+            )}
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">

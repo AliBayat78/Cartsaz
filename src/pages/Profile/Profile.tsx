@@ -23,6 +23,11 @@ const Profile = () => {
   const vitrinUrl: string =
     localStorageUserValue !== null ? localStorageUserValue.VitrinUrl : 'Error'
 
+  const vitrinId =
+    localStorageUserValue !== null
+      ? localStorageUserValue.VitrinUrl.split('http://127.0.0.1:5173/profile/')
+      : 'error'
+
   const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
@@ -88,7 +93,10 @@ const Profile = () => {
         <p className="body-md mt-5">آدرس مستقیم ویترین شما در کارت ساز</p>
 
         <div className="mt-5 2xs:w-[230px] sm:w-[350px] h-[100px] rounded-2xl flex flex-col border border-light-silver justify-between items-center">
-          <div className="flex justify-center items-center h-full">
+          <div
+            onClick={() => navigate(vitrinId[1])}
+            className="flex justify-center items-center h-full"
+          >
             <p style={{ direction: 'ltr' }} className="text-primary">
               {vitrinUrl}
             </p>

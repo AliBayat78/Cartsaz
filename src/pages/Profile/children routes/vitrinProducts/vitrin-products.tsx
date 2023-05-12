@@ -129,7 +129,11 @@ const VitrinProducts = () => {
                 />
                 <div className="flex flex-row justify-center items-center mr-2">
                   <div className="flex flex-col justify-center items-end mr-4">
-                    <h6>{product.title}</h6>
+                    <h6 className="w-[200px]">
+                      {product.title.length > 10
+                        ? product.title.substring(0, 10) + '...'
+                        : product.title}
+                    </h6>
                     <p className="body-xs">قیمت واحد : {product.price} تومان</p>
                   </div>
                   <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />

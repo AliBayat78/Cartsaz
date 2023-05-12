@@ -7,6 +7,7 @@ import box from './assets/box.png'
 import shop from './assets/shop.png'
 import call from './assets/call.png'
 import QRcode from './assets/scan-barcode.png'
+import go from './assets/go.png'
 import Swal from 'sweetalert2'
 import { localStorageCurrentUser } from '../../models/models'
 import { useAppSelector } from '../../redux/store/store'
@@ -92,12 +93,15 @@ const Profile = () => {
         <img className="2xs:h-[90px] lg:h-[200px]" src={vitrinLogo} alt="vitrin" />
         <p className="body-md mt-5">آدرس مستقیم ویترین شما در کارت ساز</p>
 
-        <div className="mt-5 2xs:w-[230px] sm:w-[350px] h-[100px] rounded-2xl flex flex-col border border-light-silver justify-between items-center">
-          <div
+        <div className="relative mt-5 2xs:w-[230px] xs:w-[270px] sm:w-[350px] h-[100px] rounded-2xl flex flex-col border border-light-silver justify-between items-center">
+          <img
             onClick={() => navigate(vitrinId[1])}
-            className="flex justify-center items-center h-full"
-          >
-            <p style={{ direction: 'ltr' }} className="text-primary">
+            className="absolute cursor-pointer md:-right-12 2xs:w-[32px] md:w-[64px] md:top-0 2xs:-right-6 2xs:top-4"
+            src={go}
+            alt="go"
+          />
+          <div className="flex justify-center items-center h-full">
+            <p style={{ direction: 'ltr' }} className="2xs:text-primary sm:body-md 2xs:body-sm">
               {vitrinUrl}
             </p>
           </div>

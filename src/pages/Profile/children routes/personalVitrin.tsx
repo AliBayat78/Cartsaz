@@ -33,7 +33,7 @@ const PersonalVitrin = () => {
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>ویترین شخصی : {vitrinName}</p>
           <img
-            onClick={() => navigate('/')}
+            onClick={() => navigate(-1)}
             className="cursor-pointer"
             src={arrowRight}
             alt="back"

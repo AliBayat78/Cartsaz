@@ -87,16 +87,24 @@ const VitrinProducts = () => {
       <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
         <div className="border border-silver rounded-lg w-full h-[107px] flex flex-col justify-center items-center">
           <div className="hidden w-[90%] sm:flex flex-row justify-between items-center">
-            <Switch checked={showAll} onChange={(e) => setShowAll(e.target.checked)} />
+            <Switch
+              id="showAllProducts"
+              checked={showAll}
+              onChange={(e) => setShowAll(e.target.checked)}
+            />
 
             <label className="body-md cursor-pointer" htmlFor="showAllProducts">
               نمایش تمام محصولات
             </label>
           </div>
           <div className="sm:hidden flex flex-row justify-center items-center">
-            <Switch checked={showAll} onChange={(e) => setShowAll(e.target.checked)} />
+            <Switch
+              id="showAllProducts"
+              checked={showAll}
+              onChange={(e) => setShowAll(e.target.checked)}
+            />
 
-            <label className="body-md cursor-pointer" htmlFor="showContactInfo">
+            <label className="body-md cursor-pointer" htmlFor="showAllProducts">
               نمایش تمام محصولات
             </label>
           </div>
@@ -134,7 +142,13 @@ const VitrinProducts = () => {
                         ? product.title.substring(0, 10) + '...'
                         : product.title}
                     </h6>
-                    <p className="body-xs">قیمت واحد : {product.price} تومان</p>
+                    <p className="body-xs">
+                      قیمت واحد :{' '}
+                      {product.price.length > 10
+                        ? '...' + product.price.substring(0, 10)
+                        : product.price}{' '}
+                      تومان
+                    </p>
                   </div>
                   <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
                 </div>

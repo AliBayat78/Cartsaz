@@ -41,8 +41,8 @@ const PersonalVitrin = () => {
         </div>
       </nav>
 
-      <main className="flex flex-row justify-end items-center mt-8 md:w-full 2xs:w-[260px] sm:w-[364px]">
-        <div className="mx-40 border border-light-silver w-full h-[600px] overflow-y-scroll overflow-x-hidden">
+      <main className="flex 2xs:flex-col-reverse 2xs:justify-center md:flex-row md:justify-end items-center mt-8 md:w-full 2xs:w-[260px] sm:w-[364px]">
+        <div className="md:mx-20 lg:mx-40 2xs:mt-4 border border-light-silver w-full h-[600px] overflow-y-scroll overflow-x-hidden">
           <p className="body-md mt-4 mr-8">محصولات : </p>
           <div className="w-[90%] h-full flex flex-row-reverse gap-8 justify-center items-center flex-wrap xl:justify-start">
             {sellerProducts?.map((product) => {
@@ -58,8 +58,8 @@ const PersonalVitrin = () => {
             })}
           </div>
         </div>
-        <div>
-          <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-violet-200 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
+        <div className="flex flex-col justify-center items-center">
+          <div className="body-md lg:mr-8 mt-4 flex flex-row justify-between items-center bg-violet-200 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
             <div className="flex flex-row justify-center items-center">
               <img className="mr-3" src={user} alt="call" />
               <p className="sm:body-md 2xs:body-xs 2xs:mr-1 sm:mr-2 2xs:text-royal-purple">
@@ -74,7 +74,7 @@ const PersonalVitrin = () => {
               {showContactInfo && sellerName ? sellerName : 'ثبت نشده'}
             </p>
           </div>
-          <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-peach 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
+          <div className="body-md lg:mr-8 mt-4 flex flex-row justify-between items-center bg-peach 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
             <div className="flex flex-row justify-center items-center">
               <img className="mr-3" src={call} alt="call" />
               <p className="sm:body-md 2xs:body-xs 2xs:mr-1 sm:mr-2 2xs:text-bright-red">
@@ -89,7 +89,7 @@ const PersonalVitrin = () => {
               {phoneNumber || 'ثبت نشده'}
             </p>
           </div>
-          <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-baby-pink 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
+          <div className="body-md lg:mr-8 mt-4 flex flex-row justify-between items-center bg-baby-pink 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
             <div className="flex flex-row justify-center items-center">
               <img className="mr-3" src={instagram} alt="instagram" />
               <p className="sm:body-md 2xs:body-xs 2xs:mr-1 sm:mr-2 2xs:text-crimson">
@@ -103,7 +103,7 @@ const PersonalVitrin = () => {
               {showContactInfo && instagramId ? instagramId : 'ثبت نشده'}
             </p>
           </div>
-          <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-mint 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
+          <div className="body-md lg:mr-8 mt-4 flex flex-row justify-between items-center bg-mint 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
             <div className="flex flex-row justify-center items-center">
               <img className="mr-3" src={whatsapp} alt="whatsapp" />
               <p className="sm:body-md 2xs:body-xs 2xs:mr-1 sm:mr-2 2xs:text-dark-green">
@@ -117,7 +117,7 @@ const PersonalVitrin = () => {
               {showContactInfo && waNumber ? waNumber : 'ثبت نشده'}
             </p>
           </div>
-          <div className="body-md mr-8 mt-4 flex flex-row justify-between items-center bg-baby-blue 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
+          <div className="body-md lg:mr-8 mt-4 flex flex-row justify-between items-center bg-baby-blue 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg p-2">
             <div className="flex flex-row justify-center items-center">
               <img className="mr-3" src={telegram} alt="telegram" />
               <p className="sm:body-md 2xs:body-xs 2xs:mr-1 sm:mr-2 2xs:text-royal-blue">
@@ -132,7 +132,7 @@ const PersonalVitrin = () => {
             </p>
           </div>
           <div
-            className={`body-md mr-8 mt-4 bg-light-silver 2xs:w-[90vw] sm:w-[366px] min-h-30 rounded-lg flex ${
+            className={`body-md lg:mr-8 mt-4 bg-light-silver 2xs:w-[90vw] sm:w-[366px] min-h-30 rounded-lg flex ${
               shopAddress
                 ? 'flex-col justify-center items-center'
                 : 'flex-row justify-between items-center'

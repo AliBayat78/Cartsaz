@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCartTypes> = ({ imageSource, title, descripti
           {description.length > 30 ? description.substring(0, 100) + '...' : description}
         </p>
         <p className="text-dark-green button-sm absolute bottom-1 right-4 text-right">
-          {price} {price ? 'تومان' : null}
+          {price.length > 20 ? price.substring(0, 20) + '...' : price} {price ? 'تومان' : null}
         </p>
       </div>
     </div>

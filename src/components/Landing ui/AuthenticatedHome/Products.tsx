@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ProductCartTypes } from '../../../models/models'
-import { findProduct } from '../../../redux/store/features/productSlice'
+import { ProductCardTypes } from '../../../models/models'
 import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import ProductCard from '../../common/ProductCard'
 import { RTLTextField } from '../../common/RtlTextField'
@@ -9,11 +8,22 @@ import searchItem from '../assets/receipt-search.png'
 const Products = () => {
   const products = useAppSelector((state) => state.products)
   const [search, setSearch] = useState<string>('')
-  const dispatch = useAppDispatch()
+  const [newProducts, setNewProducts] = useState<ProductCardTypes[]>(products)
 
   useEffect(() => {
-    dispatch(findProduct(search))
+    searchProducts()
   }, [search])
+
+  const searchProducts = () => {
+    if (search === '') {
+      setNewProducts(products)
+    } else {
+      let updatedProducts = newProducts.filter((p) =>
+        p.title.toLowerCase().includes(search.toLowerCase().trim()),
+      )
+      setNewProducts(updatedProducts)
+    }
+  }
 
   return (
     <div className="flex flex-col justify-end items-end w-screen h-auto">
@@ -29,18 +39,22 @@ const Products = () => {
           value={search}
         />
       </div>
-      <div className="flex flex-row gap-8 2xs:w-[100vw] justify-center items-center sm:w-[90vw] flex-wrap xl:justify-start my-8">
-        {products.map((product) => {
-          return (
-            <ProductCard
-              key={Math.random() + Math.random()}
-              title={product.title}
-              imageSource={product.imageSource}
-              description={product.description}
-              price={product.price}
-            />
-          )
-        })}
+      <div className="flex flex-col w-full items-center">
+        <div className="flex flex-row-reverse justify-center flex-wrap xl:justify-start items-center gap-8 2xs:w-[100vw] sm:w-[90vw] my-8">
+          {newProducts.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                title={product.title}
+                imageSource={product.imageSource}
+                description={product.description}
+                price={product.price}
+                showProduct={product.showProduct}
+                id={product.id}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   )

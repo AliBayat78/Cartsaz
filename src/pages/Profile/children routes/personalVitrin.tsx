@@ -56,6 +56,8 @@ const PersonalVitrin = () => {
                     imageSource={product.imageSource}
                     description={product.description}
                     price={product.price}
+                    showProduct={product.showProduct}
+                    id={product.id}
                   />
                 ) : null
               })

@@ -4,10 +4,8 @@ import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../../components/common/RtlTextField'
-import defaultPicture from '../../assets/default-picture.png'
-import { Controller, useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
-import { SellerProductCardType, VitrinProductsTypes } from '../../../../models/models'
+import { ProductCardTypes } from '../../../../models/models'
 import { useState, useEffect } from 'react'
 import {
   showAllProductsDispatcher,
@@ -15,13 +13,14 @@ import {
   updateShowProduct,
 } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
+import { addSellerProduct } from '../../../../redux/store/features/productSlice'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
 
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
 
-  const [filteredProducts, setFilteredProducts] = useState<SellerProductCardType[]>(
+  const [filteredProducts, setFilteredProducts] = useState<ProductCardTypes[]>(
     vitrinProductsState.products,
   )
   const [search, setSearch] = useState<string>('')
@@ -29,7 +28,7 @@ const VitrinProducts = () => {
 
   const dispatch = useAppDispatch()
 
-  const filterSearchTitle = (array: SellerProductCardType[]) => {
+  const filterSearchTitle = (array: ProductCardTypes[]) => {
     if (search === '') {
       return array
     } else {
@@ -37,7 +36,7 @@ const VitrinProducts = () => {
     }
   }
 
-  const filterShowAllProducts = (array: SellerProductCardType[]) => {
+  const filterShowAllProducts = (array: ProductCardTypes[]) => {
     if (showAll) {
       return array.map((p) => ({ ...p, showProduct: true }))
     } else {
@@ -55,6 +54,12 @@ const VitrinProducts = () => {
 
   const handleSubmit = () => {
     dispatch(showAllProductsDispatcher(showAll))
+
+    vitrinProductsState.products.map((p) => {
+      if (p.showProduct) {
+        dispatch(addSellerProduct(p))
+      } else return
+    })
 
     Swal.fire({
       title: 'ذخیره شد',

@@ -1,6 +1,6 @@
-import { ProductCartTypes } from '../../models/models'
+import { ProductCardTypes } from '../../models/models'
 
-const ProductCard: React.FC<ProductCartTypes> = ({ imageSource, title, description, price }) => {
+const ProductCard: React.FC<ProductCardTypes> = ({ imageSource, title, description, price }) => {
   return (
     <div className="relative flex flex-col w-[200px] h-[300px] lg:w-[300px] lg:h-[350px] justify-start items-center border border-silver rounded-lg">
       <div className="w-full h-[175px] flex justify-center items-center border border-b-silver">

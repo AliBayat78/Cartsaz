@@ -26,14 +26,7 @@ export interface useAuthReturnType {
   errorMessage: string | undefined
 }
 
-export type ProductCartTypes = {
-  imageSource: string
-  title: string
-  description: string
-  price: string
-}
-
-export interface SellerProductCardType {
+export type ProductCardTypes = {
   imageSource: string
   title: string
   description: string
@@ -46,7 +39,7 @@ export interface SellerProductCardType {
 
 export interface VitrinProductsTypes {
   showAllProducts: boolean
-  products: SellerProductCardType[]
+  products: ProductCardTypes[]
 }
 
 export interface callInforMationTypes {

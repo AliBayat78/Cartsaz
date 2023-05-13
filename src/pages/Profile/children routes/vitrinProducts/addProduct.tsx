@@ -4,7 +4,7 @@ import { RTLTextField } from '../../../../components/common/RtlTextField'
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select, Switch } from '@mui/material'
 import arrowUp from '../../assets/arrow-up.png'
 import { Controller, useForm } from 'react-hook-form'
-import { SellerProductCardType } from '../../../../models/models'
+import { ProductCardTypes } from '../../../../models/models'
 import { useAppDispatch } from '../../../../redux/store/store'
 import { useEffect, useState } from 'react'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
@@ -21,7 +21,7 @@ const AddProduct = () => {
 
   const dispatch = useAppDispatch()
 
-  const { register, handleSubmit, control, reset } = useForm<SellerProductCardType>()
+  const { register, handleSubmit, control, reset } = useForm<ProductCardTypes>()
 
   const Toast = Swal.mixin({
     toast: true,
@@ -35,7 +35,7 @@ const AddProduct = () => {
     },
   })
 
-  const onSubmit = (data: SellerProductCardType) => {
+  const onSubmit = (data: ProductCardTypes) => {
     const id = Math.random() + Math.random()
     const productData = { ...data, id }
     dispatch(addVitrinProducts(productData))

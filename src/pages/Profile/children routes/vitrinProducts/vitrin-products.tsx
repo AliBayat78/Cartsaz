@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import arrowRight from '../../assets/arrow-right.png'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../../components/common/RtlTextField'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
@@ -14,6 +12,8 @@ import {
 } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
 import { addSellerProduct } from '../../../../redux/store/features/productSlice'
+import trash from '../../assets/trash.png'
+import edit from '../../assets/edit.png'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
@@ -89,7 +89,7 @@ const VitrinProducts = () => {
           />
         </div>
       </nav>
-      <main className="flex flex-col justify-center items-center mt-8 2xs:w-[260px] sm:w-[364px]">
+      <main className="flex flex-col justify-center items-center mt-8 2xs:w-[90%] xs:w-[364px]">
         <div className="border border-silver rounded-lg w-full h-[107px] flex flex-col justify-center items-center">
           <div className="hidden w-[90%] sm:flex flex-row justify-between items-center">
             <Switch
@@ -127,36 +127,56 @@ const VitrinProducts = () => {
           onChange={(e) => setSearch(e.target.value.trim().toLowerCase())}
         />
 
-        <div className="h-[450px] w-full mt-8 overflow-y-auto">
+        <div className="h-[450px] 2xs:w-[90%] xs:w-[364px] sm:w-[510px] mt-8 overflow-x-hidden overflow-y-auto relative flex flex-col justify-start items-center">
           {filteredProducts.map((product) => {
             return (
-              <div
-                key={product.id}
-                className="h-[82px] my-2 border border-silver rounded-lg flex flex-row justify-between items-center"
-              >
-                <Switch
-                  checked={showAll ? true : product.showProduct}
-                  onChange={(e) =>
-                    dispatch(updateShowProduct({ id: product.id, showProduct: e.target.checked }))
-                  }
-                />
-                <div className="flex flex-row justify-center items-center mr-2">
-                  <div className="flex flex-col justify-center items-end mr-4">
-                    <h6 className="w-[200px]">
-                      {product.title.length > 10
-                        ? product.title.substring(0, 10) + '...'
-                        : product.title}
-                    </h6>
-                    <p className="body-xs">
-                      قیمت واحد :{' '}
-                      {product.price.length > 10
-                        ? '...' + product.price.substring(0, 10)
-                        : product.price}{' '}
-                      تومان
-                    </p>
+              <div className="sm:flex sm:flex-row sm:justify-around sm:items-center 2xs:w-[90%] xs:w-[364px] sm:w-[500px] sm:relative">
+                <img className="w-[32px] h-[32px] hidden sm:flex" src={trash} />
+                <div
+                  key={product.id}
+                  className="h-[210px] w-[364px] sm:h-[82px] my-2 border border-silver rounded-lg flex flex-col-reverse sm:flex-row justify-center sm:justify-between items-center"
+                >
+                  <div className="hidden sm:flex">
+                    <Switch
+                      checked={showAll ? true : product.showProduct}
+                      onChange={(e) =>
+                        dispatch(
+                          updateShowProduct({ id: product.id, showProduct: e.target.checked }),
+                        )
+                      }
+                    />
                   </div>
-                  <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
+                  <div className="w-full flex justify-around sm:hidden">
+                    <Switch
+                      checked={showAll ? true : product.showProduct}
+                      onChange={(e) =>
+                        dispatch(
+                          updateShowProduct({ id: product.id, showProduct: e.target.checked }),
+                        )
+                      }
+                    />
+                    <img className="w-[32px] h-[32px]" src={trash} />
+                    <img className="w-[32px] h-[32px]" src={edit} />
+                  </div>
+                  <div className="h-full flex flex-col-reverse justify-end mt-2 sm:mt-0 sm:flex-row sm:justify-center items-center sm:mr-2">
+                    <div className="w-full flex flex-col justify-center items-center sm:items-end sm:mr-4">
+                      <h6 className="sm:w-[200px]">
+                        {product.title.length > 10
+                          ? product.title.substring(0, 10) + '...'
+                          : product.title}
+                      </h6>
+                      <p className="body-xs">
+                        قیمت واحد :{' '}
+                        {product.price.length > 10
+                          ? '...' + product.price.substring(0, 10)
+                          : product.price}{' '}
+                        تومان
+                      </p>
+                    </div>
+                    <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
+                  </div>
                 </div>
+                <img className="w-[32px] h-[32px] hidden sm:flex" src={edit} />
               </div>
             )
           })}

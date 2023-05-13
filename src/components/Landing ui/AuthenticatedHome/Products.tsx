@@ -51,6 +51,7 @@ const Products = () => {
                 price={product.price}
                 showProduct={product.showProduct}
                 id={product.id}
+                logo={product.logo}
               />
             )
           })}

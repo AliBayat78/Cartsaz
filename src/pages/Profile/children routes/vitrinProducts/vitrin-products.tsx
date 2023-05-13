@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { ProductCardTypes } from '../../../../models/models'
 import { useState, useEffect } from 'react'
 import {
+  removeProduct,
   showAllProductsDispatcher,
   switchEveryShowProduct,
   updateShowProduct,
@@ -14,6 +15,7 @@ import Swal from 'sweetalert2'
 import { addSellerProduct } from '../../../../redux/store/features/productSlice'
 import trash from '../../assets/trash.png'
 import edit from '../../assets/edit.png'
+import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
@@ -76,6 +78,10 @@ const VitrinProducts = () => {
     }
   }
 
+  const deleteProductHandler = (id: number) => {
+    dispatch(removeProduct({ id }))
+  }
+
   return (
     <div className="flex flex-col items-center w-full h-auto">
       <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
@@ -130,8 +136,15 @@ const VitrinProducts = () => {
         <div className="h-[450px] 2xs:w-[90%] xs:w-[364px] sm:w-[510px] mt-8 overflow-x-hidden overflow-y-auto relative flex flex-col justify-start items-center">
           {filteredProducts.map((product) => {
             return (
-              <div className="sm:flex sm:flex-row sm:justify-around sm:items-center 2xs:w-[90%] xs:w-[364px] sm:w-[500px] sm:relative">
-                <img className="w-[32px] h-[32px] hidden sm:flex" src={trash} />
+              <div
+                key={product.id}
+                className="sm:flex sm:flex-row sm:justify-around sm:items-center 2xs:w-[90%] xs:w-[364px] sm:w-[500px] sm:relative"
+              >
+                <img
+                  onClick={() => deleteProductHandler(product.id)}
+                  className="w-[32px] h-[32px] hidden sm:flex cursor-pointer"
+                  src={trash}
+                />
                 <div
                   key={product.id}
                   className="h-[210px] w-[364px] sm:h-[82px] my-2 border border-silver rounded-lg flex flex-col-reverse sm:flex-row justify-center sm:justify-between items-center"
@@ -176,7 +189,7 @@ const VitrinProducts = () => {
                     <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
                   </div>
                 </div>
-                <img className="w-[32px] h-[32px] hidden sm:flex" src={edit} />
+                <img className="w-[32px] h-[32px] hidden sm:flex cursor-pointer" src={edit} />
               </div>
             )
           })}

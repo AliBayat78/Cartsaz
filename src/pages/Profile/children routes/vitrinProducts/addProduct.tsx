@@ -5,7 +5,7 @@ import { FormControl, InputLabel, MenuItem, OutlinedInput, Select, Switch } from
 import arrowUp from '../../assets/arrow-up.png'
 import { Controller, useForm } from 'react-hook-form'
 import { ProductCardTypes } from '../../../../models/models'
-import { useAppDispatch } from '../../../../redux/store/store'
+import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { useEffect, useState } from 'react'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
@@ -18,6 +18,8 @@ const AddProduct = () => {
   const [imagePreview, setImagePreview] = useState(
     'https://s8.uupload.ir/files/default-picture_zsqf.png',
   )
+
+  const logo = useAppSelector((state) => state.vitrin.vitrinSetting.LogoImage)
 
   const dispatch = useAppDispatch()
 
@@ -37,7 +39,7 @@ const AddProduct = () => {
 
   const onSubmit = (data: ProductCardTypes) => {
     const id = Math.random() + Math.random()
-    const productData = { ...data, id }
+    const productData = { ...data, id, logo: logo }
     dispatch(addVitrinProducts(productData))
     Toast.fire({
       icon: 'success',

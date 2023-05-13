@@ -35,6 +35,7 @@ export type ProductCardTypes = {
   id: number
   productCode?: string
   category?: string
+  logo?: string
 }
 
 export interface VitrinProductsTypes {

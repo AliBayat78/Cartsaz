@@ -15,6 +15,7 @@ const PersonalVitrin = () => {
   const registerState = useAppSelector((state) => state.register)
   const vitrinState = useAppSelector((state) => state.vitrin)
   const callInformationState = useAppSelector((state) => state.vitrin.callInformation)
+  const logo = useAppSelector((state) => state.vitrin.vitrinSetting.LogoImage)
 
   const { phoneNumber, instagramId, waNumber, telegramId, shopAddress, showContactInfo } =
     callInformationState
@@ -58,6 +59,7 @@ const PersonalVitrin = () => {
                     price={product.price}
                     showProduct={product.showProduct}
                     id={product.id}
+                    logo={logo}
                   />
                 ) : null
               })

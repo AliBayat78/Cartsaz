@@ -101,9 +101,21 @@ export const ProductSlice = createSlice({
     addSellerProduct: (state, action) => {
       return [...state, action.payload]
     },
+    // updateProductLogo: (state, action) => {
+    //   const { id, logoName, sellerName } = action.payload
+    //   const index = state.findIndex((item) => item.id === id && item.sellerName === sellerName)
+    //   if (index !== -1) {
+    //     state[index].logo = logoName
+    //   } else return
+    // },
+    removeProduct: (state, action) => {
+      const { id } = action.payload
+      const index = state.findIndex((p) => p.id === id)
+      state.splice(index, 1)
+    },
   },
 })
 
-export const { addSellerProduct } = ProductSlice.actions
+export const { addSellerProduct, removeProduct } = ProductSlice.actions
 
 export default ProductSlice.reducer

@@ -5,11 +5,13 @@ import {
   addLogoImage,
   addShortDescription,
   addVitrinColor,
+  updateVitrinProductsLogo,
 } from '../../../redux/store/features/vitrinSlice'
 import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
 import arrowRight from '../assets/arrow-right.png'
 import arrowUp from '../assets/arrow-up.png'
 import exit from '../assets/delete-btn.png'
+import { useEffect } from 'react'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
@@ -18,6 +20,7 @@ const VitrinSetting = () => {
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
 
   const colorCode = vitrinSettingProperties.vitrinSetting.VitrinColor.colorCode
+  const logoImage = vitrinSettingProperties.vitrinSetting.LogoImage
 
   const handleSubmit = () => {
     Swal.fire({
@@ -28,6 +31,10 @@ const VitrinSetting = () => {
     })
     navigate(-1)
   }
+
+  useEffect(() => {
+    dispatch(updateVitrinProductsLogo(logoImage))
+  }, [logoImage])
 
   return (
     <div className="flex flex-col items-center w-full h-auto">

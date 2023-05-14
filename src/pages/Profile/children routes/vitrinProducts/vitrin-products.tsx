@@ -4,15 +4,15 @@ import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../../components/common/RtlTextField'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { ProductCardTypes } from '../../../../models/models'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import {
-  removeProduct,
+  removeSellerProduct,
   showAllProductsDispatcher,
   switchEveryShowProduct,
   updateShowProduct,
 } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
-import { addSellerProduct } from '../../../../redux/store/features/productSlice'
+import { addSellerProduct, removeProduct } from '../../../../redux/store/features/productSlice'
 import trash from '../../assets/trash.png'
 import edit from '../../assets/edit.png'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
@@ -21,6 +21,7 @@ const VitrinProducts = () => {
   const navigate = useNavigate()
 
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
+  const products = useAppSelector((state) => state.products)
 
   const [filteredProducts, setFilteredProducts] = useState<ProductCardTypes[]>(
     vitrinProductsState.products,
@@ -58,7 +59,7 @@ const VitrinProducts = () => {
     dispatch(showAllProductsDispatcher(showAll))
 
     vitrinProductsState.products.map((p) => {
-      if (p.showProduct) {
+      if (!products.includes(p) && p.showProduct) {
         dispatch(addSellerProduct(p))
       } else return
     })
@@ -79,6 +80,7 @@ const VitrinProducts = () => {
   }
 
   const deleteProductHandler = (id: number) => {
+    dispatch(removeSellerProduct({ id }))
     dispatch(removeProduct({ id }))
   }
 
@@ -179,10 +181,10 @@ const VitrinProducts = () => {
                           : product.title}
                       </h6>
                       <p className="body-xs">
-                        قیمت واحد :{' '}
+                        قیمت واحد :
                         {product.price.length > 10
                           ? '...' + product.price.substring(0, 10)
-                          : product.price}{' '}
+                          : product.price}
                         تومان
                       </p>
                     </div>

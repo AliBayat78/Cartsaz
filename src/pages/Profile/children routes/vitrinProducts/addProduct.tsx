@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { useEffect, useState } from 'react'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
+import { addSellerProduct } from '../../../../redux/store/features/productSlice'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 
@@ -20,6 +21,7 @@ const AddProduct = () => {
   )
 
   const logo = useAppSelector((state) => state.vitrin.vitrinSetting.LogoImage)
+  const registerState = useAppSelector((state) => state.register)
 
   const dispatch = useAppDispatch()
 
@@ -39,8 +41,12 @@ const AddProduct = () => {
 
   const onSubmit = (data: ProductCardTypes) => {
     const id = Math.random() + Math.random()
-    const productData = { ...data, id, logo: logo }
+    const sellerName =
+      registerState[0]?.fullName ||
+      JSON.parse(localStorage.getItem('currentUser') || 'null')?.Username
+    const productData = { ...data, id, logo, sellerName }
     dispatch(addVitrinProducts(productData))
+
     Toast.fire({
       icon: 'success',
       title: 'محصول اضافه شد',

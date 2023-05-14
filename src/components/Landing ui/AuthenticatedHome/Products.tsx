@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ProductCardTypes } from '../../../models/models'
-import { useAppDispatch, useAppSelector } from '../../../redux/store/store'
+import { useAppSelector } from '../../../redux/store/store'
 import ProductCard from '../../common/ProductCard'
 import { RTLTextField } from '../../common/RtlTextField'
 import searchItem from '../assets/receipt-search.png'
@@ -52,6 +52,7 @@ const Products = () => {
                 showProduct={product.showProduct}
                 id={product.id}
                 logo={product.logo}
+                sellerName={product.sellerName}
               />
             )
           })}

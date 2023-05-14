@@ -101,13 +101,23 @@ export const ProductSlice = createSlice({
     addSellerProduct: (state, action) => {
       return [...state, action.payload]
     },
-    // updateProductLogo: (state, action) => {
-    //   const { id, logoName, sellerName } = action.payload
-    //   const index = state.findIndex((item) => item.id === id && item.sellerName === sellerName)
-    //   if (index !== -1) {
-    //     state[index].logo = logoName
-    //   } else return
-    // },
+    updateProductLogo: (state, action) => {
+      const { id, logoName, sellerName } = action.payload
+      const index = state.findIndex(
+        (item) => item.sellerName && item.sellerName === sellerName && item.id === id,
+      )
+      if (index !== -1) {
+        state[index].logo = logoName
+      } else return
+    },
+    updateAllLogoes: (state, action) => {
+      const { id, logo } = action.payload
+      state.map((p) => {
+        if (p.id === id) {
+          p.logo = logo
+        }
+      })
+    },
     removeProduct: (state, action) => {
       const { id } = action.payload
       const index = state.findIndex((p) => p.id === id)
@@ -116,6 +126,7 @@ export const ProductSlice = createSlice({
   },
 })
 
-export const { addSellerProduct, removeProduct } = ProductSlice.actions
+export const { addSellerProduct, removeProduct, updateProductLogo, updateAllLogoes } =
+  ProductSlice.actions
 
 export default ProductSlice.reducer

@@ -1,4 +1,7 @@
 import { ProductCardTypes } from '../../models/models'
+import { updateProductLogo } from '../../redux/store/features/productSlice'
+import { useAppDispatch, useAppSelector } from '../../redux/store/store'
+import { useEffect } from 'react'
 
 const ProductCard: React.FC<ProductCardTypes> = ({
   imageSource,
@@ -6,7 +9,16 @@ const ProductCard: React.FC<ProductCardTypes> = ({
   description,
   price,
   logo,
+  id,
+  sellerName,
 }) => {
+  const logoImageState = useAppSelector((state) => state.vitrin).vitrinSetting.LogoImage
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(updateProductLogo({ id, logoName: logoImageState, sellerName }))
+  }, [logoImageState, logo])
+
   return (
     <div className="relative flex flex-col w-[200px] h-[300px] lg:w-[300px] lg:h-[350px] justify-start items-center border border-silver rounded-lg">
       <div className="w-full h-[175px] flex justify-center items-center border border-b-silver">

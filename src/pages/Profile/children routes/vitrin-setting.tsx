@@ -12,12 +12,14 @@ import arrowRight from '../assets/arrow-right.png'
 import arrowUp from '../assets/arrow-up.png'
 import exit from '../assets/delete-btn.png'
 import { useEffect } from 'react'
+import { updateAllLogoes } from '../../../redux/store/features/productSlice'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
 
   const dispatch = useAppDispatch()
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
+  const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
 
   const colorCode = vitrinSettingProperties.vitrinSetting.VitrinColor.colorCode
   const logoImage = vitrinSettingProperties.vitrinSetting.LogoImage
@@ -33,6 +35,10 @@ const VitrinSetting = () => {
   }
 
   useEffect(() => {
+    vitrinProductsState.products.map((p) =>
+      dispatch(updateAllLogoes({ id: p.id, logo: logoImage })),
+    )
+
     dispatch(updateVitrinProductsLogo(logoImage))
   }, [logoImage])
 

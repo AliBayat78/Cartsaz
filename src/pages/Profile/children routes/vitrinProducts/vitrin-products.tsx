@@ -59,7 +59,12 @@ const VitrinProducts = () => {
     dispatch(showAllProductsDispatcher(showAll))
 
     vitrinProductsState.products.map((p) => {
-      if (!products.includes(p) && p.showProduct) {
+      //! this checks wether if the objects are the same or not if they have the same id then it does not work
+      //? since we are changing the Logo of products, the first condition  ->
+      //? -> turns into true after each edit in Product (this will cause same products with different logos)
+
+      const result = products.filter((j) => j.id === p.id)
+      if (!products.includes(p) && result.length === 0 && p.showProduct) {
         dispatch(addSellerProduct(p))
       } else return
     })

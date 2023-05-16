@@ -5,12 +5,14 @@ import { useDispatch } from 'react-redux'
 import { TypedUseSelectorHook } from 'react-redux/es/types'
 import { useSelector } from 'react-redux/es/exports'
 import { RegisterSlice } from './features/registerSlice'
+import { ShopCardSlice } from './features/shopCardSlice'
 
 export const store = configureStore({
   reducer: {
     products: ProductSlice.reducer,
     vitrin: VitrinSlice.reducer,
     register: RegisterSlice.reducer,
+    shopCard: ShopCardSlice.reducer,
   },
 })
 

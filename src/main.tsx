@@ -17,6 +17,7 @@ import VitrinSetting from './pages/Profile/children routes/vitrin-setting'
 import QRcode from './pages/Profile/children routes/QRcode'
 import PersonalVitrin from './pages/Profile/children routes/personalVitrin'
 import AddProduct from './pages/Profile/children routes/vitrinProducts/addProduct'
+import ShoppingCard from './pages/ShoppingCard'
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,7 @@ const router = createBrowserRouter([
     path: '/profile/:profileId',
     element: <PersonalVitrin />,
   },
+  { path: '/shoppingCard', element: <ShoppingCard /> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

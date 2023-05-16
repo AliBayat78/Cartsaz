@@ -51,7 +51,12 @@ const AuthenticatedHome = () => {
 
         <div className="flex flex-row justify-center items-center mr-16 2xs:mr-2">
           <div className="hidden md:flex flex-row justify-center items-center mt-36 mr-12">
-            <div className="cursor-pointer mr-10 flex flex-col justify-center items-center text-center bg-white w-[64px] h-[64px] rounded-full">
+            <div
+              onClick={() => {
+                navigate('/shoppingCard')
+              }}
+              className="cursor-pointer mr-10 flex flex-col justify-center items-center text-center bg-white w-[64px] h-[64px] rounded-full"
+            >
               <img className="w-[30px] mr-1 mt-1" src={shoppingCard} alt="shop-card" />
               <span className={`text-${colorName} body-md`}>0</span>
             </div>

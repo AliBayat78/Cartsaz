@@ -76,11 +76,6 @@ export const VitrinSlice = createSlice({
     },
     updateVitrinProductsLogo: (state, action) => {
       state.vitrinProducts.products.map((p) => (p.logo = action.payload))
-    },
-    editProduct: (state, action) => {
-      const {id} = action.payload
-      const index = state.vitrinProducts.products.findIndex((p) => p.id === id)
-      
     }
   },
 })

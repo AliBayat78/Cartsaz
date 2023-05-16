@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch'
 import { RTLTextField } from '../../../../components/common/RtlTextField'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
 import { ProductCardTypes } from '../../../../models/models'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import {
   removeSellerProduct,
   showAllProductsDispatcher,
@@ -14,10 +14,6 @@ import {
 import Swal from 'sweetalert2'
 import { addSellerProduct, removeProduct } from '../../../../redux/store/features/productSlice'
 import trash from '../../assets/trash.png'
-import edit from '../../assets/edit.png'
-import confirm from '../../assets/confirm.png'
-import arrowUp from '../../assets/arrow-up.png'
-import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
@@ -30,7 +26,6 @@ const VitrinProducts = () => {
   )
   const [search, setSearch] = useState<string>('')
   const [showAll, setShowAll] = useState<boolean>(false)
-  const [editProduct, setEditProduct] = useState<boolean>(false)
 
   const dispatch = useAppDispatch()
 
@@ -62,9 +57,9 @@ const VitrinProducts = () => {
     dispatch(showAllProductsDispatcher(showAll))
 
     vitrinProductsState.products.map((p) => {
-      //! this checks wether if the objects are the same or not if they have the same id then it does not work
-      //? since we are changing the Logo of products, the first condition  ->
-      //? -> turns into true after each edit in Product (this will cause same products with different logos)
+      //? this checks wether if the objects are the same or not, if they have the same id then it does not work
+      //? since we can change the Logo of products in vitrin setting, the first condition
+      //? turns into true after each edit in Product (this will cause same products with different logos)
 
       const result = products.filter((j) => j.id === p.id)
       if (!products.includes(p) && result.length === 0 && p.showProduct) {
@@ -148,11 +143,11 @@ const VitrinProducts = () => {
             return (
               <div
                 key={product.id}
-                className="sm:flex sm:flex-row sm:justify-around sm:items-center 2xs:w-[90%] xs:w-[364px] sm:w-[500px] sm:relative"
+                className="sm:flex sm:flex-row sm:justify-center sm:items-center 2xs:w-[90%] xs:w-[364px] sm:w-[500px] sm:relative right-6"
               >
                 <img
                   onClick={() => deleteProductHandler(product.id)}
-                  className="w-[32px] h-[32px] hidden sm:flex cursor-pointer"
+                  className="w-[32px] h-[32px] hidden sm:flex cursor-pointer mr-4"
                   src={trash}
                 />
                 <div
@@ -179,68 +174,26 @@ const VitrinProducts = () => {
                       }
                     />
                     <img className="w-[32px] h-[32px] cursor-pointer" src={trash} />
-                    <img
-                      className="w-[32px] h-[32px] cursor-pointer"
-                      onClick={() => setEditProduct((prev) => !prev)}
-                      src={editProduct ? confirm : edit}
-                    />
                   </div>
                   <div className="h-full flex flex-col-reverse justify-end mt-2 sm:mt-0 sm:flex-row sm:justify-center items-center sm:mr-2">
                     <div className="w-full flex flex-col justify-center items-center sm:items-end sm:mr-4">
-                      <h6 className={`${editProduct ? 'hidden' : 'flex'} sm:w-[200px]`}>
+                      <h6 className="sm:w-[200px]">
                         {product.title.length > 10
                           ? product.title.substring(0, 10) + '...'
                           : product.title}
                       </h6>
-                      <h6 className={`${editProduct ? 'flex' : 'hidden'}`}>
-                        <input className="border border-silver outline-primary mt-2 sm:mt-0 sm:w-[90%] h-[30px] rounded-lg" />
-                      </h6>
-                      <p className={`${editProduct ? 'hidden' : 'flex'} body-xs`}>
+
+                      <p className="body-xs">
                         قیمت واحد :
                         {product.price.length > 10
                           ? '...' + product.price.substring(0, 10)
                           : product.price}
                         تومان
                       </p>
-                      <p
-                        className={`${
-                          editProduct ? 'flex' : 'hidden'
-                        } flex flex-row justify-start items-center body-xs w-full`}
-                      >
-                        قیمت واحد :
-                        <input className="mt-1 border border-silver outline-primary w-[50%] h-[15px] rounded-lg" />
-                      </p>
                     </div>
-                    <div className="transition-all w-[66px] sm:w-[90px] h-[66px] relative sm:right-2">
-                      {editProduct ? (
-                        <div className="w-full h-full cursor-pointer flex flex-col justify-center items-center rounded-lg bg-pale-blue border border-primary">
-                          <input
-                            type="file"
-                            accept="image/*"
-                            // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                            //   if (!e.target.files) return
-                            //   dispatch(addLogoImage(URL.createObjectURL(e.target.files[0])))
-                            // }}
-                            className="opacity-0 cursor-pointer absolute top-0 left-0 bottom-0 right-0 w-full h-full"
-                          />
-                          <p className="button-sm text-primary">تغییر عکس</p>
-                          <img className="w-[16px] h-[16px]" src={arrowUp} alt="upload" />
-                        </div>
-                      ) : (
-                        <img
-                          className="w-[66px] h-[66px]"
-                          src={product.imageSource}
-                          alt="picture"
-                        />
-                      )}
-                    </div>
+                    <img className="w-[66px] h-[66px]" src={product.imageSource} alt="picture" />
                   </div>
                 </div>
-                <img
-                  onClick={() => setEditProduct((prev) => !prev)}
-                  className="w-[32px] h-[32px] hidden sm:flex cursor-pointer"
-                  src={editProduct ? confirm : edit}
-                />
               </div>
             )
           })}

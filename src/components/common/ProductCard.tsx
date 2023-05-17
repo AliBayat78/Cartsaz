@@ -1,5 +1,7 @@
+import Swal from 'sweetalert2'
 import { ProductCardTypes } from '../../models/models'
 import { updateProductLogo } from '../../redux/store/features/productSlice'
+import { addInShopCard } from '../../redux/store/features/shopCardSlice'
 import { useAppDispatch, useAppSelector } from '../../redux/store/store'
 import { useEffect } from 'react'
 
@@ -27,7 +29,51 @@ const ProductCard: React.FC<ProductCardTypes> = ({
     dispatch(updateProductLogo({ id, logoName: logoImageState, sellerName }))
   }, [logoImageState, logo])
 
-  const handleBuyProduct = () => {}
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    },
+  })
+
+  const handleBuyProduct = () => {
+    const isAlreadyBought = shopCardState.filter((p) => p.id === id)
+
+    if (isAlreadyBought.length !== 0) {
+      Toast.fire({
+        icon: 'error',
+        title: 'در سبد خرید موجود است',
+        customClass: {
+          container: 'mt-16',
+        },
+      })
+    } else {
+      dispatch(
+        addInShopCard({
+          imageSource,
+          title,
+          description,
+          price,
+          logo,
+          id,
+          sellerName,
+          amountOfBuy: 1,
+        }),
+      )
+      Toast.fire({
+        icon: 'success',
+        title: 'به سبد خرید اضافه شد',
+        customClass: {
+          container: 'mt-16',
+        },
+      })
+    }
+  }
 
   return (
     <div className="relative flex flex-col w-[200px] h-[300px] lg:w-[300px] lg:h-[350px] justify-start items-center border border-silver rounded-lg">
@@ -44,6 +90,7 @@ const ProductCard: React.FC<ProductCardTypes> = ({
         <div className="w-full flex flex-row justify-between items-center relative">
           <div className="flex flex-row justify-center items-center gap-4 relative bottom-1">
             <button
+              onClick={() => handleBuyProduct()}
               className={`cursor-pointer w-[50px] h-[30px] bg-${colorName} ${
                 sellerName === user ? 'hidden' : 'block'
               } text-white rounded-lg`}

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className="flex flex-col relative bottom-0 w-[90%] mb-10 mt-16">
+    <div className="flex flex-col relative bottom-0 w-[90%] mb-10 mt-32">
       <img className="brushedLine" src={brushedLine} />
       <div className="flex flex-col-reverse sm:flex-row justify-between items-center mt-6">
         <div className="flex flex-row justify-center items-center">

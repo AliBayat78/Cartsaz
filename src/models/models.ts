@@ -37,6 +37,20 @@ export type ProductCardTypes = {
   category?: string
   logo?: string
   sellerName?: string
+  onBuyProduct?: () => void
+}
+
+export interface ProductShopCardTypes {
+  imageSource: string
+  title: string
+  description: string
+  price: string
+  id: number
+  amountOfBuy: number
+  productCode?: string
+  category?: string
+  logo?: string
+  sellerName?: string
 }
 
 export interface VitrinProductsTypes {

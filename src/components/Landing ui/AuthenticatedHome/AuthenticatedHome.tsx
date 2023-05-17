@@ -11,6 +11,7 @@ import { useAppSelector } from '../../../redux/store/store'
 const AuthenticatedHome = () => {
   const [displaySection, setDisplaySection] = useState<string>('contact-us')
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
+  const shopCardState = useAppSelector((state) => state.shopCard)
 
   const colorName = vitrinSettingProperties.vitrinSetting.VitrinColor.colorName
 
@@ -58,7 +59,7 @@ const AuthenticatedHome = () => {
               className="cursor-pointer mr-10 flex flex-col justify-center items-center text-center bg-white w-[64px] h-[64px] rounded-full"
             >
               <img className="w-[30px] mr-1 mt-1" src={shoppingCard} alt="shop-card" />
-              <span className={`text-${colorName} body-md`}>0</span>
+              <span className={`text-${colorName} body-md`}>{shopCardState.length}</span>
             </div>
             <img
               className="cursor-pointer"

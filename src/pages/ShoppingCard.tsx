@@ -16,7 +16,6 @@ const ShoppingCard = () => {
 
   const [filteredProducts, setFilteredProducts] = useState<ProductShopCardTypes[]>(shopCardState)
 
-
   const searchInProducts = (array: ProductShopCardTypes[]) => {
     if (search === '') {
       return array
@@ -25,10 +24,12 @@ const ShoppingCard = () => {
     }
   }
 
-  
-
   useEffect(() => {
-
+    let total = shopCardState.reduce((acc, product) => {
+      const productTotal = Number(product.price) * product.amountOfBuy
+      return acc + productTotal
+    }, 0)
+    setTotalPrice(total)
   }, [shopCardState])
 
   useEffect(() => {
@@ -91,7 +92,7 @@ const ShoppingCard = () => {
       </main>
 
       <div className="flex flex-col justify-end items-center h-full relative bottom-2 w-[100%] mt-4">
-        <p>مبلغ کل : {totalPrice}</p>
+        <p>مبلغ کل : {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} تومان</p>
         <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-2">
           پرداخت
         </button>

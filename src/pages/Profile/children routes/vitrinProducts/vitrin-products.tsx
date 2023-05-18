@@ -140,6 +140,9 @@ const VitrinProducts = () => {
 
         <div className="h-[450px] 2xs:w-[90%] xs:w-[364px] sm:w-[510px] mt-8 overflow-x-hidden overflow-y-auto relative flex flex-col justify-start items-center">
           {filteredProducts.map((product) => {
+            //? make the price a group of three characters separated by commas
+            const formattedString = product.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
             return (
               <div
                 key={product.id}
@@ -185,9 +188,9 @@ const VitrinProducts = () => {
 
                       <p className="body-xs">
                         قیمت واحد :
-                        {product.price.length > 10
-                          ? '...' + product.price.substring(0, 10)
-                          : product.price}
+                        {formattedString.length > 10
+                          ? '...' + formattedString.substring(0, 10)
+                          : formattedString}
                         تومان
                       </p>
                     </div>

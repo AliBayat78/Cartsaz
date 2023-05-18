@@ -7,7 +7,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -16,7 +16,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -25,7 +25,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -34,7 +34,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -43,7 +43,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -52,7 +52,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -61,7 +61,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -70,7 +70,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -79,7 +79,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },
@@ -88,7 +88,7 @@ const initialState: ProductCardTypes[] = [
     title: 'مانیتور مخصوص بازی',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
-    price: '256.000',
+    price: '256000',
     showProduct: true,
     id: Math.random() + Math.random(),
   },

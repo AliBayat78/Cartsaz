@@ -87,7 +87,13 @@ const AddProduct = () => {
             <div className="w-full mt-4">
               <p className="text-right caption-lg">قیمت *</p>
               <RTLTextField
-                {...register('price', { required: 'قیمت محصول را وارد کنید.' })}
+                {...register('price', {
+                  required: 'قیمت محصول را وارد کنید.',
+                  pattern: {
+                    value: /^\d+$/,
+                    message: 'قیمت نامعتبر (فقط اعداد مجاز می باشند)',
+                  },
+                })}
                 sx={{ marginTop: '8px', width: '100%' }}
                 label="قیمت به تومان"
                 placeholder="مثال : 50,000 تومان"

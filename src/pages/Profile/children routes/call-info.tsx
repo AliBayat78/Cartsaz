@@ -11,7 +11,12 @@ import Swal from 'sweetalert2'
 const CallInformation = () => {
   const navigate = useNavigate()
 
-  const { register, handleSubmit, control } = useForm<callInforMationTypes>()
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<callInforMationTypes>()
 
   const registeredUser = useAppSelector((state) => state.register)
   const callInformationState = useAppSelector((state) => state.vitrin).callInformation
@@ -24,6 +29,7 @@ const CallInformation = () => {
       icon: 'success',
       confirmButtonText: 'باشه',
     })
+    console.log(data)
     dispatch(addCallInformation(data))
     navigate(-1)
   }
@@ -97,9 +103,17 @@ const CallInformation = () => {
                 sx={{ marginTop: '8px', width: '100%' }}
                 label="تلفن همراه"
                 placeholder="09215487523"
-                {...register('phoneNumber')}
+                {...register('phoneNumber', {
+                  pattern: {
+                    value: /^09\d{9}$/,
+                    message: 'شماره نامعتبر',
+                  },
+                })}
                 dir="rtl"
                 defaultValue={callInformationState.phoneNumber}
+                helperText={errors.phoneNumber?.message}
+                error={!!errors.phoneNumber}
+                type="number"
               />
             </div>
             <div className="w-full mt-4">
@@ -121,7 +135,14 @@ const CallInformation = () => {
                 sx={{ marginTop: '8px', width: '100%' }}
                 label="واتساپ"
                 placeholder="09215487523"
-                {...register('waNumber')}
+                {...register('waNumber', {
+                  pattern: {
+                    value: /^09\d{9}$/,
+                    message: 'شماره نامعتبر',
+                  },
+                })}
+                helperText={errors.waNumber?.message}
+                error={!!errors.waNumber}
                 dir="rtl"
                 defaultValue={callInformationState.waNumber}
               />

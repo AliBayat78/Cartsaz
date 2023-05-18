@@ -102,7 +102,7 @@ const Profile = () => {
           />
           <div className="flex justify-center items-center h-full">
             <p style={{ direction: 'ltr' }} className="2xs:text-primary sm:body-md 2xs:body-sm">
-              {vitrinUrl.length > 10 ? vitrinUrl.substring(0, 10) + '...' : vitrinUrl}
+              {vitrinUrl.length > 47 ? vitrinUrl.substring(0, 47) + '...' : vitrinUrl}
             </p>
           </div>
           <div

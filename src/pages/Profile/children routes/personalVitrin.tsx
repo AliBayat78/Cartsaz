@@ -58,6 +58,7 @@ const PersonalVitrin = () => {
                     description={product.description}
                     price={product.price}
                     showProduct={product.showProduct}
+                    sellerName={product.sellerName}
                     id={product.id}
                     logo={logo}
                   />

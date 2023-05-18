@@ -25,7 +25,13 @@ const AddProduct = () => {
 
   const dispatch = useAppDispatch()
 
-  const { register, handleSubmit, control, reset } = useForm<ProductCardTypes>()
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<ProductCardTypes>()
 
   const Toast = Swal.mixin({
     toast: true,
@@ -82,6 +88,7 @@ const AddProduct = () => {
                 label="نام محصول"
                 placeholder="مثال: کیف چرم"
                 dir="rtl"
+                error={!!errors.title}
               />
             </div>
             <div className="w-full mt-4">
@@ -98,6 +105,8 @@ const AddProduct = () => {
                 label="قیمت به تومان"
                 placeholder="مثال : 50,000 تومان"
                 dir="rtl"
+                error={!!errors.price}
+                helperText={errors.price?.message}
               />
             </div>
             <div className="w-full mt-4">

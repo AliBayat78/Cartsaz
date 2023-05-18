@@ -17,6 +17,7 @@ import trash from '../../assets/trash.png'
 
 const VitrinProducts = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
   const products = useAppSelector((state) => state.products)
@@ -26,8 +27,6 @@ const VitrinProducts = () => {
   )
   const [search, setSearch] = useState<string>('')
   const [showAll, setShowAll] = useState<boolean>(false)
-
-  const dispatch = useAppDispatch()
 
   const filterSearchTitle = (array: ProductCardTypes[]) => {
     if (search === '') {

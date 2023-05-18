@@ -16,8 +16,8 @@ import { updateAllLogoes } from '../../../redux/store/features/productSlice'
 
 const VitrinSetting = () => {
   const navigate = useNavigate()
-
   const dispatch = useAppDispatch()
+
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
   const vitrinProductsState = useAppSelector((state) => state.vitrin).vitrinProducts
 

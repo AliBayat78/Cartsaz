@@ -10,7 +10,6 @@ type RouteError = {
 
 const ErrorPage = () => {
   const error = useRouteError() as RouteError
-  console.log(error)
 
   return (
     <div className="flex flex-col justify-between items-center w-full h-screen">

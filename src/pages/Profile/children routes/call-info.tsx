@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 
 const CallInformation = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   const {
     register,
@@ -20,7 +21,6 @@ const CallInformation = () => {
 
   const registeredUser = useAppSelector((state) => state.register)
   const callInformationState = useAppSelector((state) => state.vitrin).callInformation
-  const dispatch = useAppDispatch()
 
   const onSubmit = (data: callInforMationTypes) => {
     Swal.fire({
@@ -29,7 +29,6 @@ const CallInformation = () => {
       icon: 'success',
       confirmButtonText: 'باشه',
     })
-    console.log(data)
     dispatch(addCallInformation(data))
     navigate(-1)
   }

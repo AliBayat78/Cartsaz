@@ -6,33 +6,15 @@ import arrowUp from '../../assets/arrow-up.png'
 import { Controller, useForm } from 'react-hook-form'
 import { ProductCardTypes } from '../../../../models/models'
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/store'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { addVitrinProducts } from '../../../../redux/store/features/vitrinSlice'
 import Swal from 'sweetalert2'
-import { addSellerProduct } from '../../../../redux/store/features/productSlice'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 
 const AddProduct = () => {
   const navigate = useNavigate()
-  const [categoryValue, setCategoryValue] = useState('')
-  const [imagePreview, setImagePreview] = useState(
-    'https://s8.uupload.ir/files/default-picture_zsqf.png',
-  )
-
-  const logo = useAppSelector((state) => state.vitrin.vitrinSetting.LogoImage)
-  const registerState = useAppSelector((state) => state.register)
-
   const dispatch = useAppDispatch()
-
-  const {
-    register,
-    handleSubmit,
-    control,
-    reset,
-    formState: { errors },
-  } = useForm<ProductCardTypes>()
-
   const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
@@ -44,6 +26,22 @@ const AddProduct = () => {
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     },
   })
+
+  const [categoryValue, setCategoryValue] = useState('')
+  const [imagePreview, setImagePreview] = useState(
+    'https://s8.uupload.ir/files/default-picture_zsqf.png',
+  )
+
+  const logo = useAppSelector((state) => state.vitrin.vitrinSetting.LogoImage)
+  const registerState = useAppSelector((state) => state.register)
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<ProductCardTypes>()
 
   const onSubmit = (data: ProductCardTypes) => {
     const id = Math.random() + Math.random()

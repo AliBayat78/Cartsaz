@@ -26,7 +26,7 @@ const Profile = () => {
 
   const vitrinId =
     localStorageUserValue !== null
-      ? localStorageUserValue.VitrinUrl.split('http://127.0.0.1:5173/profile/')
+      ? localStorageUserValue.VitrinUrl.split(`${window.location.origin}/profile/`)
       : 'error'
 
   const Toast = Swal.mixin({

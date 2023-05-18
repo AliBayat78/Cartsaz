@@ -13,7 +13,7 @@ const initialState: ProductCardTypes[] = [
   },
   {
     imageSource: 'https://s8.uupload.ir/files/product-image_u86x.png',
-    title: 'مانیتور مخصوص بازی',
+    title: 'لباس خواب',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
     price: '256000',
@@ -22,7 +22,7 @@ const initialState: ProductCardTypes[] = [
   },
   {
     imageSource: 'https://s8.uupload.ir/files/product-image_u86x.png',
-    title: 'مانیتور مخصوص بازی',
+    title: 'جوراب کودک',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
     price: '256000',
@@ -31,7 +31,7 @@ const initialState: ProductCardTypes[] = [
   },
   {
     imageSource: 'https://s8.uupload.ir/files/product-image_u86x.png',
-    title: 'مانیتور مخصوص بازی',
+    title: 'موس و کیبورد',
     description:
       'مدل سامسونگ L213123asdjsadksajdk123123124124124124124123123asdasdasdasdasdasdsadsa',
     price: '256000',

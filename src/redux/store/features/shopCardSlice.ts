@@ -25,9 +25,13 @@ export const ShopCardSlice = createSlice({
         state[index].amountOfBuy--
       }
     },
+    resetShopCard: (state, action) => {
+      state.splice(0, state.length)
+    },
   },
 })
 
 export default ShopCardSlice.reducer
 
-export const { addInShopCard, plusAmountOfBuy, minusAmountOfBuy } = ShopCardSlice.actions
+export const { addInShopCard, plusAmountOfBuy, minusAmountOfBuy, resetShopCard } =
+  ShopCardSlice.actions

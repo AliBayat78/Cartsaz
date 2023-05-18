@@ -1,13 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import arrowRight from './Profile/assets/arrow-right.png'
 import { RTLTextField } from '../components/common/RtlTextField'
-import { useAppSelector } from '../redux/store/store'
+import { useAppDispatch, useAppSelector } from '../redux/store/store'
 import ProductShopCard from '../components/common/ProductShopCard'
 import { useEffect, useState } from 'react'
 import { ProductShopCardTypes } from '../models/models'
+import { resetShopCard } from '../redux/store/features/shopCardSlice'
+import Swal from 'sweetalert2'
 
 const ShoppingCard = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+
   const [search, setSearch] = useState<string>('')
 
   const [totalPrice, setTotalPrice] = useState<number>(0)
@@ -39,9 +43,19 @@ const ShoppingCard = () => {
     setFilteredProducts(result)
   }, [search, shopCardState])
 
+  const handlePayment = () => {
+    dispatch(resetShopCard(null))
+    Swal.fire({
+      title: 'خریده شد',
+      text: 'خرید شما انجام شد',
+      icon: 'success',
+      confirmButtonText: 'باشه',
+    })
+  }
+
   return (
     <div className="flex flex-col h-screen w-full items-center relative">
-      <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
+      <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2 py-4">
         <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
           <p>سبد خرید</p>
           <img
@@ -54,7 +68,7 @@ const ShoppingCard = () => {
       </nav>
 
       <main className="flex flex-col justify-end items-end mt-8 2xs:w-[260px] sm:w-screen">
-        <div className="2xs:w-[260px] sm:w-[364px] mr-8">
+        <div className="2xs:w-[260px] sm:w-[364px] sm:mr-8">
           <RTLTextField
             dir="rtl"
             sx={{ marginTop: '16px', width: '100%' }}
@@ -92,8 +106,13 @@ const ShoppingCard = () => {
       </main>
 
       <div className="flex flex-col justify-end items-center h-full relative bottom-2 w-[100%] mt-4">
-        <p>مبلغ کل : {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} تومان</p>
-        <button className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-2">
+        <p className="h-auto">
+          مبلغ کل : {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} تومان
+        </p>
+        <button
+          onClick={() => handlePayment()}
+          className="2xs:w-[260px] sm:w-[350px] h-[56px] bg-primary text-white rounded-lg my-2"
+        >
           پرداخت
         </button>
       </div>

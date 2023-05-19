@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../../redux/store/store'
 
 const AuthenticatedHome = () => {
-  const [displaySection, setDisplaySection] = useState<string>('contact-us')
+  const [displaySection, setDisplaySection] = useState<string>('products')
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
   const shopCardState = useAppSelector((state) => state.shopCard)
 

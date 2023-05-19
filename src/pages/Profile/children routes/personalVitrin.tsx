@@ -43,28 +43,30 @@ const PersonalVitrin = () => {
       </nav>
 
       <main className="flex 2xs:flex-col-reverse 2xs:justify-center md:flex-row md:justify-end items-center mt-8 md:w-full 2xs:w-[260px] sm:w-[364px]">
-        <div className="md:mx-20 lg:mx-40 2xs:mt-4 border border-light-silver w-full h-[600px] overflow-y-scroll overflow-x-hidden">
-          <p className="body-md mt-4 mr-8">محصولات : </p>
-          <div className="w-[90%] h-full flex flex-row-reverse gap-8 justify-center items-center flex-wrap xl:justify-start">
-            {sellerProducts.length === 0 ? (
-              <h1 className="flex justify-center items-center w-full h-full">محصولی یافت نشد</h1>
-            ) : (
-              sellerProducts?.map((product) => {
-                return product.showProduct ? (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    imageSource={product.imageSource}
-                    description={product.description}
-                    price={product.price}
-                    showProduct={product.showProduct}
-                    sellerName={product.sellerName}
-                    id={product.id}
-                    logo={logo}
-                  />
-                ) : null
-              })
-            )}
+        <div className="2xs:w-screen md:w-full flex justify-center items-center">
+          <div className="md:mx-20 lg:mx-38 2xs:mt-4 border border-light-silver 2xs:w-[90%] md:w-full h-[600px] overflow-y-scroll overflow-x-hidden">
+            <p className="body-md mt-4 mr-8">محصولات : </p>
+            <div className="w-[90%] h-full flex flex-row-reverse gap-8 justify-center items-center flex-wrap xl:justify-start">
+              {sellerProducts.length === 0 ? (
+                <h1 className="flex justify-center items-center w-full h-full">محصولی یافت نشد</h1>
+              ) : (
+                sellerProducts?.map((product) => {
+                  return product.showProduct ? (
+                    <ProductCard
+                      key={product.id}
+                      title={product.title}
+                      imageSource={product.imageSource}
+                      description={product.description}
+                      price={product.price}
+                      showProduct={product.showProduct}
+                      sellerName={product.sellerName}
+                      id={product.id}
+                      logo={logo}
+                    />
+                  ) : null
+                })
+              )}
+            </div>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">

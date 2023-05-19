@@ -16,7 +16,7 @@ import video from './assets/bunnyvideo.mp4'
 const Main = () => {
   return (
     <div className="mt-44 flex flex-col justify-center items-center">
-      <h1 className="text-center sm:w-[448px] xl:w-[700px]">
+      <h1 className="text-center sm:w-[448px] xl:w-[700px] p-4">
         سامانه مدیریت <span className="text-primary">هوشمند</span> سفارش های اینترنتی
       </h1>
 

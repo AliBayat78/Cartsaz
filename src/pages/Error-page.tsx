@@ -14,7 +14,7 @@ const ErrorPage = () => {
   return (
     <div className="flex flex-col justify-between items-center w-full h-screen">
       <Navbar />
-      <div className="flex flex-col justify-center items-center relative top-[40%]">
+      <div className="flex flex-col justify-center items-center relative sm:top-[40%] 2xs:top-[20%] p-8">
         <h1 className="text-error">
           {error.status === 404 ? 'صفحه مورد نظر پیدا نشد' : error.status}
         </h1>

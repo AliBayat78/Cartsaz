@@ -90,7 +90,7 @@ const ProductCard: React.FC<ProductCardTypes> = ({
         <p className="break-all body-xs lg:body-md h-full w-[190px] lg:w-[270px] overflow-hidden">
           {description.length > 30 ? description.substring(0, 100) + '...' : description}
         </p>
-        <div className="w-full flex flex-row justify-between items-center relative">
+        <div className="w-full flex flex-row justify-between items-center relative px-2">
           <div className="flex flex-row justify-center items-center gap-4 relative bottom-1">
             <button
               onClick={() => handleBuyProduct()}
@@ -102,7 +102,7 @@ const ProductCard: React.FC<ProductCardTypes> = ({
             </button>
             {logo ? <img className="w-[32px] h-[32px] relative rounded-lg" src={logo} /> : null}
           </div>
-          <p className="text-dark-green button-sm text-right">
+          <p className="text-dark-green button-sm text-right p-2">
             {formattedString.length > 20
               ? formattedString.substring(0, 20) + '...'
               : formattedString}

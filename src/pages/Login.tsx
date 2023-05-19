@@ -76,17 +76,17 @@ const Login = () => {
                   {...register('Username', { required: 'نام کاربری خود را وارد کنید' })}
                   sx={{ marginTop: '16px', width: '100%' }}
                   label="نام کاربری"
-                  placeholder="Username"
+                  placeholder="مثلا: Alibayat"
                   error={!!errors.Username}
                   helperText={errors.Username?.message}
                 />
                 <RTLTextField
                   dir="rtl"
                   type="password"
-                  {...register('Password', { required: 'رمز عبور خود را وارد کنید' })}
+                  {...register('Password', { required: 'کلمه عبور خود را وارد کنید' })}
                   sx={{ marginTop: '16px', width: '100%' }}
                   label="رمز عبور"
-                  placeholder="Password"
+                  placeholder="کلمه عبور"
                   error={!!errors.Password}
                   helperText={errors.Password?.message}
                 />

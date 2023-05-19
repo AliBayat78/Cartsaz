@@ -27,13 +27,13 @@ const Products = () => {
 
   return (
     <div className="flex flex-col justify-end items-end w-screen h-auto">
-      <div className="2xs:w-[250px] xs:w-[340px] small:w-[360px] relative mr-4">
+      <div className="2xs:w-[250px] xs:w-[340px] small:w-[360px] relative 2xs:mt-10 mr-4">
         <img className="absolute top-8 left-4" src={searchItem} alt="?" />
         <RTLTextField
           dir="rtl"
           sx={{ marginTop: '16px', width: '100%' }}
           label="جست و جوی محصول مورد نظر ..."
-          placeholder="پیرهن مردانه"
+          placeholder="پیراهن مردانه"
           multiline
           onChange={(e) => setSearch(e.target.value)}
           value={search}

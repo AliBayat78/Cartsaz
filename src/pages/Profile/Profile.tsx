@@ -100,9 +100,9 @@ const Profile = () => {
             src={go}
             alt="go"
           />
-          <div className="flex justify-center items-center h-full">
-            <p style={{ direction: 'ltr' }} className="2xs:text-primary sm:body-md 2xs:body-sm">
-              {vitrinUrl.length > 47 ? vitrinUrl.substring(0, 47) + '...' : vitrinUrl}
+          <div className="flex justify-center items-center h-full w-full">
+            <p style={{ direction: 'ltr' }} className="2xs:text-primary sm:body-md 2xs:body-xs">
+              {vitrinUrl.length > 40 ? vitrinUrl.substring(0, 40) + '...' : vitrinUrl}
             </p>
           </div>
           <div
@@ -114,7 +114,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center gap-2 mt-8">
+        <div className="flex flex-col justify-center items-center gap-2 mt-8 p-4">
           <div
             onClick={() => navigate('./vitrin-products')}
             className="2xs:w-[230px] sm:w-[350px] h-[56px] cursor-pointer border border-light-silver flex flex-row justify-between items-center"

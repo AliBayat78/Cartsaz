@@ -46,7 +46,7 @@ const QRcode = () => {
           <QRCode value={vitrinUrl} size={128} fgColor="#000000" bgColor="#ffffff" level="L" />
         </div>
 
-        <div className="2xs:w-[260px] sm:w-[350px] mt-4 flex flex-col justify-center items-center w-full">
+        <div className="2xs:w-[260px] sm:w-[350px] mt-4 flex flex-col justify-center items-center w-full p-4 xs:p-0">
           <button
             onClick={() => window.print()}
             className="w-full h-[56px] bg-light-silver rounded-lg mt-4 flex flex-row justify-center items-center gap-3"

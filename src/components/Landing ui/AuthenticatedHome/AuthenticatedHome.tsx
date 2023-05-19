@@ -26,7 +26,7 @@ const AuthenticatedHome = () => {
       <div
         className={`flex sm:flex-row 2xs:flex-col-reverse 2xs:justify-end 2xs:items-center sm:justify-between sm:items-center fixed top-0 py-4 w-full h-[152px] rounded-b-lg bg-${colorName} z-10`}
       >
-        <div className="2xs:ml-0 sm:ml-4 lg:ml-16 bg-white 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg 2xs:mt-10  sm:mt-36 border border-silver relative">
+        <div className="2xs:ml-0 sm:ml-4 lg:ml-16 bg-white 2xs:w-[90vw] sm:w-[366px] h-12 rounded-lg sm:mt-28 border border-silver sm:relative 2xs:absolute -bottom-5">
           <button
             onClick={() => setDisplaySection('contact-us')}
             className={`button-sm w-[50%] transition-all duration-300 h-full ${

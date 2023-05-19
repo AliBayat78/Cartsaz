@@ -13,10 +13,10 @@ const Questions = () => {
   return (
     <div className="mt-44 flex flex-col justify-between items-center w-full h-screen">
       <Navbar />
-      <div className="w-full flex flex-col justify-end items-center">
+      <div className="w-full flex flex-col justify-end items-center p-8">
         <h3 className="text-primary w-[90vw]">سوالات متداول</h3>
         <div style={{ direction: 'rtl' }}>
-          <Accordion sx={{ borderRadius: '8px' }}>
+          <Accordion sx={{ borderRadius: '8px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -37,7 +37,7 @@ const Questions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ borderRadius: '8px', marginTop: '16px' }}>
+          <Accordion sx={{ borderRadius: '8px', marginTop: '16px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -58,7 +58,7 @@ const Questions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ borderRadius: '8px', marginTop: '16px' }}>
+          <Accordion sx={{ borderRadius: '8px', marginTop: '16px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -79,7 +79,7 @@ const Questions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ borderRadius: '8px', marginTop: '16px' }}>
+          <Accordion sx={{ borderRadius: '8px', marginTop: '16px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -100,7 +100,7 @@ const Questions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ borderRadius: '8px', marginTop: '16px' }}>
+          <Accordion sx={{ borderRadius: '8px', marginTop: '16px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -121,7 +121,7 @@ const Questions = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ borderRadius: '8px', marginTop: '16px' }}>
+          <Accordion sx={{ borderRadius: '8px', marginTop: '16px', padding: '4px' }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"

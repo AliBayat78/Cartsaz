@@ -7,9 +7,15 @@ import profile from '../assets/profile.png'
 import shoppingCard from '../assets/shop-card.png'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../../redux/store/store'
+import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../../hooks/useAuth'
 
 const AuthenticatedHome = () => {
   const [displaySection, setDisplaySection] = useState<string>('products')
+  const [openSidebar, setOpenSidebar] = useState<boolean>(false)
+
+  const { logout } = useAuth()
+
   const vitrinSettingProperties = useAppSelector((state) => state.vitrin)
   const shopCardState = useAppSelector((state) => state.shopCard)
 
@@ -50,7 +56,7 @@ const AuthenticatedHome = () => {
           ></div>
         </div>
 
-        <div className="flex flex-row justify-center items-center mr-16 2xs:mr-2">
+        <div className="flex flex-row md:justify-center justify-end items-center mr-16 2xs:mr-2 md:w-auto w-screen h-full">
           <div className="hidden md:flex flex-row justify-center items-center mt-36 mr-12">
             <div
               onClick={() => {
@@ -70,11 +76,89 @@ const AuthenticatedHome = () => {
               alt="profile"
             />
           </div>
-          <div className="flex flex-col justify-center items-center mr-4">
+          <div className="fixed right-14 md:right-0 md:relative flex flex-col justify-center items-center mr-4">
             <h5 className="text-white">فروشگاه کارت ساز</h5>
             <p className="body-xs 2xs:text-white">فروشگاه پیرهن،کفش و البسه</p>
           </div>
-          <img className="2xs:w-[80px] 2xs:h-[80px] lg:w-[120px] lg:h-[120px]" src={cartShopLogo} />
+          <div
+            className={`transition-all duration-500 ease-in-out ${
+              openSidebar ? 'w-full' : 'w-[50px]'
+            } flex md:hidden relative h-full`}
+          >
+            <div
+              onClick={() => setOpenSidebar((prev) => !prev)}
+              className="h-[26px] w-[32px] absolute top-10 right-[20px] flex flex-col justify-between z-30"
+            >
+              <span
+                className={`${
+                  openSidebar ? 'rotate-45' : 'rotate-0'
+                } origin-[0%_0%] h-[4px] w-full rounded-lg bg-royal-purple transition-transform duration-500 ease-in-out`}
+              ></span>
+              <span
+                className={`${
+                  openSidebar ? 'scale-y-0' : ''
+                }  h-[4px] w-full rounded-lg bg-royal-purple transition-transform duration-200 ease-in-out`}
+              ></span>
+              <span
+                className={`${
+                  openSidebar ? '-rotate-45' : 'rotate-0'
+                } origin-[0%_100%] h-[4px] w-full rounded-lg bg-royal-purple transition-transform duration-500 ease-in-out`}
+              ></span>
+            </div>
+
+            <div
+              className={`absolute -top-4 -right-4 shadow-lg transition-all duration-500 ease-in-out bg-white z-20 h-screen ${
+                openSidebar ? 'w-[50%]' : 'w-[0%] -right-20 opacity-0'
+              }
+             flex flex-col text-center`}
+            >
+              <div className="flex flex-col justify-between items-center mt-28 gap-8">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'text-white bg-primary w-full h-[50px] flex justify-center items-center'
+                      : ''
+                  }
+                  to="/"
+                >
+                  خانه
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'text-white bg-primary w-full h-[50px] flex justify-center items-center'
+                      : ''
+                  }
+                  to="/profile"
+                >
+                  پروفایل
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'text-white bg-primary w-full h-[50px] flex justify-center items-center'
+                      : ''
+                  }
+                  to="/shoppingCard"
+                >
+                  سبد خرید
+                </NavLink>
+                <p
+                  onClick={() => {
+                    logout()
+                    navigate('/login')
+                  }}
+                  className="text-error"
+                >
+                  خروج
+                </p>
+              </div>
+            </div>
+          </div>
+          <img
+            className="hidden md:flex 2xs:w-[80px] 2xs:h-[80px] lg:w-[120px] lg:h-[120px]"
+            src={cartShopLogo}
+          />
         </div>
       </div>
       <div className={`relative top-[152px]`}>

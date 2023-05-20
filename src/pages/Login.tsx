@@ -4,14 +4,17 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import { UserInfo } from '../models/models'
 import { useAuth } from '../hooks/useAuth'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { RTLTextField } from '../components/common/RtlTextField'
 import LogoutModal from '../components/common/LogoutModal'
 import { ColorRing } from 'react-loader-spinner'
 import { isUserLoggedIn } from '../hooks/isUserLoggedIn'
 import { useAppSelector } from '../redux/store/store'
+import arrowRight from './Profile/assets/arrow-right.png'
 
 const Login = () => {
+  const navigate = useNavigate()
+
   const [loginInfo, setLoginInfo] = useState<UserInfo>()
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -61,6 +64,17 @@ const Login = () => {
         <LogoutModal />
       ) : (
         <>
+          <nav className="flex flex-row justify-end items-center w-screen h-16 border border-b-silver p-2">
+            <div className="sm:mr-8 gap-4 flex flex-row justify-center items-center">
+              <p>بازگشت به خانه</p>
+              <img
+                onClick={() => navigate('/')}
+                className="cursor-pointer"
+                src={arrowRight}
+                alt="back"
+              />
+            </div>
+          </nav>
           <div className="w-full h-screen flex flex-col items-center 2xs:mt-10 mt-40">
             <div className="flex flex-col justify-center items-center">
               <img src={logo} alt="Cartsaz Logo" />

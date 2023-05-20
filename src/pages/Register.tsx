@@ -12,10 +12,14 @@ import { useRegister } from '../hooks/useRegister'
 import { isUserLoggedIn } from '../hooks/isUserLoggedIn'
 import { ColorRing } from 'react-loader-spinner'
 import LogoutModal from '../components/common/LogoutModal'
+import arrowRight from './Profile/assets/arrow-right.png'
+import { useNavigate } from 'react-router-dom'
 
 const options = ['کالا های الکترونیکی', 'لوازم خانگی', 'پوشاک', 'آرایشی و بهداشتی', 'ورزشی']
 
 const Register = () => {
+  const navigate = useNavigate()
+
   const isLoggedIn = isUserLoggedIn()
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -61,8 +65,14 @@ const Register = () => {
         <LogoutModal />
       ) : (
         <div className="w-full h-auto flex flex-col items-center">
-          <nav className="h-20 w-full flex justify-end items-center px-20 border border-b-silver">
+          <nav className="h-20 w-full flex justify-end items-center px-10 border border-b-silver gap-4">
             <p className="caption-lg">ثبت نام فروشنده</p>
+            <img
+              onClick={() => navigate('/')}
+              className="cursor-pointer"
+              src={arrowRight}
+              alt="back"
+            />
           </nav>
           <div className="2xs:w-[90vw] sm:w-[400px] mt-6">
             <form onSubmit={handleSubmit(onSubmit)}>
